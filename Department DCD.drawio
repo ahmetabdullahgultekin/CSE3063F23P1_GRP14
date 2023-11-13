@@ -1,0 +1,13 @@
+<mxfile host="app.diagrams.net" modified="2023-11-13T19:30:57.972Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0" etag="tCm88HiCFtBAoiHehiUd" version="22.1.0" type="device">
+  <diagram name="Sayfa -1" id="RTwi_pBS1mAXprLVcY4d">
+    <mxGraphModel dx="1242" dy="1692" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1chAEHRAdbtmhrerfV8J-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Department&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Department(String): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- advisorIDAdvisorMap: Map&amp;lt;String, Advisor&amp;gt;&lt;br/&gt;- courses: List&amp;lt;Course&amp;gt;&lt;br/&gt;- courseCodeCourseMap: Map&amp;lt;String, Course&amp;gt;&lt;br/&gt;- maxCourseNumber: byte&lt;br/&gt;- transcripts: List&amp;lt;Transcript&amp;gt;&lt;br/&gt;- userNamePersonMap: Map&amp;lt;String, Person&amp;gt;&lt;br/&gt;- departmentName: String&lt;br/&gt;- advisors: List&amp;lt;Advisor&amp;gt;&lt;br/&gt;- studentIDStudentMap: Map&amp;lt;String, Student&amp;gt;&lt;br/&gt;- students: List&amp;lt;Student&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getAdvisors(): List&amp;lt;Advisor&amp;gt;&lt;br/&gt;+ getTranscripts(): List&amp;lt;Transcript&amp;gt;&lt;br/&gt;+ getDepartmentName(): String&lt;br/&gt;+ getMaxCourseNumber(): byte&lt;br/&gt;+ getCourses(): List&amp;lt;Course&amp;gt;&lt;br/&gt;+ getUserNamePersonMap(): Map&amp;lt;String, Person&amp;gt;&lt;br/&gt;+ getStudents(): List&amp;lt;Student&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="-1070" width="352" height="480" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
