@@ -106,8 +106,39 @@ public class JSONReader {
         }
     }
 
-    public void readLecturers()  {
+    public void readLecturers() {
+        mapper = new ObjectMapper();
 
+        try {
+            // Parse the JSON file into a Java object.
+            jsonNode = mapper.readTree(new File("iteration1/jsons/lecturers.json"));
+        } catch (IOException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        }
+        JsonNode lecturersArray = jsonNode;
+
+        for (JsonNode lecturer : lecturersArray) {
+            //Construction part
+            int id = lecturer.get("lecturerID").asInt();
+            String name = lecturer.get("name").asText();
+            String surname = lecturer.get("surname").asText();
+
+            Lecturer lecturer1 = new Lecturer(id, name, surname);
+            department.getLecturers().add(lecturer1);
+            lecturer1.setDepartment(department);
+            //////////////////////////////////////////////
+
+            List<String> lessonsTaught = new ArrayList<>();
+
+            JsonNode lessonsTaughtArray = lecturer.get("lessonsTaught");
+            for (JsonNode lessonTaught : lessonsTaughtArray) {
+                lessonsTaught.add(lessonTaught.asText());
+            }
+            lecturerIDCoursesMap.put(id, lessonsTaught);
+
+            System.out.printf("lecturerID: %d, name: %s, surname: %s\n", id, name, surname);
+        }
     }
 
     public void readStudents() {
