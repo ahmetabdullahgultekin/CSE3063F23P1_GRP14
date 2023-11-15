@@ -15,6 +15,12 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         mainMenu(department);
     }
 
+
+    /**
+     * Displays the main menu and handles user input.
+     *
+     * @param department The department object to which the menu belongs.
+     */
     public void mainMenu(Department department) {
         printMenu("mainMenu");
 
@@ -38,6 +44,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         }
     }
 
+    /**
+     * Displays the login menu and handles user authentication.
+     *
+     * @param department The department object to which the menu belongs.
+     */
     public void loginMenu(Department department) {
         Person person;
         String userName, password;
@@ -66,6 +77,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         }
     }
 
+    /**
+     * Displays the menu options for a student and handles user input.
+     *
+     * @param student The Student object for which the menu is being displayed.
+     */
     public void studentMenu(Student student) {
         student.printMenu("studentMenu");
         choice = getInput();
@@ -95,6 +111,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         }
     }
 
+    /**
+     * Displays the menu options for course selection and handles user input.
+     *
+     * @param student The Student object for which the menu is being displayed.
+     */
     public void courseSelectionMenu(Student student) {
         student.printMenu("courseSelectionMenu");
 
@@ -137,6 +158,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         }
     }
 
+    /**
+     * Displays the menu options for the advisor and handles user input.
+     *
+     * @param advisor The Advisor object for which the menu is being displayed.
+     */
     public void advisorMenu(Advisor advisor) {
         advisor.printMenu("advisorMenu");
         choice = getInput();
@@ -161,6 +187,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         }
     }
 
+    /**
+     * Reads and returns user input as an integer.
+     *
+     * @return User input as an integer.
+     */
     public int getInput() {
         try {
             input = new Scanner(System.in);
@@ -178,6 +209,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         System.exit(0);
     }
 
+    /**
+     * Prints the menu options for the Course Registration System.
+     *
+     * @param menuType The type of menu to be printed.
+     */
     @Override
     public void printMenu(String menuType) {
         System.out.println("\nWelcome to the Course Registration System");
