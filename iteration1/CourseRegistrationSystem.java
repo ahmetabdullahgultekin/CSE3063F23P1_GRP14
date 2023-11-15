@@ -62,7 +62,32 @@ public class CourseRegistrationSystem implements IDisplayMenu {
     }
 
     public void studentMenu(Student student) {
-      
+        student.printMenu("studentMenu");
+        choice = getInput();
+        if (choice == -1) {
+            studentMenu(student);
+        } else {
+            switch (choice) {
+                case 0:
+                    System.out.println("Exiting from system");
+                    exitProgram();
+                    break;
+                case 1:
+                    courseSelectionMenu(student);
+                    break;
+                case 2:
+                    student.getTranscript().showTranscript();
+                    studentMenu(student);
+                    break;
+                case 3:
+                    loginMenu(student.getDepartment());
+                    break;
+                default:
+                    System.out.println("Invalid choice Please select again");
+                    studentMenu(student);
+                    break;
+            }
+        }
     }
 
     public void courseSelectionMenu(Student student) {
