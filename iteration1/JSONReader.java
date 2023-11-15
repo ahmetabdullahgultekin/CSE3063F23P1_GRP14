@@ -178,8 +178,40 @@ public class JSONReader {
         }
     }
 
-    public void readTranscript() {
+    public void readTranscript(Student student) {
+        mapper = new ObjectMapper();
 
+        try {
+            // Parse the JSON file into a Java object.
+            jsonNode = mapper.readTree(new File("iteration1/jsons/Transcripts/" + student.getID() + ".json"));
+        } catch (IOException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        }
+
+        Map<Course, Grade> courseGradeMap = new HashMap<>();
+        List<Course> studentCourses = new ArrayList<>();
+
+        // Get the students array.
+        JsonNode transcript = jsonNode;
+        JsonNode courses = transcript.get("courses");
+        for (JsonNode course : courses) {
+            String letterGrade = course.get("letterGrade").asText();
+            String courseCode = course.get("courseCode").asText();
+            Course course1 = department.getCourseCodeCourseMap().get(courseCode);
+            studentCourses.add(course1);
+            if (letterGrade.equals("null")) {
+                courseGradeMap.put(course1, null);
+            } else {
+                courseGradeMap.put(course1, new Grade(letterGrade));
+            }
+        }
+        Transcript transcript1 = new Transcript(student);
+        department.getTranscripts().add(transcript1);
+        transcript1.setStudentCourses(studentCourses);
+        student.setTranscript(transcript1);
+        student.getTranscript().setCourseGradeMap(courseGradeMap);
+        transcript1.calculateValues();
     }
 
 
