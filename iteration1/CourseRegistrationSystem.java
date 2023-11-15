@@ -91,7 +91,45 @@ public class CourseRegistrationSystem implements IDisplayMenu {
     }
 
     public void courseSelectionMenu(Student student) {
-     
+        student.printMenu("courseSelectionMenu");
+
+        choice = getInput();
+        if (choice == -1) {
+            courseSelectionMenu(student);
+        } else {
+            switch (choice) {
+                case 0:
+                    studentMenu(student);
+                    break;
+                case 1:
+                    student.getTranscript().courseStatusCheck();
+                    courseSelectionMenu(student);
+                    break;
+                case 2:
+                    student.addCourse();
+                    courseSelectionMenu(student);
+                    break;
+                case 3:
+                    student.dropCourse();
+                    courseSelectionMenu(student);
+                    break;
+                case 4:
+                    student.sendRequest();
+                    courseSelectionMenu(student);
+                    break;
+                case 5:
+                    student.showRequestStatus();
+                    courseSelectionMenu(student);
+                    break;
+                case 6:
+                    loginMenu(student.getDepartment());
+                    break;
+                default:
+                    System.out.println("Invalid choice Please select again");
+                    courseSelectionMenu(student);
+                    break;
+            }
+        }
     }
 
     public void advisorMenu(Advisor advisor) {
