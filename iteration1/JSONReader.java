@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A class that reads JSON files and populates the necessary data structures for a department.
+ */
 public class JSONReader {
     ObjectMapper mapper;
     JsonNode jsonNode;
@@ -23,6 +26,11 @@ public class JSONReader {
     Map<Student, Registration> studentRegistrationMap = new HashMap<>();
 
 
+    /**
+     * Starts the process of reading JSON data and synchronizing objects in the provided department.
+     *
+     * @param department the department to start the process for
+     */
     public void start(Department department) {
         this.department = department;
         readJson();
@@ -30,6 +38,12 @@ public class JSONReader {
     }
 
 
+    /**
+     * Reads data from JSON files and populates the department object with the data.
+     * This method reads the following JSON files: courses.json, courseSections.json,
+     * lecturers.json, students.json, requests.json, and advisors.json.
+     * The read data is used to initialize and update the department object.
+     */
     public void readJson() {
         readCourses();
         readCourseSections();
@@ -39,6 +53,12 @@ public class JSONReader {
         readAdvisors();
     }
 
+    /**
+     * Reads the courses from a JSON file and populates the department with the courses.
+     * Each course is parsed into a Course object and added to the department's course list.
+     * The course code and course object are also added to the department's course code to course map.
+     * The prerequisite course codes and course section codes are stored in separate maps for each course.
+     */
     public void readCourses() {
         mapper = new ObjectMapper();
         try {
@@ -77,6 +97,19 @@ public class JSONReader {
         }
     }
 
+    /**
+     * Reads course sections from a JSON file and adds them to the department's collection.
+     * The JSON file should be located at "iteration1/jsons/courseSections.json".
+     * Each course section in the JSON file should have the following properties:
+     * - "courseSectionCode" (String): the code of the course section.
+     * - "courseCode" (String): the code of the course that the section belongs to.
+     * - "day" (String): the day of the week that the section meets.
+     * - "hour" (int): the hour of the day that the section starts.
+     *
+     * After reading and parsing the JSON file, the course sections will be added to the department's
+     * collection of course sections. The course section code will be mapped to the course object, and
+     * the course section will also be added to the course's section list.
+     */
     public void readCourseSections() {
         mapper = new ObjectMapper();
 
@@ -102,6 +135,20 @@ public class JSONReader {
         }
     }
 
+
+    /**
+     * Reads lecturers from a JSON file and adds them to the department's collection.
+     * The JSON file should be located at "iteration1/jsons/lecturers.json".
+     * Each lecturer in the JSON file should have the following properties:
+     * - "lecturerID" (int): the ID of the lecturer.
+     * - "name" (String): the name of the lecturer.
+     * - "surname" (String): the surname of the lecturer.
+     * - "lessonsTaught" (Array of Strings): the list of lessons taught by the lecturer.
+     *
+     * After reading and parsing the JSON file, the lecturers will be added to the department's
+     * collection of lecturers. The lecturer ID will be mapped to the list of lessons taught by that
+     * lecturer.
+     */
     public void readLecturers() {
         mapper = new ObjectMapper();
 
@@ -133,6 +180,27 @@ public class JSONReader {
         }
     }
 
+    /**
+     * Reads the student data from a JSON file and populates the department object
+     * with the student information.
+     * The JSON file should be located at "iteration1/jsons/students.json".
+     * Each student in the JSON file should have the following properties:
+     * - "studentID" (int): the ID of the student.
+     * - "name" (String): the name of the student.
+     * - "surname" (String): the surname of the student.
+     * - "userName" (String): the username of the student.
+     * - "password" (String): the password of the student.
+     * - "gradeLevel" (int): the grade level of the student.
+     * - "advisorID" (int): the ID of the advisor for the student.
+     * - "draft" (Array of Strings): the list of draft courses for the student.
+     *
+     * After reading and parsing the JSON file, the students will be added to the department's
+     * collection of students. The student's username will be mapped to the student object,
+     * and the student's ID will be mapped to the advisorID.
+     * The draft courses of each student will be added to the student's draft list,
+     * and if the draft list is empty, the student's hasRequest flag will be set to false.
+     * The transcript of each student will also be read.
+     */
     public void readStudents() {
         mapper = new ObjectMapper();
         try {
@@ -176,6 +244,13 @@ public class JSONReader {
         }
     }
 
+    /**
+     * Reads the transcript for the given student from a JSON file.
+     * Populates the student's transcript with course grades.
+     * Calculates the cumulative GPA and other values for the transcript.
+     *
+     * @param student the student whose transcript is being read
+     */
     public void readTranscript(Student student) {
         mapper = new ObjectMapper();
 
@@ -213,6 +288,9 @@ public class JSONReader {
     }
 
 
+    /**
+     * Reads requests from a JSON file and stores them in the system.
+     */
     public void readRequests() {
         mapper = new ObjectMapper();
 
@@ -240,6 +318,12 @@ public class JSONReader {
     }
 
 
+    /**
+     * Reads the advisors data from a JSON file.
+     * Parses the JSON file into a Java object and creates Advisor instances.
+     * Populates the department's advisors collection, advisorIDAdvisorMap, and userNamePersonMap.
+     * Also populates the advisorIDCoursesMap with the lessons taught by each advisor.
+     */
     public void readAdvisors() {
         mapper = new ObjectMapper();
 
@@ -276,6 +360,11 @@ public class JSONReader {
         }
     }
 
+    /**
+     * Synchronizes the objects in the department.
+     * This method updates the relationships between courses, lecturers, students, and advisors.
+     * It ensures that all necessary information is properly linked and associated.
+     */
     public void syncObjects() {
         //sync for courses
         for (Course course : department.getCourses()) {
@@ -321,5 +410,4 @@ public class JSONReader {
             }
         }
     }
-
 }
