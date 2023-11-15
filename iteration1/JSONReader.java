@@ -26,7 +26,9 @@ public class JSONReader {
 
 
     public void start(Department department) {
-
+        this.department = department;
+        readJson();
+        syncObjects();
     }
 
     public void readJson() {
@@ -38,8 +40,42 @@ public class JSONReader {
         readAdvisors();
     }
 
-    public void readCourses()  {
+    public void readCourses() {
+        mapper = new ObjectMapper();
+        try {
+            // Parse the JSON file into a Java object.
+            jsonNode = mapper.readTree(new File("iteration1/jsons/courses.json"));
+        } catch (IOException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        }
+        // Get the students array.
+        JsonNode coursesArray = jsonNode;
 
+        for (JsonNode course : coursesArray) {
+            String courseName = course.get("courseName").asText();
+            String courseCode = course.get("courseCode").asText();
+            int courseCredit = course.get("courseCredit").asInt();
+            byte gradeLevel = (byte) course.get("gradeLevel").asInt();
+
+            Course course1 = new Course(courseName, courseCode, courseCredit, gradeLevel);
+            department.getCourses().add(course1);
+            department.getCourseCodeCourseMap().put(courseCode, course1);
+
+            List<String> preRequisiteCourseCodes = new ArrayList<>();
+            List<String> courseSectionCodes = new ArrayList<>();
+
+            JsonNode preRequisiteCourseCodesArray = course.get("preRequisiteCourseCodes");
+            for (JsonNode preRequisiteCourseCode : preRequisiteCourseCodesArray) {
+                preRequisiteCourseCodes.add(preRequisiteCourseCode.asText());
+            }
+            coursePrerequisiteCourseCodesMap.put(course1, preRequisiteCourseCodes);
+            JsonNode courseSectionCodesArray = course.get("courseSectionCodes");
+            for (JsonNode courseSectionCode : courseSectionCodesArray) {
+                courseSectionCodes.add(courseSectionCode.asText());
+            }
+            courseSectionCodesMap.put(course1, courseSectionCodes);
+        }
     }
 
     public void readCourseSections() {
