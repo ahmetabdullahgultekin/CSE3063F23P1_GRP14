@@ -1,0 +1,43 @@
+{
+  "studentID": 150121067,
+  "name": "Fatma",
+  "surname": "Öztürk",
+  "cgpa": 0,
+  "takenCredits": 0,
+  "completedCredits": 0,
+  "gradeLevel": 4,
+  "courses": [
+    {
+      "courseCode": "CSE2023",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "CSE2225",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "EE2031",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "IE3081",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "CSE3215",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "CSE3063",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "CSE3033",
+      "letterGrade": "CB"
+    },
+    {
+      "courseCode": "CSE3055",
+      "letterGrade": "BB"
+    }
+  ]
+}

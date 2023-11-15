@@ -1,0 +1,23 @@
+{
+    "studentID": 150120090,
+    "name": "Mahmut",
+    "surname": "Subaşı",
+    "cgpa": 0,
+    "takenCredits": 0,
+    "completedCredits": 0,
+    "gradeLevel": 4,
+    "courses": [
+        {
+            "courseCode": "CSE2023",
+            "letterGrade": "CB"
+        },
+        {
+            "courseCode": "CSE2225",
+            "letterGrade": "FF"
+        },
+        {
+            "courseCode": "EE2031",
+            "letterGrade": "CC"
+        }
+    ]
+}

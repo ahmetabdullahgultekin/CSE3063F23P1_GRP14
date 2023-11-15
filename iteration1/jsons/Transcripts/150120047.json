@@ -1,0 +1,23 @@
+{
+    "studentID": 150120047,
+    "name": "Süleyman",
+    "surname": "Alemdar",
+    "cgpa": 0,
+    "takenCredits": 0,
+    "completedCredits": 0,
+    "gradeLevel": 3,
+    "courses": [
+        {
+            "courseCode": "CSE2023",
+            "letterGrade": "DC"
+        },
+        {
+            "courseCode": "CSE2225",
+            "letterGrade": "BB"
+        },
+        {
+            "courseCode": "EE2031",
+            "letterGrade": "BA"
+        }
+    ]
+}

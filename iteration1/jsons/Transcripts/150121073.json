@@ -1,0 +1,27 @@
+{
+    "studentID": 150121073,
+    "name": "Tuğba",
+    "surname": "Yaşar",
+    "cgpa": 0,
+    "takenCredits": 0,
+    "completedCredits": 0,
+    "gradeLevel": 3,
+    "courses": [
+        {
+            "courseCode": "CSE2023",
+            "letterGrade": "BA"
+        },
+        {
+            "courseCode": "CSE2225",
+            "letterGrade": "AA"
+        },
+        {
+            "courseCode": "EE2031",
+            "letterGrade": "AA"
+        },
+        {
+            "courseCode": "IE3081",
+            "letterGrade": "BA"
+        }
+    ]
+}

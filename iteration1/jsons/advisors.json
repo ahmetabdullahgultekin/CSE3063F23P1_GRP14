@@ -1,0 +1,36 @@
+[
+  {
+    "advisorID": 130116002,
+    "name": "Hande",
+    "surname": "Erol",
+    "userName": "a130116002",
+    "password": "130116002",
+    "lessonsTaught": [
+      "ISG121"
+    ],
+    "studentsAdvised": [
+      150120090,
+      150121067,
+      150121059,
+      150120045,
+      150121059
+    ]
+  },
+  {
+    "advisorID": 130113008,
+    "name": "Murat Can",
+    "surname": "Ganiz",
+    "userName": "a130113008",
+    "password": "130113008",
+    "lessonsTaught": [
+      "CSE3063"
+    ],
+    "studentsAdvised": [
+      150120045,
+      150121091,
+      150121075,
+      150120083,
+      150120097
+    ]
+  }
+]

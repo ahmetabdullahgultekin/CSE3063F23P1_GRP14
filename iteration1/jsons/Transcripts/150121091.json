@@ -1,0 +1,43 @@
+{
+  "studentID": 150121091,
+  "name": "Emre",
+  "surname": "Uzun",
+  "cgpa": 0,
+  "takenCredits": 0,
+  "completedCredits": 0,
+  "gradeLevel": 4,
+  "courses": [
+    {
+      "courseCode": "CSE2023",
+      "letterGrade": "BB"
+    },
+    {
+      "courseCode": "CSE2225",
+      "letterGrade": "CB"
+    },
+    {
+      "courseCode": "EE2031",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "IE3081",
+      "letterGrade": "FF"
+    },
+    {
+      "courseCode": "CSE3215",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "CSE3063",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "CSE3033",
+      "letterGrade": "CC"
+    },
+    {
+      "courseCode": "CSE3055",
+      "letterGrade": "BA"
+    }
+  ]
+}

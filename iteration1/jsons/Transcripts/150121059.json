@@ -1,0 +1,23 @@
+{
+    "studentID": 150121059,
+    "name": "Tuğçe",
+    "surname": "Kurşun",
+    "cgpa": 0,
+    "takenCredits": 0,
+    "completedCredits": 0,
+    "gradeLevel": 3,
+    "courses": [
+        {
+            "courseCode": "CSE2023",
+            "letterGrade": "BB"
+        },
+        {
+            "courseCode": "CSE2225",
+            "letterGrade": "BA"
+        },
+        {
+            "courseCode": "EE2031",
+            "letterGrade": "FF"
+        }
+    ]
+}
