@@ -133,7 +133,27 @@ public class CourseRegistrationSystem implements IDisplayMenu {
     }
 
     public void advisorMenu(Advisor advisor) {
-      
+        advisor.printMenu("advisorMenu");
+        choice = getInput();
+        if (choice == -1) {
+            advisorMenu(advisor);
+        } else {
+            switch (choice) {
+                case 0:
+                    System.out.println("Exiting from system");
+                    exitProgram();
+                    break;
+                case 1:
+                    advisor.printRequests();
+                    advisorMenu(advisor);
+                    break;
+                case 2:
+                    loginMenu(advisor.getDepartment());
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+        }
     }
 
     public int getInput() {
