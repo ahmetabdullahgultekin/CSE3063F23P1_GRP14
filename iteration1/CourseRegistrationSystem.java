@@ -34,7 +34,31 @@ public class CourseRegistrationSystem implements IDisplayMenu {
     }
 
     public void loginMenu(Department department) {
-     
+        Person person;
+        String userName, password;
+
+        System.out.println("\nLogin Page");
+        System.out.print("Please enter your username: ");
+        userName = input.next();
+        System.out.print("Enter your password: ");
+        password = input.next();
+
+        person = department.getUserNamePersonMap().get(userName);
+        if (person != null) { //Check if there is such user
+            if (person.login(userName, password)) {
+                switch (person.getClass().getSimpleName()) {
+                    case "Student":
+                        studentMenu((Student) person);
+                        break;
+                    case "Advisor":
+                        advisorMenu((Advisor) person);
+                        break;
+                }
+            }
+        } else {
+            System.out.println("There is no such user. Please try again!");
+            loginMenu(department);
+        }
     }
 
     public void studentMenu(Student student) {
