@@ -1,0 +1,62 @@
+[
+    {
+        "hour": 9,
+        "courseSectionCode": "CSE3055.1",
+        "courseCode": "CSE3055",
+        "day": "Monday"
+    },
+    {
+        "hour": 12,
+        "courseSectionCode": "CSE3033.1",
+        "courseCode": "CSE3033",
+        "day": "Monday"
+    },
+    {
+        "hour": 15,
+        "courseSectionCode": "CSE3063.1",
+        "courseCode": "CSE3063",
+        "day": "Monday"
+    },
+    {
+        "hour": 12,
+        "courseSectionCode": "CSE3215.1",
+        "courseCode": "CSE3215",
+        "day": "Friday"
+    },
+    {
+        "hour": 13,
+        "courseSectionCode": "IE3081.1",
+        "courseCode": "IE3081",
+        "day": "Monday"
+    },
+    {
+        "hour": 11,
+        "courseSectionCode": "EE2031.1",
+        "courseCode": "EE2031",
+        "day": "Monday"
+    },
+    {
+        "hour": 13,
+        "courseSectionCode": "CSE2225.1",
+        "courseCode": "CSE2225",
+        "day": "Monday"
+    },
+    {
+        "hour": 10,
+        "courseSectionCode": "CSE2023.1",
+        "courseCode": "CSE2023",
+        "day": "Monday"
+    },
+    {
+        "hour": 12,
+        "courseSectionCode": "ISG121.1",
+        "courseCode": "ISG121",
+        "day": "Monday"
+    },
+    {
+        "hour": 12,
+        "courseSectionCode": "CSE4074.1",
+        "courseCode": "CSE4074",
+        "day": "Monday"
+    }
+]

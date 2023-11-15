@@ -1,0 +1,35 @@
+{
+  "studentID": 150121075,
+  "name": "Polat",
+  "surname": "Çakır",
+  "cgpa": 0,
+  "takenCredits": 0,
+  "completedCredits": 0,
+  "gradeLevel": 4,
+  "courses": [
+    {
+      "courseCode": "CSE2023",
+      "letterGrade": "CC"
+    },
+    {
+      "courseCode": "CSE2225",
+      "letterGrade": "CB"
+    },
+    {
+      "courseCode": "EE2031",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "IE3081",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "CSE3215",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "CSE3063",
+      "letterGrade": "CB"
+    }
+  ]
+}

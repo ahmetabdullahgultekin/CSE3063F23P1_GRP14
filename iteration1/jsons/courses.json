@@ -1,0 +1,112 @@
+[
+    {
+        "lecturerID": 130108003,
+        "courseName": "Database Systems",
+        "gradeLevel": 3,
+        "courseSectionCodes": ["CSE3055.1"],
+        "courseCode": "CSE3055",
+        "courseCredit": 7,
+        "preRequisiteCourseCodes": [
+            "CSE2225"
+        ]
+    },
+    {
+        "lecturerID": 130106001,
+        "courseName": "Operating Systems",
+        "gradeLevel": 3,
+        "courseSectionCodes": [
+            "CSE3033.1"
+        ],
+        "courseCode": "CSE3033",
+        "courseCredit": 7,
+        "preRequisiteCourseCodes": [
+            "CSE2225"
+        ]
+    },
+    {
+        "lecturerID": 130113008,
+        "courseName": "Object-Oriented Software Design",
+        "gradeLevel": 3,
+        "courseSectionCodes": [
+            "CSE3063.1"
+        ],
+        "courseCode": "CSE3063",
+        "courseCredit": 5,
+        "preRequisiteCourseCodes": []
+    },
+    {
+        "lecturerID": 130109007,
+        "courseName": "Digital Logic Design",
+        "gradeLevel": 3,
+        "courseSectionCodes": ["CSE3215.1"],
+        "courseCode": "CSE3215",
+        "courseCredit": 6,
+        "preRequisiteCourseCodes": [
+        ]
+    },
+    {
+        "lecturerID": 130117005,
+        "courseName": "Modeling and Discrete Simulation",
+        "gradeLevel": 3,
+        "courseSectionCodes": ["IE3081.1"],
+        "courseCode": "IE3081",
+        "courseCredit": 4,
+        "preRequisiteCourseCodes": [
+        ]
+    },
+    {
+        "lecturerID": 130118011,
+        "courseName": "Electric Circuits",
+        "gradeLevel": 2,
+        "courseSectionCodes": ["EE2031.1"],
+        "courseCode": "EE2031",
+        "courseCredit": 5,
+        "preRequisiteCourseCodes": []
+    },
+    {
+        "lecturerID": 130105002,
+        "courseName": "Data Structures",
+        "gradeLevel": 2,
+        "courseSectionCodes": [
+            "CSE2225.1"
+        ],
+        "courseCode": "CSE2225",
+        "courseCredit": 7,
+        "preRequisiteCourseCodes": [
+
+        ]
+    },
+    {
+        "lecturerID": 130111003,
+        "courseName": "Discrete Computational Structures",
+        "gradeLevel": 2,
+        "courseSectionCodes": [
+            "CSE2023.1"
+        ],
+        "courseCode": "CSE2023",
+        "courseCredit": 6,
+        "preRequisiteCourseCodes": [
+
+        ]
+    },
+    {
+        "lecturerID": 130116002,
+        "courseName": "Work Safety I",
+        "gradeLevel": 4,
+        "courseSectionCodes": [
+            "ISG121.1"
+        ],
+        "courseCode": "ISG121",
+        "courseCredit": 2,
+        "preRequisiteCourseCodes": []
+    },
+    {
+        "lecturerID": 130113003,
+        "courseName": "Computer Networks",
+        "gradeLevel": 4,
+        "courseSectionCodes": ["CSE4074.1"],
+        "courseCode": "CSE4074",
+        "courseCredit": 5,
+        "preRequisiteCourseCodes": []
+    }
+]

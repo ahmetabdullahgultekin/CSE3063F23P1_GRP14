@@ -1,0 +1,43 @@
+{
+  "studentID": 150120083,
+  "name": "Ceren",
+  "surname": "Tekin",
+  "cgpa": 0,
+  "takenCredits": 0,
+  "completedCredits": 0,
+  "gradeLevel": 4,
+  "courses": [
+    {
+      "courseCode": "CSE2023",
+      "letterGrade": "FF"
+    },
+    {
+      "courseCode": "CSE2225",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "EE2031",
+      "letterGrade": "DC"
+    },
+    {
+      "courseCode": "IE3081",
+      "letterGrade": "FD"
+    },
+    {
+      "courseCode": "CSE3215",
+      "letterGrade": "BB"
+    },
+    {
+      "courseCode": "CSE3063",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "CSE3033",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "CSE3055",
+      "letterGrade": "FF"
+    }
+  ]
+}
