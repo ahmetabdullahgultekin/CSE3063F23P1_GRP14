@@ -1,6 +1,7 @@
 package iteration1;
 
 
+import java.util.Scanner;
 
 public class CourseRegistrationSystem implements IDisplayMenu {
     private Scanner input;
@@ -157,9 +158,15 @@ public class CourseRegistrationSystem implements IDisplayMenu {
     }
 
     public int getInput() {
-     
+        try {
+            input = new Scanner(System.in);
+            choice = input.nextInt();
+        } catch (Exception e) {
+            System.out.println("Invalid input, please enter a number");
+            return -1;
+        }
+        return choice;
     }
-
     public void exitProgram() {
     }
 
