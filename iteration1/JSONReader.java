@@ -79,7 +79,31 @@ public class JSONReader {
     }
 
     public void readCourseSections() {
+        mapper = new ObjectMapper();
 
+        try {
+            // Parse the JSON file into a Java object.
+            jsonNode = mapper.readTree(new File("iteration1/jsons/courseSections.json"));
+        } catch (IOException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        }
+        JsonNode courseSectionsArray = jsonNode;
+
+        for (JsonNode courseSection : courseSectionsArray) {
+            //Construction part
+            String courseSectionCode = courseSection.get("courseSectionCode").asText();
+            String courseCode = courseSection.get("courseCode").asText();
+            String day = courseSection.get("day").asText();
+            int hour = courseSection.get("hour").asInt();
+            Course course = department.getCourseCodeCourseMap().get(courseCode);
+            CourseSection courseSection1 = new CourseSection(course, courseSectionCode, day, hour);
+            department.getCourseSections().add(courseSection1);
+            department.getSectionCodeCourseMap().put(courseSectionCode, course);
+            department.getSectionCourseMap().put(courseSection1, course);
+            //////////////////////////////////////////////
+            System.out.printf("courseSection: %s, courseCode: %s, day: %s, hour: %d\n", courseSectionCode, courseCode, day, hour);
+        }
     }
 
     public void readLecturers()  {
