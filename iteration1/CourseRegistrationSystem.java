@@ -168,10 +168,18 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         return choice;
     }
     public void exitProgram() {
+        // TODO Save all json files and exit
+        input.close();
+        System.exit(0);
     }
 
+    @Override
     public void printMenu(String menuType) {
-   
+        System.out.println("\nWelcome to the Course Registration System");
+        System.out.println("Please select from the following options:");
+        System.out.println("0. Exit");
+        System.out.println("1. Login Page");
+        System.out.print("Enter your choice: ");
     }
 }
 
