@@ -1,14 +1,18 @@
 package iteration1;
 
-
 import java.util.Scanner;
 
 public class CourseRegistrationSystem implements IDisplayMenu {
     private Scanner input;
     private int choice;
 
-    public void start() throws IOException {
-       
+    public void start()  {
+        Department department = new Department("CSE");
+        JSONReader jsonReader = new JSONReader();
+        jsonReader.start(department);
+        JSONWriter jsonWriter = new JSONWriter();
+        jsonWriter.start(department);
+        mainMenu(department);
     }
 
     public void mainMenu(Department department) {
@@ -167,6 +171,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         }
         return choice;
     }
+
     public void exitProgram() {
         // TODO Save all json files and exit
         input.close();
@@ -182,4 +187,3 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         System.out.print("Enter your choice: ");
     }
 }
-
