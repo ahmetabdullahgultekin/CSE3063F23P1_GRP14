@@ -31,6 +31,7 @@ public class JSONReader {
         syncObjects();
     }
 
+
     public void readJson() {
         readCourses();
         readCourseSections();
@@ -91,7 +92,6 @@ public class JSONReader {
         JsonNode courseSectionsArray = jsonNode;
 
         for (JsonNode courseSection : courseSectionsArray) {
-            //Construction part
             String courseSectionCode = courseSection.get("courseSectionCode").asText();
             String courseCode = courseSection.get("courseCode").asText();
             String day = courseSection.get("day").asText();
@@ -101,8 +101,6 @@ public class JSONReader {
             department.getCourseSections().add(courseSection1);
             department.getSectionCodeCourseMap().put(courseSectionCode, course);
             department.getSectionCourseMap().put(courseSection1, course);
-            //////////////////////////////////////////////
-            System.out.printf("courseSection: %s, courseCode: %s, day: %s, hour: %d\n", courseSectionCode, courseCode, day, hour);
         }
     }
 
@@ -119,7 +117,6 @@ public class JSONReader {
         JsonNode lecturersArray = jsonNode;
 
         for (JsonNode lecturer : lecturersArray) {
-            //Construction part
             int id = lecturer.get("lecturerID").asInt();
             String name = lecturer.get("name").asText();
             String surname = lecturer.get("surname").asText();
@@ -127,7 +124,6 @@ public class JSONReader {
             Lecturer lecturer1 = new Lecturer(id, name, surname);
             department.getLecturers().add(lecturer1);
             lecturer1.setDepartment(department);
-            //////////////////////////////////////////////
 
             List<String> lessonsTaught = new ArrayList<>();
 
@@ -136,13 +132,50 @@ public class JSONReader {
                 lessonsTaught.add(lessonTaught.asText());
             }
             lecturerIDCoursesMap.put(id, lessonsTaught);
-
-            System.out.printf("lecturerID: %d, name: %s, surname: %s\n", id, name, surname);
         }
     }
 
     public void readStudents() {
+        mapper = new ObjectMapper();
+        try {
+            // Parse the JSON file into a Java object.
+            jsonNode = mapper.readTree(new File("iteration1/jsons/students.json"));
+        } catch (IOException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        }
+        // Get the students array.
+        JsonNode studentsArray = jsonNode;
 
+        for (JsonNode student : studentsArray) {
+            int id = student.get("studentID").asInt();
+            String name = student.get("name").asText();
+            String surname = student.get("surname").asText();
+            String userName = student.get("userName").asText();
+            String password = student.get("password").asText();
+            int gradeLevel = student.get("gradeLevel").asInt();
+            Student student1 = new Student(id, name, surname, userName, password, (byte) gradeLevel);
+            student1.setDepartment(department);
+            department.getStudents().add(student1);
+            department.getUserNamePersonMap().put(userName, student1);
+            department.getStudentIDStudentMap().put(id, student1);
+
+            int advisorID = student.get("advisorID").asInt();
+            studentIDAdvisorIDMap.put(id, advisorID);
+
+            List<String> draft = new ArrayList<>();
+            JsonNode draftArray = student.get("draft");
+            for (JsonNode draftCourse : draftArray) {
+                draft.add(draftCourse.asText());
+            }
+            if (draft.isEmpty()) {
+                student1.setHasRequest(false);
+            } else {
+                student1.setHasRequest(true);
+                studentIDDraftMap.put(id, draft);
+            }
+            readTranscript(student1);
+        }
     }
 
     public void readTranscript() {
