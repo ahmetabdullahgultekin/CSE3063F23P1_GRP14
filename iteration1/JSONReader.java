@@ -278,8 +278,50 @@ public class JSONReader {
         }
     }
 
-    public void syncObjects()  {
+    public void syncObjects() {
+        //sync for courses
+        for (Course course : department.getCourses()) {
+            for (String courseCode : coursePrerequisiteCourseCodesMap.get(course)) {
+                course.getPreRequisiteCourses().add(department.getCourseCodeCourseMap().get(courseCode));
+            }
+            for (String courseSectionCode : courseSectionCodesMap.get(course)) {
+                course.getCourseSections().add(department.getSectionCodeCourseMap().get(courseSectionCode));
+            }
+        }
 
+        //sync for lecturers
+        for (Lecturer lecturer : department.getLecturers()) {
+            for (String courseCode : lecturerIDCoursesMap.get(lecturer.getID())) {
+                lecturer.getLessonsTaught().add(department.getCourseCodeCourseMap().get(courseCode));
+            }
+            for (Course course : lecturer.getLessonsTaught()) {
+                course.setLecturer(lecturer);
+            }
+        }
+
+        //sync for students
+        for (Student student : department.getStudents()) {
+            student.setAdvisor(department.getAdvisorIDAdvisorMap().get(studentIDAdvisorIDMap.get(student.getID())));
+
+            if (studentIDDraftMap.get(student.getID()) != null) {
+                for (String courseCode : studentIDDraftMap.get(student.getID())) {
+                    student.getDraft().add(department.getCourseCodeCourseMap().get(courseCode));
+                }
+            }
+        }
+
+        //sync for advisors
+        for (Student student : department.getStudents()) {
+            Advisor advisor = department.getAdvisorIDAdvisorMap().get(studentIDAdvisorIDMap.get(student.getID()));
+            advisor.getStudentsAdvised().add(student);
+            if (studentRegistrationMap.get(student) != null)
+                advisor.getRequestList().add(studentRegistrationMap.get(student));
+        }
+        for (Advisor advisor : department.getAdvisors()) {
+            for (String courseCode : advisorIDCoursesMap.get(advisor.getID())) {
+                advisor.getLessonsTaught().add(department.getCourseCodeCourseMap().get(courseCode));
+            }
+        }
     }
 
 }
