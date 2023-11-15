@@ -243,7 +243,39 @@ public class JSONReader {
 
 
     public void readAdvisors() {
+        mapper = new ObjectMapper();
 
+        try {
+            // Parse the JSON file into a Java object.
+            jsonNode = mapper.readTree(new File("iteration1/jsons/advisors.json"));
+        } catch (IOException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        }
+
+        // Get the students array.
+        JsonNode advisorsArray = jsonNode;
+
+        for (JsonNode advisor : advisorsArray) {
+            int id = advisor.get("advisorID").asInt();
+            String name = advisor.get("name").asText();
+            String surname = advisor.get("surname").asText();
+            String userName = advisor.get("userName").asText();
+            String password = advisor.get("password").asText();
+            Advisor advisor1 = new Advisor(id, name, surname, userName, password);
+            department.getAdvisors().add(advisor1);
+            advisor1.setDepartment(department);
+            department.getAdvisorIDAdvisorMap().put(id, advisor1);
+            department.getUserNamePersonMap().put(userName, advisor1);
+
+            List<String> lessonsTaught = new ArrayList<>();
+
+            JsonNode lessonsTaughtArray = advisor.get("lessonsTaught");
+            for (JsonNode lessonTaught : lessonsTaughtArray) {
+                lessonsTaught.add(lessonTaught.asText());
+            }
+            advisorIDCoursesMap.put(id, lessonsTaught);
+        }
     }
 
     public void syncObjects()  {
