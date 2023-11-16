@@ -11,11 +11,11 @@ import java.io.IOException;
 
 public class JSONWriter {
 
-    Department department;
+    private Department department;
 
-    ObjectMapper objectMapper;
+    private ObjectMapper objectMapper;
 
-    JsonNode jsonNode;
+    private JsonNode jsonNode;
 
     /**
      * Starts the process with the given department and writes the result to a JSON file.
@@ -47,7 +47,6 @@ public class JSONWriter {
      */
     public void writeTranscripts() {
         String filePath;
-
         for (Student student : department.getStudents()) {
             filePath = "iteration1/jsons/Transcripts/" + student.getID() + ".json";
             try {
@@ -81,7 +80,6 @@ public class JSONWriter {
 
                 // Write the updated JsonNode back to the file
                 objectMapper.writeValue(new File(filePath), jsonNode);
-
             } catch (IOException e) {
                 System.out.println("File not found");
                 System.exit(0);
@@ -118,7 +116,18 @@ public class JSONWriter {
     }
 
     /**
-     * Writes student information to a JSON file.
+     * This method writes student information to a JSON file.
+     * The JSON file should be located at "iteration1/jsons/students.json".
+     * Each student in the JSON file should have the following properties:
+     * - "studentID" (int): the ID of the student.
+     * - "hasRequest" (boolean): whether the student has a request.
+     *
+     * After reading and parsing the JSON file, the method iterates over each student in the JSON file.
+     * For each student, it retrieves the student's ID and whether they have a request.
+     * It then gets the Student object corresponding to the student's ID from the department's studentIDStudentMap.
+     * Finally, it sets the hasRequest flag for the Student object based on the value retrieved from the JSON.
+     *
+     * If the file is not found, an error message is printed and the program is terminated.
      */
     public void writeStudents() {
         String filePath;
