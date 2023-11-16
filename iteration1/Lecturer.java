@@ -26,7 +26,7 @@ public class Lecturer extends Person {
 
     //Advisor login proccess.
     @Override
-    boolean login(String userName, String password) {
+    public boolean login(String userName, String password) {
         return false;
     }
 }
