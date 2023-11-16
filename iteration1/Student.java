@@ -242,7 +242,7 @@ public class Student extends Person implements IDisplayMenu {
     //Checks if the provided username and password match the student's credentials.
     //Overrides the abstract login method in the Person class.
     @Override
-    boolean login(String userName, String password) {
+    public boolean login(String userName, String password) {
         return this.getUserName().equals(userName) && this.getPassword().equals(password);
     }
 
