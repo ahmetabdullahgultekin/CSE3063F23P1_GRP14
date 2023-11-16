@@ -2,16 +2,16 @@ package iteration1;
 
 import java.util.Scanner;
 
+
 public class CourseRegistrationSystem implements IDisplayMenu {
     private Scanner input;
     private int choice;
+    Department department;
 
     public void start()  {
-        Department department = new Department("CSE");
+        department = new Department("CSE");
         JSONReader jsonReader = new JSONReader();
         jsonReader.start(department);
-        JSONWriter jsonWriter = new JSONWriter();
-        jsonWriter.start(department);
         mainMenu(department);
     }
 
@@ -54,8 +54,12 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         String userName, password;
 
         System.out.println("\nLogin Page");
+        System.out.println("0. Back");
         System.out.print("Please enter your username: ");
         userName = input.next();
+        if (userName.equals("0")) {
+            mainMenu(department);
+        }
         System.out.print("Enter your password: ");
         password = input.next();
 
@@ -70,6 +74,9 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                         advisorMenu((Advisor) person);
                         break;
                 }
+            } else {
+                System.out.println("Username or password is incorrect. Please try again!");
+                loginMenu(department);
             }
         } else {
             System.out.println("There is no such user. Please try again!");
@@ -204,7 +211,8 @@ public class CourseRegistrationSystem implements IDisplayMenu {
     }
 
     public void exitProgram() {
-        // TODO Save all json files and exit
+        JSONWriter jsonWriter = new JSONWriter();
+        jsonWriter.start(department);
         input.close();
         System.exit(0);
     }
