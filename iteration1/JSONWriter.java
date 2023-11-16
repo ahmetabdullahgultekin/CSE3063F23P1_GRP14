@@ -17,20 +17,34 @@ public class JSONWriter {
 
     JsonNode jsonNode;
 
-
+    /**
+     * Starts the process with the given department and writes the result to a JSON file.
+     *
+     * @param department the department to be processed
+     */
     public void start(Department department) {
         this.department = department;
         writeJson();
     }
 
-
+    /**
+     * Writes JSON data for the department,
+     * including students, requests, and transcripts.
+     * This method is called internally by the start method.
+     */
     public void writeJson() {
         writeStudents();
         writeRequests();
         writeTranscripts();
     }
 
-
+    /**
+     * Writes the student transcripts to JSON files.
+     * <p>
+     * This method iterates over all the students in the department and generates a JSON file for each student's transcript.
+     * The method updates the values of "takenCredits", "completedCredits", "cgpa", and "courses" in the JSON file based on the
+     * current values of the student's transcript.
+     */
     public void writeTranscripts() {
         String filePath;
 
@@ -75,6 +89,9 @@ public class JSONWriter {
         }
     }
 
+    /**
+     * Writes the student requests to a JSON file.
+     */
     public void writeRequests() {
         String filePath = "iteration1/jsons/requests.json";
         try {
@@ -100,7 +117,9 @@ public class JSONWriter {
         }
     }
 
-
+    /**
+     * Writes student information to a JSON file.
+     */
     public void writeStudents() {
         String filePath;
         filePath = "iteration1/jsons/students.json";
