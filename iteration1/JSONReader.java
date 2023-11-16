@@ -229,6 +229,8 @@ public class JSONReader {
             int advisorID = student.get("advisorID").asInt();
             studentIDAdvisorIDMap.put(id, advisorID);
 
+
+            /*
             List<String> draft = new ArrayList<>();
             JsonNode draftArray = student.get("draft");
             for (JsonNode draftCourse : draftArray) {
@@ -240,6 +242,8 @@ public class JSONReader {
                 student1.setHasRequest(true);
                 studentIDDraftMap.put(id, draft);
             }
+
+            */
             readTranscript(student1);
         }
     }
@@ -303,16 +307,17 @@ public class JSONReader {
         }
         // Get the students array.
         JsonNode requestsArray = jsonNode;
-        List<Course> draftCourses = new ArrayList<>();
         for (JsonNode request : requestsArray) {
+            List<Course> draftCourses = new ArrayList<>();
             int studentID = request.get("studentID").asInt();
-            JsonNode courseCodesArray = request.get("courseCodes");
+            JsonNode courseCodesArray = request.get("courses");
             for (JsonNode courseCode : courseCodesArray) {
                 Course course1 = department.getCourseCodeCourseMap().get(courseCode.asText());
                 draftCourses.add(course1);
             }
             Student student = department.getStudentIDStudentMap().get(studentID);
             student.setDraft(draftCourses);
+            student.setHasRequest(true);
             studentRegistrationMap.put(student, new Registration(student, draftCourses));
         }
     }
