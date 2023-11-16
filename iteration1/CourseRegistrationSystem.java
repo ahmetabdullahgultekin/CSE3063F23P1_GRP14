@@ -307,6 +307,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
      *
      * @param menuType The type of menu to be printed. This parameter is currently not used in the method.
      */
+    @Override
     public void printMenu(String menuType) {
         System.out.println("\nWelcome to the Course Registration System");
         System.out.println("Please select from the following options:");
