@@ -118,7 +118,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
      * The method to check whether the userName and password match
      */
     @Override
-    boolean login(String userName, String password) {
+    public boolean login(String userName, String password) {
         return this.getUserName().equals(userName) && this.getPassword().equals(password);
     }
 
