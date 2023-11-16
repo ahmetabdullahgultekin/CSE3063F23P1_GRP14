@@ -76,7 +76,28 @@ public class JSONWriter {
     }
 
     public void writeRequests() {
-
+        String filePath = "iteration1/jsons/requests.json";
+        try {
+            objectMapper = new ObjectMapper();
+            ArrayNode jsonArray = objectMapper.createArrayNode();
+            for (Student student : department.getStudents()) {
+                if (!student.getDraft().isEmpty()) {
+                    ObjectNode newNode = objectMapper.createObjectNode();
+                    newNode.put("studentID", student.getID());
+                    ArrayNode coursesArray = objectMapper.createArrayNode();
+                    for (Course course : student.getDraft()) {
+                        coursesArray.add(course.getCourseCode());
+                    }
+                    newNode.set("courses", coursesArray);
+                    jsonArray.add(newNode);
+                }
+            }
+            // Write the entirely new ArrayNode back to the file
+            objectMapper.writeValue(new File(filePath), jsonArray);
+        } catch (IOException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        }
     }
 
 
