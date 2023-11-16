@@ -19,12 +19,15 @@ public class JSONWriter {
 
 
     public void start(Department department) {
-
+        this.department = department;
+        writeJson();
     }
 
 
     public void writeJson() {
-
+        writeStudents();
+        writeRequests();
+        writeTranscripts();
     }
 
 
