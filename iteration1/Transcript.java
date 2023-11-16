@@ -58,6 +58,9 @@ public class Transcript {
                 totalCredits += course.getCourseCredit();
             }
         }
+        if (totalCredits == 0) {
+            return 0;
+        }
         cgpa = totalGrade / totalCredits;
         return cgpa;
     }
