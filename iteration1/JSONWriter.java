@@ -102,6 +102,21 @@ public class JSONWriter {
 
 
     public void writeStudents() {
+        String filePath;
+        filePath = "iteration1/jsons/students.json";
+        try {
+            objectMapper = new ObjectMapper();
+            JsonNode jsonArray = objectMapper.readTree(new File(filePath));
+            for (JsonNode jsonNode : jsonArray) {
+                int studentID = jsonNode.get("studentID").asInt();
+                Student student = department.getStudentIDStudentMap().get(studentID);
+                boolean hasRequest = jsonNode.get("hasRequest").asBoolean();
+                student.setHasRequest(hasRequest);
+            }
+        } catch (IOException e) {
+            System.out.println("File not found");
+            System.exit(0);
+        }
     }
 }
 
