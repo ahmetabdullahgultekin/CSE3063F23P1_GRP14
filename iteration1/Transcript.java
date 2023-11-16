@@ -30,6 +30,7 @@ public class Transcript {
         this.completedCredits = calculateCompletedCredits();
         this.courseGradeMap = new HashMap<>();
     }
+
     /**
      * Calculates the student's GPA, taken credits, and completed credits,
      * and assigns these values to the corresponding fields in the class.
@@ -67,10 +68,12 @@ public class Transcript {
      * @return The total number of credits taken.
      */
     public int calculateTakenCredits() {
+        int totalCredits = 0;
         for (Course course : studentCourses) {
-            takenCredits += course.getCourseCredit();
+            totalCredits += course.getCourseCredit();
         }
-        return takenCredits;
+        takenCredits = totalCredits;
+        return totalCredits;
     }
 
     /**
@@ -79,12 +82,13 @@ public class Transcript {
      * @return The total completed credits.
      */
     public int calculateCompletedCredits() {
-        completedCredits = takenCredits;
+        completedCredits = 0;
         for (Course course : studentCourses) {
             if (courseGradeMap.get(course) == null
                     || courseGradeMap.get(course).getLetterGrade().equals("FF")
                     || courseGradeMap.get(course).getLetterGrade().equals("FD")) {
-                completedCredits = takenCredits - course.getCourseCredit();
+            } else {
+                completedCredits += course.getCourseCredit();
             }
         }
         return completedCredits;
@@ -100,7 +104,7 @@ public class Transcript {
     public void showTranscript() {
         System.out.println("\nTranscript for " + student.getName() + " " + student.getSurname() + ":");
         System.out.println("Student ID: " + student.getID());
-        System.out.printf("CGPA: %.2f\n" ,cgpa);
+        System.out.printf("CGPA: %.2f\n", cgpa);
         System.out.println("Completed Credits: " + calculateCompletedCredits());
         System.out.println("Taken Credits: " + calculateTakenCredits());
         System.out.println("Grade Level: " + gradeLevel);
@@ -117,6 +121,7 @@ public class Transcript {
             }
         }
     }
+
     /**
      * Checks the status of each course taken by a student and classifies them into successful courses,
      * failed courses, and ongoing courses.
@@ -176,6 +181,7 @@ public class Transcript {
     public double getCgpa() {
         return cgpa;
     }
+
     public void setStudent(Student student) {
         this.student = student;
     }
