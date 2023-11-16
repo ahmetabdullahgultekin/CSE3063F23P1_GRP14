@@ -127,18 +127,14 @@ public class JSONReader {
 
             // Get the array of prerequisite course codes and course section codes from the course.
             JsonNode preRequisiteCourseCodesArray = course.get("preRequisiteCourseCodes");
-            JsonNode courseSectionCodesArray = course.get("courseSectionCodes");
-
-            // Iterate over each prerequisite course code and course section code in the arrays.
             for (JsonNode preRequisiteCourseCode : preRequisiteCourseCodesArray) {
                 preRequisiteCourseCodes.add(preRequisiteCourseCode.asText());
             }
+            coursePrerequisiteCourseCodesMap.put(course1, preRequisiteCourseCodes);
+            JsonNode courseSectionCodesArray = course.get("courseSectionCodes");
             for (JsonNode courseSectionCode : courseSectionCodesArray) {
                 courseSectionCodes.add(courseSectionCode.asText());
             }
-
-            // Map the Course object to the prerequisite course codes and course section codes.
-            coursePrerequisiteCourseCodesMap.put(course1, preRequisiteCourseCodes);
             courseSectionCodesMap.put(course1, courseSectionCodes);
         }
     }
@@ -301,6 +297,7 @@ public class JSONReader {
 
             // Create a new Student object with the retrieved details.
             Student student1 = new Student(id, name, surname, userName, password, (byte) gradeLevel);
+            student1.setDepartment(department);
 
             // Add the new Student object to the department's list of students.
             department.getStudents().add(student1);
@@ -518,6 +515,7 @@ public class JSONReader {
             for (String courseCode : coursePrerequisiteCourseCodesMap.get(course)) {
                 course.getPreRequisiteCourses().add(department.getCourseCodeCourseMap().get(courseCode));
             }
+
             for (String courseSectionCode : courseSectionCodesMap.get(course)) {
                 course.getCourseSections().add(department.getSectionCodeCourseMap().get(courseSectionCode));
             }
