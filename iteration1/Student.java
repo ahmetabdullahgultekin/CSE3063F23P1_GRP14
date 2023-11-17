@@ -292,4 +292,9 @@ public class Student extends Person implements IDisplayMenu {
     public void setDraft(List<Course> draft) {
         this.draft = draft;
     }
+
+    public boolean isHasRequest() {
+        return hasRequest;
+    }
 }
+
