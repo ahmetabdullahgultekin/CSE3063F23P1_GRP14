@@ -108,7 +108,7 @@ public class Student extends Person implements IDisplayMenu {
             }
             catch (Exception e){
                 System.out.println("Invalid input, please enter a number");
-                addCourse();
+                return;
             }
             //Back to Course Section Menu with return value
             if (userNumberInput == 0)
@@ -120,7 +120,8 @@ public class Student extends Person implements IDisplayMenu {
                 this.getAvailableCourses().remove(userNumberInput - 1);
                 addCourse();
             } else {
-                System.out.println("Invalid input, please enter a valid number");
+                System.out.println("Invalid input, please enter a valid number!");
+                return;
             }
         }
     }
@@ -166,11 +167,15 @@ public class Student extends Person implements IDisplayMenu {
             }
             catch (Exception e){
                 System.out.println("Invalid input, please enter a number");
-                dropCourse();
+                return;
             }
 
             if (userNumberInput == 0)
                 return;
+            if (userNumberInput>draft.size() || userNumberInput < 0){
+                System.out.println("Invalid input, please enter a number");
+                return;
+            }
             draft.remove(userNumberInput - 1);
             dropCourse();
         }
@@ -298,4 +303,3 @@ public class Student extends Person implements IDisplayMenu {
     }
 
 }
-
