@@ -1,4 +1,4 @@
-package iteration1.Tests;
+package iteration1.Test;
 
 import iteration1.Course;
 import iteration1.Grade;
