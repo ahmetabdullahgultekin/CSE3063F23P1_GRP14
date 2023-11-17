@@ -2,9 +2,9 @@
   "studentID": 150120083,
   "name": "Ceren",
   "surname": "Tekin",
-  "cgpa": 0,
-  "takenCredits": 0,
-  "completedCredits": 0,
+  "cgpa": 2.0,
+  "takenCredits": 47,
+  "completedCredits": 30,
   "gradeLevel": 4,
   "courses": [
     {

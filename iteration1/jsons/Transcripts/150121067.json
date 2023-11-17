@@ -2,9 +2,9 @@
   "studentID": 150121067,
   "name": "Fatma",
   "surname": "Öztürk",
-  "cgpa": 0,
-  "takenCredits": 0,
-  "completedCredits": 0,
+  "cgpa": 3.55,
+  "takenCredits": 47,
+  "completedCredits": 47,
   "gradeLevel": 4,
   "courses": [
     {

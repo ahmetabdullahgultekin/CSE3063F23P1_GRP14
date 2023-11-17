@@ -2,9 +2,9 @@
   "studentID": 150121075,
   "name": "Polat",
   "surname": "Çakır",
-  "cgpa": 0,
-  "takenCredits": 0,
-  "completedCredits": 0,
+  "cgpa": 2.92,
+  "takenCredits": 33,
+  "completedCredits": 33,
   "gradeLevel": 4,
   "courses": [
     {

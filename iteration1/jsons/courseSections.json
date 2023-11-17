@@ -6,7 +6,7 @@
         "day": "Monday"
     },
     {
-        "hour": 12,
+        "hour": 13,
         "courseSectionCode": "CSE3033.1",
         "courseCode": "CSE3033",
         "day": "Monday"
@@ -18,45 +18,45 @@
         "day": "Monday"
     },
     {
-        "hour": 12,
+        "hour": 9,
         "courseSectionCode": "CSE3215.1",
         "courseCode": "CSE3215",
-        "day": "Friday"
+        "day": "Tuesday"
     },
     {
         "hour": 13,
         "courseSectionCode": "IE3081.1",
         "courseCode": "IE3081",
-        "day": "Monday"
+        "day": "Tuesday"
+    },
+    {
+        "hour": 15,
+        "courseSectionCode": "EE2031.1",
+        "courseCode": "EE2031",
+        "day": "Tuesday"
+    },
+    {
+        "hour": 9,
+        "courseSectionCode": "CSE2225.1",
+        "courseCode": "CSE2225",
+        "day": "Wednesday"
     },
     {
         "hour": 11,
-        "courseSectionCode": "EE2031.1",
-        "courseCode": "EE2031",
-        "day": "Monday"
+        "courseSectionCode": "CSE2023.1",
+        "courseCode": "CSE2023",
+        "day": "Wednesday"
     },
     {
         "hour": 13,
-        "courseSectionCode": "CSE2225.1",
-        "courseCode": "CSE2225",
-        "day": "Monday"
-    },
-    {
-        "hour": 10,
-        "courseSectionCode": "CSE2023.1",
-        "courseCode": "CSE2023",
-        "day": "Monday"
-    },
-    {
-        "hour": 12,
         "courseSectionCode": "ISG121.1",
         "courseCode": "ISG121",
-        "day": "Monday"
+        "day": "Wednesday"
     },
     {
-        "hour": 12,
+        "hour": 9,
         "courseSectionCode": "CSE4074.1",
         "courseCode": "CSE4074",
-        "day": "Monday"
+        "day": "Friday"
     }
 ]

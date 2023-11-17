@@ -8,8 +8,7 @@
         "gradeLevel": 3,
         "departmentName": "CSE",
         "advisorID": 130113008,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150121073,
@@ -20,8 +19,7 @@
         "gradeLevel": 3,
         "departmentName": "CSE",
         "advisorID": 130116002,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150121091,
@@ -32,8 +30,7 @@
         "gradeLevel": 4,
         "departmentName": "CSE",
         "advisorID": 130113008,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150120045,
@@ -44,8 +41,7 @@
         "gradeLevel": 3,
         "departmentName": "CSE",
         "advisorID": 130113008,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150120090,
@@ -56,8 +52,7 @@
         "gradeLevel": 4,
         "departmentName": "CSE",
         "advisorID": 130116002,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150121075,
@@ -68,8 +63,7 @@
         "gradeLevel": 4,
         "departmentName": "CSE",
         "advisorID": 130113008,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150120047,
@@ -80,8 +74,7 @@
         "gradeLevel": 3,
         "departmentName": "CSE",
         "advisorID": 130116002,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150120083,
@@ -92,8 +85,7 @@
         "gradeLevel": 4,
         "departmentName": "CSE",
         "advisorID": 130113008,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150121067,
@@ -104,8 +96,7 @@
         "gradeLevel": 4,
         "departmentName": "CSE",
         "advisorID": 130116002,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     },
     {
         "studentID": 150121059,
@@ -116,7 +107,6 @@
         "gradeLevel": 3,
         "departmentName": "CSE",
         "advisorID": 130116002,
-        "hasRequest": false,
-        "draft": null
+        "hasRequest": false
     }
 ]
