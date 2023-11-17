@@ -1,4 +1,4 @@
-package iteration1.Tests;
+package iteration1.Test;
 import iteration1.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
