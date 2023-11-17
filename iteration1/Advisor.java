@@ -109,6 +109,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
                 break;
             default:
                 System.out.println("Invalid choice Please select again");
+                replyRequests();
                 break;
         }
     }

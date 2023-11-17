@@ -296,5 +296,6 @@ public class Student extends Person implements IDisplayMenu {
     public boolean isHasRequest() {
         return hasRequest;
     }
+
 }
 

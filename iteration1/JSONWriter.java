@@ -96,7 +96,7 @@ public class JSONWriter {
             objectMapper = new ObjectMapper();
             ArrayNode jsonArray = objectMapper.createArrayNode();
             for (Student student : department.getStudents()) {
-                if (!student.getDraft().isEmpty()) {
+                if (student.isHasRequest()) {
                     ObjectNode newNode = objectMapper.createObjectNode();
                     newNode.put("studentID", student.getID());
                     ArrayNode coursesArray = objectMapper.createArrayNode();
@@ -121,12 +121,12 @@ public class JSONWriter {
      * Each student in the JSON file should have the following properties:
      * - "studentID" (int): the ID of the student.
      * - "hasRequest" (boolean): whether the student has a request.
-     *
+     * <p>
      * After reading and parsing the JSON file, the method iterates over each student in the JSON file.
      * For each student, it retrieves the student's ID and whether they have a request.
      * It then gets the Student object corresponding to the student's ID from the department's studentIDStudentMap.
      * Finally, it sets the hasRequest flag for the Student object based on the value retrieved from the JSON.
-     *
+     * <p>
      * If the file is not found, an error message is printed and the program is terminated.
      */
     public void writeStudents() {
@@ -138,8 +138,8 @@ public class JSONWriter {
             for (JsonNode jsonNode : jsonArray) {
                 int studentID = jsonNode.get("studentID").asInt();
                 Student student = department.getStudentIDStudentMap().get(studentID);
-                boolean hasRequest = jsonNode.get("hasRequest").asBoolean();
-                student.setHasRequest(hasRequest);
+                boolean hasRequest = student.isHasRequest();
+                ((ObjectNode) jsonNode).put("hasRequest", hasRequest);
             }
         } catch (IOException e) {
             System.out.println("File not found");
