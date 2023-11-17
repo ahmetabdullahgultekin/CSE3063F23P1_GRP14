@@ -127,7 +127,7 @@ public class Student extends Person implements IDisplayMenu {
 
     // This method calculates the total number of courses, considering both the drafted courses
     // and the courses in the transcript for which the student has not received a grade yet.
-    private int calculateNumberOfCourses() {
+    public int calculateNumberOfCourses() {
         int numberOfCourses = draft.size();
         for (Course course : this.getTranscript().getCourseGradeMap().keySet()) {
             if (this.getTranscript().getCourseGradeMap().get(course) == null) {
