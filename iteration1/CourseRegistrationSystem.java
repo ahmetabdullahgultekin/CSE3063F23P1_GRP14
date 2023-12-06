@@ -26,7 +26,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         department = new Department("CSE");
         JSONReader jsonReader = new JSONReader();
         jsonReader.start(department);
-        mainMenu(department);
+        mainMenu();
     }
 
 
@@ -40,9 +40,8 @@ public class CourseRegistrationSystem implements IDisplayMenu {
      * If the user chooses to exit, the system is terminated.
      * If the user chooses to navigate to the login page, the loginMenu method is called.
      *
-     * @param department The department object to which the menu belongs.
      */
-    public void mainMenu(Department department) {
+    public void mainMenu() {
         // Print the main menu options.
         printMenu("mainMenu");
 
@@ -50,7 +49,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         choice = getInput();
         // If the user's input is invalid, display the main menu again.
         if (choice == -1) {
-            mainMenu(department);
+            mainMenu();
         } else {
             // Handle the user's choice.
             switch (choice) {
@@ -61,12 +60,12 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                     break;
                 case 1:
                     // If the user chooses to navigate to the login page, call the loginMenu method.
-                    loginMenu(department);
+                    loginMenu();
                     break;
                 default:
                     // If the user's choice is not recognized, print a message and display the main menu again.
                     System.out.println("Invalid choice Please select again");
-                    mainMenu(department);
+                    mainMenu();
                     break;
             }
         }
@@ -81,9 +80,8 @@ public class CourseRegistrationSystem implements IDisplayMenu {
      * If the authentication fails, the user is informed that the username or password is incorrect and the login menu is displayed again.
      * If the username does not exist in the department's userNamePersonMap, the user is informed that there is no such user and the login menu is displayed again.
      *
-     * @param department The department object to which the menu belongs.
      */
-    public void loginMenu(Department department) {
+    public void loginMenu() {
         Person person;
         String userName, password;
 
@@ -92,7 +90,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         System.out.print("Please enter your username: ");
         userName = input.next();
         if (userName.equals("0")) {
-            mainMenu(department);
+            mainMenu();
         }
         System.out.print("Enter your password: ");
         password = input.next();
@@ -110,11 +108,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 }
             } else {
                 System.out.println("Username or password is incorrect. Please try again!");
-                loginMenu(department);
+                loginMenu();
             }
         } else {
             System.out.println("There is no such user. Please try again!");
-            loginMenu(department);
+            loginMenu();
         }
     }
 
@@ -153,7 +151,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                     studentMenu(student);
                     break;
                 case 3:
-                    loginMenu(student.getDepartment());
+                    loginMenu();
                     break;
                 default:
                     System.out.println("Invalid choice Please select again");
@@ -217,7 +215,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                     courseSelectionMenu(student);
                     break;
                 case 6:
-                    loginMenu(student.getDepartment());
+                    loginMenu();
                     break;
                 default:
                     System.out.println("Invalid choice Please select again");
@@ -257,7 +255,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                     advisorMenu(advisor);
                     break;
                 case 2:
-                    loginMenu(advisor.getDepartment());
+                    loginMenu();
                 default:
                     System.out.println("Invalid choice");
                     break;
