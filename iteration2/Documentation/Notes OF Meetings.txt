@@ -1,0 +1,68 @@
+27.10.2023 Friday Offline Meeting:
+A preliminary review was made by 5 member of team.
+There has been talk of opening github accounts and using them already.
+Accounts of members was added to repository that is created by group leader.
+After some discussions, the questions that are determined are noted for asking to professor
+Questions:
+1-Should updated datas be kept in json files after each execution?
+2-How will the professor execute the program?(With ArrayList or with new json file )
+
+
+30.10.2023 Monday Offline Meeting:
+The flow was explained to new members.
+After necessary informations were talked, the distribution of tasks was generally distributed.
+
+02.11.2023 Thursday Offline Meeting:
+After thinking about project, new ideas about flow was discussed. The flow became more clear.
+
+03.11.2023 Friday Online Meeting:
+After the task distribution, members of team started to handle their own first tasks.
+Task Distribution:
+Ahmet Abdullah- IDisplayMenu Interface UML Design, Course Registration System UML Class Design, Design Class Diagram(DCD)
+Ayşe Gülsüm- Student UML Class Design, Department UML Class Design, Registration UML Class Design
+Enes- Prepare a Design Sequence Diagram (DSD), Prepare Two System Sequence Diagrams(SSD)
+Hamza- Person UML Class Design, Advisor UML Class Design, Grade UML Class Design, Prepare RAD
+Mehrin- Lecturer UML Class Design, Course UML Class Design
+Melik- Design 2 Use cases for RAD, Course Section UML Class Design
+Ömer-Transcript UML Class Design, JSON Reading and Writing Design.
+
+
+
+6.11.2023 Monday Offline Meeting:
+After the %50 of Requirement Analysis step were handled,The steps to be followed for the remainder of the report were discussed. 
+Then,UML classes designs were discussed. Discussion was about status of UML class designs. Done or not done?
+
+9.11.2023 Thursday Online Meeting:
+The completed parts were discussed and regulations that were necessary to RAD and Software Design parts were decided.
+The task distribution on implementations were done.
+Task Distribution:
+Ahmet Abdullah- Implementation of Registration Class, Implementation of Course Section Class
+Ayşe Gülsüm- Implementation of Person Class, Implementation of Course Class
+Enes- Implementation of Department Class, Implementation of Lecturer Class
+Hamza- Implementation of Student Class
+Mehrin- Implementation of IDisplayMenu Interface, Implementation of Transcript Class
+Melik- Implementation of Advisor Class, Implementation of Grade Class
+Ömer- Implementation of JSON reading and writing, Implementation of Course Registration System Class.
+
+
+15.11.2023 Wednesday Offline Meeting:
+Test Units were discussed. The parts left behind were evaluted and necessary uploads are done.
+
+16.11.2023
+The last important parts were discussed. The iteration 1 almost done.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

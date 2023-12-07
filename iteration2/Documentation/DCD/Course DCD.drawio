@@ -1,0 +1,13 @@
+<mxfile host="Electron" modified="2023-11-14T18:59:46.663Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="Thy2gQa3qPsSO6FQVRgl" version="22.0.3" type="device">
+  <diagram name="Sayfa -1" id="1NXpzn2oZJt-M4uM-ofx">
+    <mxGraphModel dx="591" dy="1989" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Ca0L3x5PjWTKHY2zRNQ0-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Course&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Course(String, String, int): &lt;br/&gt;+ Course(String, String, int, byte): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- semester: byte&lt;br/&gt;- courseCode: String&lt;br/&gt;- preRequsitieToCourses: List&amp;lt;Course&amp;gt;&lt;br/&gt;- lecturer: Lecturer&lt;br/&gt;- courseSections: List&amp;lt;CourseSection&amp;gt;&lt;br/&gt;- preRequisiteCourses: List&amp;lt;Course&amp;gt;&lt;br/&gt;- courseCredit: int&lt;br/&gt;- courseName: String&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getPreRequisiteCourses(): List&amp;lt;Course&amp;gt;&lt;br/&gt;+ addPreRequisiteCourse(Course): void&lt;br/&gt;+ getCourseSessions(): List&lt;br/&gt;+ getSemester(): byte&lt;br/&gt;+ getCourseCredit(): int&lt;br/&gt;+ getCourseCode(): String&lt;br/&gt;+ getCourseName(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="923" y="-405" width="297" height="449" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,13 @@
+<mxfile host="Electron" modified="2023-11-16T16:03:37.643Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="0PLQXP1d4uBkOLmpMSpQ" version="22.0.2" type="device">
+  <diagram name="Page-1" id="lz6Ivsf7wYhSTrHhp2-I">
+    <mxGraphModel dx="3426" dy="3189" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dF2YkrcpAl1PLYD7vzOp-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Transcript&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Transcript(Student): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- student: Student&lt;br/&gt;- gradeLevel: byte&lt;br/&gt;- cgpa: double&lt;br/&gt;- takenCredits: int&lt;br/&gt;- completedCredits: int&lt;br/&gt;- courseGradeMap: Map&amp;lt;Course, Grade&amp;gt;&lt;br/&gt;- studentCourses: List&amp;lt;Course&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ courseStatusCheck(): void&lt;br/&gt;+ getStudentCourses(): List&amp;lt;Course&amp;gt;&lt;br/&gt;+ calculateCompletedCredits(): int&lt;br/&gt;+ getCompletedCredits(): int&lt;br/&gt;+ getCgpa(): double&lt;br/&gt;+ calculateValues(): void&lt;br/&gt;+ setStudent(Student): void&lt;br/&gt;+ getTakenCredits(): int&lt;br/&gt;+ calculateCgpa(): double&lt;br/&gt;+ showTranscript(): void&lt;br/&gt;+ calculateTakenCredits(): int&lt;br/&gt;+ setStudentCourses(List&amp;lt;Course&amp;gt;): void&lt;br/&gt;+ getCourseGradeMap(): Map&amp;lt;Course, Grade&amp;gt;&lt;br/&gt;+ setCourseGradeMap(Map&amp;lt;Course, Grade&amp;gt;): void&lt;br/&gt;+ setTakenCredits(int): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1065" y="-1010" width="352" height="589" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
