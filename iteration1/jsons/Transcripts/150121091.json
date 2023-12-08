@@ -3,7 +3,7 @@
   "name": "Emre",
   "surname": "Uzun",
   "cgpa": 2.83,
-  "takenCredits": 47,
+  "takenCredits": 49,
   "completedCredits": 43,
   "gradeLevel": 4,
   "courses": [
@@ -38,6 +38,10 @@
     {
       "courseCode": "CSE3055",
       "letterGrade": "BA"
+    },
+    {
+      "courseCode": "ISG121",
+      "letterGrade": null
     }
   ]
 }

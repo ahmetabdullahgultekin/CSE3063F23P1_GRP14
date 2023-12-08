@@ -1,0 +1,112 @@
+[
+    {
+        "studentID": 150120097,
+        "name": "Ali",
+        "surname": "Yeşil",
+        "userName": "o150120097",
+        "password": "150120097",
+        "gradeLevel": 3,
+        "departmentName": "CSE",
+        "advisorID": 130113008,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150121073,
+        "name": "Tuğba",
+        "surname": "Yaşar",
+        "userName": "o150121073",
+        "password": "150121073",
+        "gradeLevel": 3,
+        "departmentName": "CSE",
+        "advisorID": 130116002,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150121091,
+        "name": "Emre",
+        "surname": "Uzun",
+        "userName": "o150121091",
+        "password": "150121091",
+        "gradeLevel": 4,
+        "departmentName": "CSE",
+        "advisorID": 130113008,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150120045,
+        "name": "Enes",
+        "surname": "Demir",
+        "userName": "o150120045",
+        "password": "150120045",
+        "gradeLevel": 3,
+        "departmentName": "CSE",
+        "advisorID": 130113008,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150120090,
+        "name": "Mahmut",
+        "surname": "Subaşı",
+        "userName": "o150120090",
+        "password": "150120090",
+        "gradeLevel": 4,
+        "departmentName": "CSE",
+        "advisorID": 130116002,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150121075,
+        "name": "Polat",
+        "surname": "Çakır",
+        "userName": "o150121075",
+        "password": "150121075",
+        "gradeLevel": 4,
+        "departmentName": "CSE",
+        "advisorID": 130113008,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150120047,
+        "name": "Süleyman",
+        "surname": "Alemdar",
+        "userName": "o150120047",
+        "password": "150120047",
+        "gradeLevel": 3,
+        "departmentName": "CSE",
+        "advisorID": 130116002,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150120083,
+        "name": "Ceren",
+        "surname": "Tekin",
+        "userName": "o150120083",
+        "password": "150120083",
+        "gradeLevel": 4,
+        "departmentName": "CSE",
+        "advisorID": 130113008,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150121067,
+        "name": "Fatma",
+        "surname": "Öztürk",
+        "userName": "o150121067",
+        "password": "150121067",
+        "gradeLevel": 4,
+        "departmentName": "CSE",
+        "advisorID": 130116002,
+        "hasRequest": false
+    },
+    {
+        "studentID": 150121059,
+        "name": "Tuğçe",
+        "surname": "Kurşun",
+        "userName": "o150121059",
+        "password": "150121059",
+        "gradeLevel": 3,
+        "departmentName": "CSE",
+        "advisorID": 130116002,
+        "hasRequest": false
+    }
+]

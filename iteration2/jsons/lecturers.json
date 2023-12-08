@@ -1,0 +1,66 @@
+[
+  {
+    "lecturerID": 130106001,
+    "name": "Ali Haydar",
+    "surname": "Özer",
+    "lessonsTaught": [
+      "CSE3055"
+    ]
+  },
+  {
+    "lecturerID": 130108003,
+    "name": "Mustafa",
+    "surname": "Ağaoğlu",
+    "lessonsTaught": [
+      "CSE3033"
+    ]
+  },
+  {
+    "lecturerID": 130109007,
+    "name": "Betül",
+    "surname": "Boz",
+    "lessonsTaught": [
+      "CSE3215"
+    ]
+  },
+  {
+    "lecturerID": 130117005,
+    "name": "Müjdat",
+    "surname": "Soytürk",
+    "lessonsTaught": [
+      "IE3081"
+    ]
+  },
+  {
+    "lecturerID": 130118011,
+    "name": "Çiğdem",
+    "surname": "Eroğlu",
+    "lessonsTaught": [
+      "EE2031"
+    ]
+  },
+  {
+    "lecturerID": 130109002,
+    "name": "Borahan",
+    "surname": "Tümer",
+    "lessonsTaught": [
+      "CSE2225"
+    ]
+  },
+  {
+    "lecturerID": 130111003,
+    "name": "Ali Fuat",
+    "surname": "Alkaya",
+    "lessonsTaught": [
+      "CSE2023"
+    ]
+  },
+  {
+    "lecturerID": 130113003,
+    "name": "Ömer",
+    "surname": "Korçak",
+    "lessonsTaught": [
+      "CSE3215"
+    ]
+  }
+]
