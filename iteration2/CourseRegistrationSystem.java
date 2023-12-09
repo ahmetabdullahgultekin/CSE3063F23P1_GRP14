@@ -95,7 +95,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         ConsoleColours.paintNormalMenu();
         System.out.println("Login Page");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        System.out.println("0. Back");
+        System.out.println("Back -> 0");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
 
         ConsoleColours.paintInputMenu();
@@ -311,7 +311,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
      */
     public void exitProgram() {
         //Print Message
-        System.out.print(ConsoleColours.ANSI_YELLOW_BACKGROUND);
+        ConsoleColours.paintExitMenu();
         System.out.println("Exiting from system...");
         // Create a new JSONWriter instance.
         JSONWriter jsonWriter = new JSONWriter();
