@@ -207,16 +207,16 @@ public class JSONReader {
             Course course = department.getCourseCodeCourseMap().get(courseCode);
 
             // Create a new CourseSection object with the retrieved details.
-            CourseSection courseSection1 = new CourseSection(course, courseSectionCode, day, hour);
+            Course courseSection1 = new CourseSection(course, courseSectionCode, day, hour);
 
             // Add the new CourseSection object to the department's list of course sections.
-            department.getCourseSections().add(courseSection1);
+            department.getCourseSections().add((CourseSection) courseSection1);
 
             // Map the course section code to the Course object in the department's sectionCodeCourseMap.
             department.getSectionCodeCourseMap().put(courseSectionCode, course);
 
             // Map the CourseSection object to the Course object in the department's sectionCourseMap.
-            department.getSectionCourseMap().put(courseSection1, course);
+            department.getSectionCourseMap().put((CourseSection) courseSection1, course);
         }
     }
 
@@ -256,10 +256,10 @@ public class JSONReader {
             String surname = lecturer.get("surname").asText();
 
             // Create a new Lecturer object with the retrieved details.
-            Lecturer lecturer1 = new Lecturer(id, name, surname);
+            Person lecturer1 = new Lecturer(id, name, surname);
 
             // Add the new Lecturer object to the department's list of lecturers.
-            department.getLecturers().add(lecturer1);
+            department.getLecturers().add((Lecturer) lecturer1);
 
             // Set the department for the lecturer.
             lecturer1.setDepartment(department);
@@ -325,17 +325,17 @@ public class JSONReader {
             int gradeLevel = student.get("gradeLevel").asInt();
 
             // Create a new Student object with the retrieved details.
-            Student student1 = new Student(id, name, surname, userName, password, (byte) gradeLevel);
+            Person student1 = new Student(id, name, surname, userName, password, (byte) gradeLevel);
             student1.setDepartment(department);
 
             // Add the new Student object to the department's list of students.
-            department.getStudents().add(student1);
+            department.getStudents().add((Student) student1);
 
             // Map the student's username to the Student object in the university's userNamePersonMap.
             university.getUserNamePersonMap().put(userName, student1);
 
             // Map the student's ID to the Student object in the department's studentIDStudentMap.
-            department.getStudentIDStudentMap().put(id, student1);
+            department.getStudentIDStudentMap().put(id, (Student) student1);
 
             // Retrieve the advisor ID for the student from the JSON.
             int advisorID = student.get("advisorID").asInt();
@@ -344,7 +344,7 @@ public class JSONReader {
             studentIDAdvisorIDMap.put(id, advisorID);
 
             // Read the transcript for the student.
-            readTranscript(student1);
+            readTranscript((Student) student1);
         }
     }
 
@@ -503,16 +503,16 @@ public class JSONReader {
             String password = advisor.get("password").asText();
 
             // Create a new Advisor object with the retrieved details.
-            Advisor advisor1 = new Advisor(id, name, surname, userName, password);
+            Person advisor1 = new Advisor(id, name, surname, userName, password);
 
             // Add the new Advisor object to the department's list of advisors.
-            department.getAdvisors().add(advisor1);
+            department.getAdvisors().add((Advisor) advisor1);
 
             // Set the department for the advisor.
             advisor1.setDepartment(department);
 
             // Map the advisor's ID to the Advisor object in the department's advisorIDAdvisorMap.
-            department.getAdvisorIDAdvisorMap().put(id, advisor1);
+            department.getAdvisorIDAdvisorMap().put(id, (Advisor) advisor1);
 
             // Map the advisor's username to the Advisor object in the university's userNamePersonMap.
             university.getUserNamePersonMap().put(userName, advisor1);
