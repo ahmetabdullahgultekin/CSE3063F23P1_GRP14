@@ -140,9 +140,18 @@ public class JSONWriter {
             for (JsonNode jsonNode : jsonArray) {
                 int studentID = jsonNode.get("studentID").asInt();
                 Student student = department.getStudentIDStudentMap().get(studentID);
+                String userName = jsonNode.get("userName").asText();
+                String password = jsonNode.get("password").asText();
+                String departmentName = jsonNode.get("departmentName").asText();
                 boolean hasRequest = student.isHasRequest();
+
                 ((ObjectNode) jsonNode).put("hasRequest", hasRequest);
+                ((ObjectNode) jsonNode).put("userName", userName);
+                ((ObjectNode) jsonNode).put("password", password);
+                ((ObjectNode) jsonNode).put("departmentName", departmentName);
             }
+            // Write the updated JsonNode back to the file
+            objectMapper.writeValue(new File(filePath), jsonArray);
         } catch (IOException e) {
             System.out.println("File not found");
             System.exit(0);
