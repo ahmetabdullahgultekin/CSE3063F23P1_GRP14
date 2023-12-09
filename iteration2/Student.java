@@ -1,11 +1,9 @@
 package iteration2;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 //Inherits from the Person class and implements the ILogin interface
 public class Student extends Person implements IDisplayMenu {
@@ -31,10 +29,15 @@ public class Student extends Person implements IDisplayMenu {
     /* Create a new Registration object and initialize it with the current
     student object (this) and draft information */
     public void sendRequest() {
+        ConsoleColours.paintWarningMenu();
         if (hasRequest) {
-            System.out.println("\nYou already have a request waiting for approval");
+            System.out.println("You already have a request waiting for approval.");
+            ConsoleColours.resetColour();
+            System.out.println();
         } else if (draft.isEmpty()) {
-            System.out.println("\nYour draft is empty!");
+            System.out.println("Your draft is empty!");
+            ConsoleColours.resetColour();
+            System.out.println();
         } else {
             Registration registration = new Registration(this, draft);
             registration.addRequest(advisor);
@@ -49,82 +52,93 @@ public class Student extends Person implements IDisplayMenu {
     public void printMenu(String menuType) {
         switch (menuType) {
             case "studentMenu":
-                System.out.println("\nStudent Menu");
+                ConsoleColours.paintNormalMenu();
                 System.out.println("Welcome " + this.getName() + " " + this.getSurname() + "!");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                 System.out.println("Please select from the following options:");
-                System.out.println("0. Exit");
-                System.out.println("1. Course Selection Menu");
-                System.out.println("2. View Transcript");
-                System.out.println("3. Log out");
-                System.out.print("Enter your choice: ");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+                System.out.println("Exit -> 0");
+                System.out.println("Course Selection Menu -> 1");
+                System.out.println("View Transcript -> 2");
+                System.out.println("Log out -> 3");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+                ConsoleColours.paintInputMenu();
+                System.out.print("Enter your choice: \n");
                 break;
             case "courseSelectionMenu":
-                System.out.println("\nCourse Selection Menu");
+                ConsoleColours.paintNormalMenu();
+                System.out.println("Course Selection Menu");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
                 System.out.println("Please select from the following options:");
-                System.out.println("0. Back");
-                System.out.println("1. Course Status Check");
-                System.out.println("2. Add Course");
-                System.out.println("3. Drop Course");
-                System.out.println("4. Send Request");
-                System.out.println("5. Show request status");
-                System.out.println("6. Log out");
-                System.out.print("Enter your choice: ");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+                System.out.println("Back -> 0");
+                System.out.println("Course Status Check -> 1");
+                System.out.println("Add Course to Draft-> 2");
+                System.out.println("Delete Course from Draft -> 3");
+                System.out.println("Send Request -> 4");
+                System.out.println("Show request status -> 5");
+                System.out.println("Log out -> 6");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+                ConsoleColours.paintInputMenu();
+                System.out.print("Enter your choice: \n");
         }
     }
 
     // The 'addCourse' function displays all accessible courses and adds these courses to
     // the student's draft, which is a private attribute.
     public void addCourse() {
+        CourseRegistrationSystem controller = new CourseRegistrationSystem();
+
         //If a request has been sent, terminate the function.
         if (hasRequest) {
-            System.out.println("\nYou can not add lecture because you have a request waiting for approval.");
+            ConsoleColours.paintErrorMenu();
+            System.out.println("You can not add lecture because you have a request waiting for approval.");
             return;
         }
         //Call the calculateNumberOfCourses() function to limit with the maximum number of courses.
         int numberOfCourses = calculateNumberOfCourses();
         if (numberOfCourses >= this.getDepartment().getMaxCourseNumber()) {
+            ConsoleColours.paintErrorMenu();
             System.out.println("You can not add more lectures.");
             return;
         }
 
         //Call the viewAvailableCourses() function to see all available courses.
-        System.out.println("\nAdd Course Menu");
+        ConsoleColours.paintNormalMenu();
+        System.out.println("Add Course Menu");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
         viewAvailableCourses();
 
+        System.out.println("Back -> 0");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
         System.out.println("Here is the available courses:");
-        System.out.println("0. Back");
-        //Yazdırma işlemi için belli bir for döngüsü kullan
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        ConsoleColours.paintListMenu();
+
+        //Print Available Courses
         for (int i = 0; i < this.getAvailableCourses().size(); i++) {
             System.out.println((i + 1) + ". " + this.getAvailableCourses().get(i).getCourseCode() +
                     " - " + this.getAvailableCourses().get(i).getCourseName());
+            System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
         }
-        //Check the controlGate variable for while loop manipulation.
-        int controlGate = 1;
-        while (controlGate == 1) {
-            //Take input from the user and make assignments to the courses.
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Choose number between 1 to " + this.getAvailableCourses().size() + " to add course: ");
-            int userNumberInput = 0;
-            try{
-                userNumberInput = scanner.nextInt();
-            }
-            catch (Exception e){
-                System.out.println("Invalid input, please enter a number");
-                return;
-            }
-            //Back to Course Section Menu with return value
-            if (userNumberInput == 0)
-                return;
+
+
+        //Take input from the user and make assignments to the courses.
+        ConsoleColours.paintInputMenu();
+        System.out.print("Choose number between 1 to " + this.getAvailableCourses().size() + " to add course: \n");
+
+        int userNumberInput = controller.getInput();
+        //Back to Course Section Menu with return value
+
             //If incorrect input is entered, ask for input again.
-            if (1 <= userNumberInput && userNumberInput <= this.getAvailableCourses().size()) {
-                controlGate = 0;
-                this.draft.add(this.getAvailableCourses().get(userNumberInput - 1));
-                this.getAvailableCourses().remove(userNumberInput - 1);
-                addCourse();
-            } else {
-                System.out.println("Invalid input, please enter a valid number!");
-                return;
-            }
+        if (1 <= userNumberInput && userNumberInput <= this.getAvailableCourses().size()) {
+            this.draft.add(this.getAvailableCourses().get(userNumberInput - 1));
+            this.getAvailableCourses().remove(userNumberInput - 1);
+            addCourse();
+        } else if (userNumberInput < 0 || userNumberInput > this.getAvailableCourses().size()){
+            ConsoleColours.paintErrorMenu();
+            System.out.println("Invalid input, please enter a valid number!");
+            addCourse();
         }
     }
 
@@ -141,59 +155,75 @@ public class Student extends Person implements IDisplayMenu {
     }
 
     public void dropCourse() {
+        CourseRegistrationSystem controller = new CourseRegistrationSystem();
+
         // Check if the student has already sent a request
         if (hasRequest) {
-            System.out.println("\nYou can not drop lecture because you have a request waiting for approval.");
+            ConsoleColours.paintErrorMenu();
+            System.out.println("You can not remove lecture because you have a request waiting for approval.");
             return;
         }
-
-        System.out.println("\nDrop Course Menu");
-        System.out.println("Select the course you want drop");
-
         // Check if the draft is empty.
         if (draft.isEmpty()) {
+            ConsoleColours.paintWarningMenu();
             System.out.println("Your draft is empty!");
+            ConsoleColours.resetColour();
+            System.out.println();
         } else {
-            System.out.println("0. Back");
-            // Manipulation for displaying and dropping courses in the menu.
+            ConsoleColours.paintNormalMenu();
+            System.out.println("Remove Course from Draft");
+            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+            System.out.println("Back -> 0");
+            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+            System.out.println("Select the course you want to remove:");
+            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+            ConsoleColours.paintListMenu();
+
+            // Manipulation for displaying and removing courses in the menu.
             for (int i = 0; i < draft.size(); i++) {
                 System.out.println((i + 1) + ". " + draft.get(i).getCourseCode() +
                         " - " + draft.get(i).getCourseName());
+                System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
             // Remove input index element -1 from the draft list if the input is valid and in the appropriate range.
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Choose number between 1 to " + this.draft.size() + " to drop course: ");
-            int userNumberInput = 0;
-            try{
-                userNumberInput = scanner.nextInt();
-            }
-            catch (Exception e){
-                System.out.println("Invalid input, please enter a number");
-                return;
-            }
+            ConsoleColours.paintInputMenu();
+            System.out.print("Choose number between 1 to " + this.draft.size() + " to remove course: \n");
 
-            if (userNumberInput == 0)
-                return;
-            if (userNumberInput>draft.size() || userNumberInput < 0){
-                System.out.println("Invalid input, please enter a number");
-                return;
+            int userNumberInput = controller.getInput();
+
+            if (userNumberInput <= draft.size() && userNumberInput >= 1){
+                draft.remove(userNumberInput - 1);
+                dropCourse();
             }
-            draft.remove(userNumberInput - 1);
-            dropCourse();
+            else if(userNumberInput > draft.size() || userNumberInput < 0) {
+                ConsoleColours.paintErrorMenu();
+                System.out.println("Invalid input, please enter a number");
+                dropCourse();
+            }
         }
     }
 
     //Checks if the student has a registration request waiting for advisor approval
     //and prints an appropriate message to the console.
     public void showRequestStatus() {
+        ConsoleColours.paintWarningMenu();
         if (hasRequest) {
-            System.out.println("\nYour request is waiting for advisor approval");
-        } else System.out.println("\nThere is no waiting request");
+            System.out.println("Your request is waiting for advisor approval.");
+        } else {
+            System.out.println("There is no waiting request!");
+            ConsoleColours.resetColour();
+            System.out.println();
+            return;
+        }
+
+        ConsoleColours.paintNormalMenu();
         System.out.println("Your draft: ");
+        ConsoleColours.paintListMenu();
         for (Course course : draft){
             System.out.println(course.getCourseCode() + "-" + course.getCourseName());
         }
-
+        ConsoleColours.resetColour();
+        System.out.println();
     }
 
     public List<Course> getAvailableCourses() {
@@ -212,12 +242,15 @@ public class Student extends Person implements IDisplayMenu {
         Map<CourseSection, Course> courseSectionCourse = this.getDepartment().getSectionCourseMap();
 
         /*
-        "While iterating through all course sections, check if the grade level is sufficient
+         While iterating through all course sections, check if the grade level is sufficient
          and if the course is already in the draft. If it is, continue the loop to change the course section.
          */
         for (CourseSection courseSection : allCourseSections) {
-            if (this.gradeLevel < courseSection.getGradeLevel() || draft.contains(courseSectionCourse.get(courseSection)))
+
+            if (this.gradeLevel < courseSection.getGradeLevel()
+                    || draft.contains(courseSectionCourse.get(courseSection)))
                 continue;
+
         /*
         If the conditions are not problematic and there is no course in the transcript,
         enter the 'if' statement. If status is true, then the student can add.
@@ -225,11 +258,13 @@ public class Student extends Person implements IDisplayMenu {
         and received a low success grade; in this case, they can retake the course.
         */
             Course course = courseSectionCourse.get(courseSection);
+
             if (!mapGrade.containsKey(course)) {
                 boolean status = true;
                 for (Course prerequisite : course.getPreRequisiteCourses()) {
-                    if ((mapGrade.get(prerequisite) == null || mapGrade.get(prerequisite).getLetterGrade().equals("FF") ||
-                            mapGrade.get(prerequisite).getLetterGrade().equals("FD"))) {
+                    if ((mapGrade.get(prerequisite) == null
+                            || mapGrade.get(prerequisite).getLetterGrade().equals("FF")
+                            || mapGrade.get(prerequisite).getLetterGrade().equals("FD"))) {
                         status = false;
                     }
                 }
@@ -242,7 +277,6 @@ public class Student extends Person implements IDisplayMenu {
                 }
             }
         }
-
         this.availableCourses = availableCourses;
     }
 
@@ -253,6 +287,21 @@ public class Student extends Person implements IDisplayMenu {
         return this.getUserName().equals(userName) && this.getPassword().equals(password);
     }
 
+    /*
+    public int getInput() {
+        int choice;
+        try {
+            Scanner input = new Scanner(System.in);
+            choice = input.nextInt();
+            scanner.close();
+        } catch (Exception e) {
+            ConsoleColours.paintErrorMenu();
+            System.out.println("Invalid input, please do not enter a non-numeric input!");
+            return -1;
+        }
+        return choice;
+    }
+    */
     public String getDepartmentName() {
         return this.getDepartment().getDepartmentName();
     }
