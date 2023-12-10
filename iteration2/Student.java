@@ -29,7 +29,7 @@ public class Student extends Person implements IDisplayMenu {
     /* Create a new Registration object and initialize it with the current
     student object (this) and draft information */
     public void sendRequest() {
-        ConsoleColours.paintWarningMenu();
+        ConsoleColours.paintYellowMenu();
         if (hasRequest) {
             System.out.println("You already have a request waiting for approval.");
             ConsoleColours.resetColour();
@@ -52,34 +52,34 @@ public class Student extends Person implements IDisplayMenu {
     public void printMenu(String menuType) {
         switch (menuType) {
             case "studentMenu":
-                ConsoleColours.paintNormalMenu();
+                ConsoleColours.paintBlueMenu();
                 System.out.println("Welcome " + this.getName() + " " + this.getSurname() + "!");
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                 System.out.println("Please select from the following options:");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-                System.out.println("Exit -> 0");
-                System.out.println("Course Selection Menu -> 1");
-                System.out.println("View Transcript -> 2");
-                System.out.println("Log out -> 3");
+                System.out.println("                         Exit System -> 0");
+                System.out.println("               Course Selection Menu -> 1");
+                System.out.println("                     View Transcript -> 2");
+                System.out.println("                             Log out -> 3");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-                ConsoleColours.paintInputMenu();
+                ConsoleColours.paintGreenMenu();
                 System.out.print("Enter your choice: \n");
                 break;
             case "courseSelectionMenu":
-                ConsoleColours.paintNormalMenu();
+                ConsoleColours.paintBlueMenu();
                 System.out.println("Course Selection Menu");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
                 System.out.println("Please select from the following options:");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-                System.out.println("Back -> 0");
-                System.out.println("Course Status Check -> 1");
-                System.out.println("Add Course to Draft-> 2");
-                System.out.println("Delete Course from Draft -> 3");
-                System.out.println("Send Request -> 4");
-                System.out.println("Show request status -> 5");
-                System.out.println("Log out -> 6");
+                System.out.println("                   Back to Main Menu -> 0");
+                System.out.println("                 Course Status Check -> 1");
+                System.out.println("                 Add Course to Draft -> 2");
+                System.out.println("            Delete Course from Draft -> 3");
+                System.out.println("                 Show request status -> 4");
+                System.out.println("                        Send Request -> 5");
+                System.out.println("                             Log out -> 6");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-                ConsoleColours.paintInputMenu();
+                ConsoleColours.paintGreenMenu();
                 System.out.print("Enter your choice: \n");
         }
     }
@@ -91,29 +91,29 @@ public class Student extends Person implements IDisplayMenu {
 
         //If a request has been sent, terminate the function.
         if (hasRequest) {
-            ConsoleColours.paintErrorMenu();
+            ConsoleColours.paintRedMenu();
             System.out.println("You can not add lecture because you have a request waiting for approval.");
             return;
         }
         //Call the calculateNumberOfCourses() function to limit with the maximum number of courses.
         int numberOfCourses = calculateNumberOfCourses();
         if (numberOfCourses >= this.getDepartment().getMaxCourseNumber()) {
-            ConsoleColours.paintErrorMenu();
+            ConsoleColours.paintRedMenu();
             System.out.println("You can not add more lectures.");
             return;
         }
 
         //Call the viewAvailableCourses() function to see all available courses.
-        ConsoleColours.paintNormalMenu();
+        ConsoleColours.paintBlueMenu();
         System.out.println("Add Course Menu");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
         viewAvailableCourses();
 
-        System.out.println("Back -> 0");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println("      Back -> 0");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
         System.out.println("Here is the available courses:");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        ConsoleColours.paintListMenu();
+        ConsoleColours.paintPurpleMenu();
 
         //Print Available Courses
         for (int i = 0; i < this.getAvailableCourses().size(); i++) {
@@ -124,7 +124,7 @@ public class Student extends Person implements IDisplayMenu {
 
 
         //Take input from the user and make assignments to the courses.
-        ConsoleColours.paintInputMenu();
+        ConsoleColours.paintGreenMenu();
         System.out.print("Choose number between 1 to " + this.getAvailableCourses().size() + " to add course: \n");
 
         int userNumberInput = controller.getInput();
@@ -136,7 +136,7 @@ public class Student extends Person implements IDisplayMenu {
             this.getAvailableCourses().remove(userNumberInput - 1);
             addCourse();
         } else if (userNumberInput < 0 || userNumberInput > this.getAvailableCourses().size()){
-            ConsoleColours.paintErrorMenu();
+            ConsoleColours.paintRedMenu();
             System.out.println("Invalid input, please enter a valid number!");
             addCourse();
         }
@@ -159,25 +159,25 @@ public class Student extends Person implements IDisplayMenu {
 
         // Check if the student has already sent a request
         if (hasRequest) {
-            ConsoleColours.paintErrorMenu();
+            ConsoleColours.paintRedMenu();
             System.out.println("You can not remove lecture because you have a request waiting for approval.");
             return;
         }
         // Check if the draft is empty.
         if (draft.isEmpty()) {
-            ConsoleColours.paintWarningMenu();
+            ConsoleColours.paintYellowMenu();
             System.out.println("Your draft is empty!");
             ConsoleColours.resetColour();
             System.out.println();
         } else {
-            ConsoleColours.paintNormalMenu();
+            ConsoleColours.paintBlueMenu();
             System.out.println("Remove Course from Draft");
             System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
-            System.out.println("Back -> 0");
-            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+            System.out.println("               Back -> 0");
+            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
             System.out.println("Select the course you want to remove:");
             System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-            ConsoleColours.paintListMenu();
+            ConsoleColours.paintPurpleMenu();
 
             // Manipulation for displaying and removing courses in the menu.
             for (int i = 0; i < draft.size(); i++) {
@@ -186,7 +186,7 @@ public class Student extends Person implements IDisplayMenu {
                 System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
             // Remove input index element -1 from the draft list if the input is valid and in the appropriate range.
-            ConsoleColours.paintInputMenu();
+            ConsoleColours.paintGreenMenu();
             System.out.print("Choose number between 1 to " + this.draft.size() + " to remove course: \n");
 
             int userNumberInput = controller.getInput();
@@ -196,7 +196,7 @@ public class Student extends Person implements IDisplayMenu {
                 dropCourse();
             }
             else if(userNumberInput > draft.size() || userNumberInput < 0) {
-                ConsoleColours.paintErrorMenu();
+                ConsoleColours.paintRedMenu();
                 System.out.println("Invalid input, please enter a number");
                 dropCourse();
             }
@@ -206,7 +206,7 @@ public class Student extends Person implements IDisplayMenu {
     //Checks if the student has a registration request waiting for advisor approval
     //and prints an appropriate message to the console.
     public void showRequestStatus() {
-        ConsoleColours.paintWarningMenu();
+        ConsoleColours.paintYellowMenu();
         if (hasRequest) {
             System.out.println("Your request is waiting for advisor approval.");
         } else {
@@ -216,9 +216,9 @@ public class Student extends Person implements IDisplayMenu {
             return;
         }
 
-        ConsoleColours.paintNormalMenu();
+        ConsoleColours.paintBlueMenu();
         System.out.println("Your draft: ");
-        ConsoleColours.paintListMenu();
+        ConsoleColours.paintPurpleMenu();
         for (Course course : draft){
             System.out.println(course.getCourseCode() + "-" + course.getCourseName());
         }
@@ -287,21 +287,6 @@ public class Student extends Person implements IDisplayMenu {
         return this.getUserName().equals(userName) && this.getPassword().equals(password);
     }
 
-    /*
-    public int getInput() {
-        int choice;
-        try {
-            Scanner input = new Scanner(System.in);
-            choice = input.nextInt();
-            scanner.close();
-        } catch (Exception e) {
-            ConsoleColours.paintErrorMenu();
-            System.out.println("Invalid input, please do not enter a non-numeric input!");
-            return -1;
-        }
-        return choice;
-    }
-    */
     public String getDepartmentName() {
         return this.getDepartment().getDepartmentName();
     }
