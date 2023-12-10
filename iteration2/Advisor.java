@@ -2,8 +2,6 @@ package iteration2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
 /**
  * Represents an adviser who can log in, reach request of the student, approve and reject request of the student
  * Inherits from the Person class and implements the IDisplayMenu interface.
@@ -37,40 +35,47 @@ public class Advisor extends Lecturer implements IDisplayMenu {
      * And calls replyRequest method
      */
     public void printRequests() {
-        System.out.println("List of Requests:");
-        System.out.println("0. Back");
-        if (requestList.size() >= 5) {
-            for (int i = 0; i < 5; i++) {
-                System.out.println((i + 1) + ". " + requestList.get(i).getStudent().getName() + " " + requestList.get(i).getStudent().getSurname());
-            }
-        } else {
+        CourseRegistrationSystem controller = new CourseRegistrationSystem();
+        ConsoleColours.paintBlueMenu();
+        System.out.println("Request Approval Menu:");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+        System.out.println("             Back -> 0");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        if (!requestList.isEmpty()) {
+            System.out.println("Request(s) Listed Below:");
+            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+
+            ConsoleColours.paintPurpleMenu();
             for (int i = 0; i < requestList.size(); i++) {
-                System.out.println((i + 1) + ". " + requestList.get(i).getStudent().getName() + " " + requestList.get(i).getStudent().getSurname());
+                System.out.println((i + 1) + ". " + requestList.get(i).getStudent().getName()
+                        + " " + requestList.get(i).getStudent().getSurname());
+                System.out.println("``````````````````````````````````````````````");
             }
-        }
 
-        System.out.print("Enter the request number you want to evaluate: ");
-        Scanner scanner = new Scanner(System.in);
+            ConsoleColours.paintGreenMenu();
+            System.out.println("Enter the request number you want to evaluate: ");
+            requestNumber = controller.getInput();
 
-        try {
-            requestNumber = scanner.nextInt();
-        } catch (Exception e) {
-            System.out.println("Invalid input, please enter a number");
-            printRequests();
-        }
-
-
-        if (requestNumber == 0) {
-            return;
-        } else if (requestNumber > requestList.size() || requestNumber < 0) {
-            System.out.println("Invalid choice Please select again");
-            printRequests();
+            ConsoleColours.paintBlueMenu();
+            if (requestNumber <= requestList.size() && requestNumber >= 1) {
+                System.out.println(requestList.get(requestNumber - 1).getStudent().getName() + " "
+                        + requestList.get(requestNumber - 1).getStudent().getSurname() + " wants to take these courses:");
+                ConsoleColours.paintPurpleMenu();
+                for (Course course : requestList.get(requestNumber - 1).getCourses()) {
+                    System.out.println(course.getCourseCode() + " " + course.getCourseName());
+                }
+                replyRequests();
+            } else if (requestNumber > requestList.size() || requestNumber < 0) {
+                ConsoleColours.paintRedMenu();
+                System.out.println("Invalid choice Please select again!");
+                printRequests();
+                replyRequests();
+            }
         } else {
-            System.out.println(requestList.get(requestNumber - 1).getStudent().getName() + " " + requestList.get(requestNumber - 1).getStudent().getSurname() + " wants to take these courses:");
-            for (Course course : requestList.get(requestNumber - 1).getCourses()) {
-                System.out.println(course.getCourseCode() + " " + course.getCourseName());
-            }
-            replyRequests();
+            ConsoleColours.paintYellowMenu();
+            System.out.println("There is not a Waiting Request!");
+            ConsoleColours.resetColour();
+            System.out.println();
         }
     }
 
@@ -79,20 +84,18 @@ public class Advisor extends Lecturer implements IDisplayMenu {
      * Calls the appropriate methods from registration class
      */
     public void replyRequests() {
-        System.out.println("1. Approve Request");
-        System.out.println("2. Reject Request");
-        System.out.println("3. Back");
-        System.out.println("Please select an option: ");
-        Scanner scanner = new Scanner(System.in);
+        CourseRegistrationSystem controller = new CourseRegistrationSystem();
 
-        int choice = 0;
-        try {
-            choice = scanner.nextInt();
-        } catch (Exception e) {
-            System.out.println("Invalid input, please enter a number");
-            replyRequests();
-        }
+        ConsoleColours.paintBlueMenu();
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println("               Back -> 0");
+        System.out.println("    Approve Request -> 1");
+        System.out.println("     Reject Request -> 2");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        ConsoleColours.paintGreenMenu();
+        System.out.println("Please select an option:");
 
+        int choice = controller.getInput();
         switch (choice) {
             case 1:
                 requestList.get(requestNumber - 1).approveRequest();
@@ -104,11 +107,12 @@ public class Advisor extends Lecturer implements IDisplayMenu {
                 requestList.remove(requestNumber - 1);
                 printRequests();
                 break;
-            case 3:
+            case 0:
                 printRequests();
                 break;
             default:
-                System.out.println("Invalid choice Please select again");
+                ConsoleColours.paintRedMenu();
+                System.out.println("Invalid choice. Please select again!");
                 replyRequests();
                 break;
         }
@@ -120,13 +124,17 @@ public class Advisor extends Lecturer implements IDisplayMenu {
      */
     @Override
     public void printMenu(String menuType) {
-        System.out.println("\nAdvisor Menu");
+        ConsoleColours.paintBlueMenu();
         System.out.println("Welcome " + this.getName() + " " + this.getSurname() + "!");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         System.out.println("Please select from the following options:");
-        System.out.println("0. Exit");
-        System.out.println("1. List requests");
-        System.out.println("2. Log out");
-        System.out.print("Enter your choice: ");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println("                                Exit -> 0");
+        System.out.println("                       List requests -> 1");
+        System.out.println("                             Log out -> 2");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        ConsoleColours.paintGreenMenu();
+        System.out.print("Enter your choice: \n");
     }
 
     /**
