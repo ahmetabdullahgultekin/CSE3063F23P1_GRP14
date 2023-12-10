@@ -87,12 +87,10 @@ public class Transcript {
     public int calculateCompletedCredits() {
         completedCredits = 0;
         for (Course course : studentCourses) {
-            if (courseGradeMap.get(course) == null
+            if (!(courseGradeMap.get(course) == null
                     || courseGradeMap.get(course).getLetterGrade().equals("FF")
-                    || courseGradeMap.get(course).getLetterGrade().equals("FD")) {
-            } else {
-                completedCredits += course.getCourseCredit();
-            }
+                    || courseGradeMap.get(course).getLetterGrade().equals("FD")))
+            { completedCredits += course.getCourseCredit(); }
         }
         return completedCredits;
     }
@@ -105,15 +103,19 @@ public class Transcript {
      * course ID, credits, grade, and name.
      */
     public void showTranscript() {
-        System.out.println("\nTranscript for " + student.getName() + " " + student.getSurname() + ":");
-        System.out.println("Student ID: " + student.getID());
-        System.out.printf("CGPA: %.2f\n", cgpa);
+        ConsoleColours.paintBlueMenu();
+        System.out.println("Transcript for " + student.getName() + " " + student.getSurname() + ":");
+        ConsoleColours.paintWhiteMenu();
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println("Student ID       : " + student.getID());
+        System.out.printf("CGPA             : %.2f\n", cgpa);
         System.out.println("Completed Credits: " + calculateCompletedCredits());
-        System.out.println("Taken Credits: " + calculateTakenCredits());
-        System.out.println("Grade Level: " + gradeLevel);
-        System.out.println("Department: " + student.getDepartmentName());
-        System.out.println("Courses:");
-
+        System.out.println("Taken Credits    : " + calculateTakenCredits());
+        System.out.println("Grade Level      : " + gradeLevel);
+        System.out.println("Department       : " + student.getDepartmentName());
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        
+        ConsoleColours.paintPurpleMenu();
         System.out.format("%-15s%-38s%-20s%-15s\n", "Course Code", "Course Name", "Course Credit", "Grade");
         System.out.println("-------------------------------------------------------------------------------");
         for (Course course : studentCourses) {
@@ -123,6 +125,8 @@ public class Transcript {
                 System.out.format("%-15s%-45s%-15s%-15s\n", course.getCourseCode(), course.getCourseName(), course.getCourseCredit(), courseGradeMap.get(course).getLetterGrade());
             }
         }
+        ConsoleColours.resetColour();
+        System.out.println();
     }
 
     /**
@@ -133,6 +137,7 @@ public class Transcript {
         List<Course> successfulCourses = new ArrayList<>();
         List<Course> failedCourses = new ArrayList<>();
         List<Course> ongoingCourses = new ArrayList<>();
+        
         for (Course course : studentCourses) {
             if (courseGradeMap.get(course) == null) {
                 ongoingCourses.add(course);
@@ -143,18 +148,29 @@ public class Transcript {
                 successfulCourses.add(course);
             }
         }
-        System.out.println("\nSuccessful Courses:");
-        for (Course course : successfulCourses) {
-            System.out.println(course.getCourseCode() + " " + course.getCourseName());
-        }
-        System.out.println("Failed Courses:");
-        for (Course course : failedCourses) {
-            System.out.println(course.getCourseCode() + " " + course.getCourseName());
-        }
+
+        ConsoleColours.paintYellowMenu();
         System.out.println("Ongoing Courses:");
         for (Course course : ongoingCourses) {
             System.out.println(course.getCourseCode() + " " + course.getCourseName());
         }
+        System.out.println();
+
+        ConsoleColours.paintGreenMenu();
+        System.out.println("Successful Courses:");
+        for (Course course : successfulCourses) {
+            System.out.println(course.getCourseCode() + " " + course.getCourseName());
+        }
+        System.out.println();
+
+        ConsoleColours.paintRedMenu();
+        System.out.println("Failed Courses:");
+        for (Course course : failedCourses) {
+            System.out.println(course.getCourseCode() + " " + course.getCourseName());
+        }
+        System.out.println();
+        ConsoleColours.resetColour();
+        System.out.println();
     }
 
     public List<Course> getStudentCourses() {
