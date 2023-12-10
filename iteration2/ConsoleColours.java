@@ -9,7 +9,8 @@ public class ConsoleColours {
     public static final String ANSI_GREEN_BACKGROUND;
     public static final String ANSI_YELLOW_BACKGROUND;
     public static final String ANSI_BLUE_BACKGROUND;
-    public static final String ANSI_BLUE_BRIGHT_BACKGROUND;
+    public static final String ANSI_WHITE_BRIGHT_BACKGROUND;
+    public static final String ANSI_BLACK;
 
 
     /*
@@ -105,13 +106,16 @@ public class ConsoleColours {
 
     static {
         ANSI_RESET = "\u001B[0m";
+        ANSI_WHITE_BRIGHT = "\u001B[97m";
+        ANSI_BLACK = "\u001B[30m";
         ANSI_RED_BACKGROUND = "\u001B[41m";
         ANSI_GREEN_BACKGROUND = "\u001B[42m";
         ANSI_BLUE_BACKGROUND = "\u001B[44m";
-        ANSI_WHITE_BRIGHT = "\u001B[97m";
         ANSI_YELLOW_BACKGROUND = "\u001B[43m";
-        ANSI_BLUE_BRIGHT_BACKGROUND = "\u001B[104m";
         ANSI_PURPLE_BACKGROUND = "\u001B[45m";
+        ANSI_WHITE_BRIGHT_BACKGROUND = "\u001B[107m";
+        //ANSI_BLUE_BRIGHT_BACKGROUND = "\u001B[104m";
+
         /*
         RESET = "\033[0m";
 
@@ -197,20 +201,21 @@ public class ConsoleColours {
     public static void resetColour() {
         System.out.print(ANSI_RESET);
     }
-    public static void paintNormalMenu() {
+    public static void paintBlueMenu() {
         System.out.print(ANSI_BLUE_BACKGROUND + ANSI_WHITE_BRIGHT);
     }
-    public static void paintErrorMenu() {
-        System.out.print(ANSI_RED_BACKGROUND);
+    public static void paintRedMenu() {
+        System.out.print(ANSI_RED_BACKGROUND + ANSI_WHITE_BRIGHT);
     }
-    public static void paintWarningMenu() {
-        System.out.print(ANSI_YELLOW_BACKGROUND);
+    public static void paintYellowMenu() {
+        System.out.print(ANSI_YELLOW_BACKGROUND + ANSI_WHITE_BRIGHT);
     }
-    public static void paintInputMenu() {
-        System.out.print(ANSI_GREEN_BACKGROUND);
+    public static void paintGreenMenu() {
+        System.out.print(ANSI_GREEN_BACKGROUND + ANSI_WHITE_BRIGHT);
     }
-    public static void paintListMenu() {
-        System.out.print(ANSI_PURPLE_BACKGROUND);
+    public static void paintPurpleMenu() {
+        System.out.print(ANSI_PURPLE_BACKGROUND + ANSI_WHITE_BRIGHT);
     }
+    public static void paintWhiteMenu() { System.out.print(ANSI_BLACK + ANSI_WHITE_BRIGHT_BACKGROUND); }
 }
     
