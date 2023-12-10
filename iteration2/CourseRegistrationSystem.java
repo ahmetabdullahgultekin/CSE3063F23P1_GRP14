@@ -63,13 +63,13 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 break;
             case -1:
                 // If the user enters string or -1 give error.
-                ConsoleColours.paintErrorMenu();
+                ConsoleColours.paintRedMenu();
                 System.out.println("Please enter valid number!");
                 mainMenu();
                 break;
             default:
                 // If the user's choice is not recognized, print a message and display the main menu again.
-                ConsoleColours.paintErrorMenu();
+                ConsoleColours.paintRedMenu();
                 System.out.println("Invalid choice. Please select again!");
                 mainMenu();
                 break;
@@ -92,13 +92,13 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         Person person;
         String userName, password;
 
-        ConsoleColours.paintNormalMenu();
+        ConsoleColours.paintBlueMenu();
         System.out.println("Login Page");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        System.out.println("Back -> 0");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨\n");
+        System.out.println(" Back -> 0");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨");
 
-        ConsoleColours.paintInputMenu();
+        ConsoleColours.paintGreenMenu();
         System.out.print("Please enter your username: \n");
         userName = input.next();
 
@@ -110,7 +110,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
 
         System.out.print("Enter your password: \n");
         password = input.next();
-        ConsoleColours.paintNormalMenu();
+        ConsoleColours.paintBlueMenu();
 
         person = university.getUserNamePersonMap().get(userName);
         if (person != null) { //Check if there is such user
@@ -124,12 +124,12 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                         break;
                 }
             } else {
-                ConsoleColours.paintErrorMenu();
+                ConsoleColours.paintRedMenu();
                 System.out.println("Username or password is incorrect. Please try again!");
                 loginMenu();
             }
         } else {
-            ConsoleColours.paintErrorMenu();
+            ConsoleColours.paintRedMenu();
             System.out.println("There is no such user. Please try again!");
             loginMenu();
         }
@@ -173,7 +173,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                     loginMenu();
                     break;
                 default:
-                    ConsoleColours.paintErrorMenu();
+                    ConsoleColours.paintRedMenu();
                     System.out.println("Invalid choice Please select again!");
                     studentMenu(student);
                     break;
@@ -225,11 +225,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 courseSelectionMenu(student);
                 break;
             case 4:
-                student.sendRequest();
+                student.showRequestStatus();
                 courseSelectionMenu(student);
                 break;
             case 5:
-                student.showRequestStatus();
+                student.sendRequest();
                 courseSelectionMenu(student);
                 break;
             case 6:
@@ -237,12 +237,12 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 break;
             case -1:
                 // If the user enters string or -1 give error.
-                ConsoleColours.paintErrorMenu();
+                ConsoleColours.paintRedMenu();
                 System.out.println("Please enter valid number!");
                 courseSelectionMenu(student);
                 break;
             default:
-                ConsoleColours.paintErrorMenu();
+                ConsoleColours.paintRedMenu();
                 System.out.println("Invalid choice Please select again!");
                 courseSelectionMenu(student);
                 break;
@@ -281,7 +281,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 case 2:
                     loginMenu();
                 default:
-                    ConsoleColours.paintErrorMenu();
+                    ConsoleColours.paintRedMenu();
                     System.out.println("Invalid choice!");
                     break;
             }
@@ -299,7 +299,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
             input = new Scanner(System.in);
             choice = input.nextInt();
         } catch (Exception e) {
-            ConsoleColours.paintErrorMenu();
+            ConsoleColours.paintRedMenu();
             System.out.println("Invalid input, please do not enter a nonnumeric input!");
             return -1;
         }
@@ -313,7 +313,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
      */
     public void exitProgram() {
         //Print Message
-        ConsoleColours.paintWarningMenu();
+        ConsoleColours.paintYellowMenu();
         System.out.println("Exiting from system...");
         // Create a new JSONWriter instance.
         JSONWriter jsonWriter = new JSONWriter();
@@ -336,16 +336,16 @@ public class CourseRegistrationSystem implements IDisplayMenu {
      */
     @Override
     public void printMenu(String menuType) {
-        ConsoleColours.paintNormalMenu();
+        ConsoleColours.paintBlueMenu();
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("  Marmara University Course Registration System  ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         System.out.println("Please select from the following options:");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        System.out.println("Exit -> 0");
-        System.out.println("Login Page -> 1");
+        System.out.println("                                Exit -> 0");
+        System.out.println("                          Login Page -> 1");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        ConsoleColours.paintInputMenu();
+        ConsoleColours.paintGreenMenu();
         System.out.print("Enter your choice: \n");
     }
 
@@ -353,6 +353,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         Menu patterns
         System.out.println("||||||||||||||||||||||||||||||||||||||||||");
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("``````````````````````````````````````````");
