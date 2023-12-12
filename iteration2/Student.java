@@ -11,17 +11,17 @@ public class Student extends Person implements IDisplayMenu {
     //All attributes
     private Advisor advisor;
     private Transcript transcript;
-    private byte gradeLevel;
+    private byte semester;
     private boolean hasRequest;
     private List<Course> draft;
     private List<Course> availableCourses;
 
     //Implement Constructor
-    public Student(int studentID, String name, String surname, String userName, String password, byte gradeLevel) {
+    public Student(int studentID, String name, String surname, String userName, String password, byte semester) {
         super(studentID, name, surname, userName, password);
         this.draft = new ArrayList<>();
         this.availableCourses = new ArrayList<>();
-        this.gradeLevel = gradeLevel;
+        this.semester = semester;
     }
 
     //Check if there is already a request awaiting approval
@@ -121,7 +121,6 @@ public class Student extends Person implements IDisplayMenu {
                     " - " + this.getAvailableCourses().get(i).getCourseName());
             System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
         }
-
 
         //Take input from the user and make assignments to the courses.
         ConsoleColours.paintGreenMenu();
@@ -247,7 +246,7 @@ public class Student extends Person implements IDisplayMenu {
          */
         for (CourseSection courseSection : allCourseSections) {
 
-            if (this.gradeLevel < courseSection.getGradeLevel()
+            if (this.semester < courseSection.getGradeLevel()
                     || draft.contains(courseSectionCourse.get(courseSection)))
                 continue;
 
@@ -310,8 +309,8 @@ public class Student extends Person implements IDisplayMenu {
         this.advisor = advisor;
     }
 
-    public byte getGradeLevel() {
-        return gradeLevel;
+    public byte getSemester() {
+        return semester;
     }
 
     public void setHasRequest(boolean hasRequest) {
