@@ -69,7 +69,6 @@ public class Advisor extends Lecturer implements IDisplayMenu {
                 ConsoleColours.paintRedMenu();
                 System.out.println("Invalid choice Please select again!");
                 printRequests();
-                replyRequests();
             }
         } else {
             ConsoleColours.paintYellowMenu();
