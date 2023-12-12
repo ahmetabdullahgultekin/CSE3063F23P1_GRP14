@@ -9,7 +9,6 @@ public class Registration {
     private Student student;
     /**
      * Represents a list of courses.
-     *
      * The list is stored as a private member variable of type {@code List<Course>} and can be accessed using appropriate getter and setter methods.
      */
     private List<Course> courses;
@@ -31,7 +30,11 @@ public class Registration {
      * It also clears the student's draft and prints a message confirming the approval.
      */
     public void approveRequest() {
-        System.out.println("\nRequest approved");
+        ConsoleColours.paintYellowMenu();
+        System.out.println("Request approved.");
+        ConsoleColours.resetColour();
+        System.out.println();
+
         student.getTranscript().getStudentCourses().addAll(courses);
         for (Course course : courses) {
             student.getTranscript().getCourseGradeMap().put(course, null);
@@ -45,7 +48,11 @@ public class Registration {
      * Clears the draft and marks the request as rejected.
      */
     public void rejectRequest() {
-        System.out.println("\nRequest rejected");
+        ConsoleColours.paintYellowMenu();
+        System.out.println("Request rejected.");
+        ConsoleColours.resetColour();
+        System.out.println();
+
         student.setHasRequest(false);
         student.getDraft().clear();
     }
@@ -58,7 +65,10 @@ public class Registration {
     public void addRequest(Advisor advisor) {
         advisor.getRequests().add(this);
         student.setHasRequest(true);
-        System.out.println("\nRequest sent to advisor");
+        ConsoleColours.paintYellowMenu();
+        System.out.println("Request sent to advisor.");
+        ConsoleColours.resetColour();
+        System.out.println();
     }
 
     public Student getStudent() {
