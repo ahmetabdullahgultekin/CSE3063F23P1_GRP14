@@ -267,24 +267,29 @@ public class CourseRegistrationSystem implements IDisplayMenu {
     public void advisorMenu(Advisor advisor) {
         advisor.printMenu("advisorMenu");
         choice = getInput();
-        if (choice == -1) {
-            advisorMenu(advisor);
-        } else {
-            switch (choice) {
-                case 0:
-                    exitProgram();
-                    break;
-                case 1:
-                    advisor.printRequests();
-                    advisorMenu(advisor);
-                    break;
-                case 2:
-                    loginMenu();
-                default:
-                    ConsoleColours.paintRedMenu();
-                    System.out.println("Invalid choice!");
-                    break;
-            }
+
+        switch (choice) {
+            case 0:
+                exitProgram();
+                break;
+            case 1:
+                advisor.printRequests();
+                advisorMenu(advisor);
+                break;
+            case 2:
+                loginMenu();
+                break;
+            case -1:
+                // If the user enters string or -1 give error.
+                ConsoleColours.paintRedMenu();
+                System.out.println("Please enter valid number!");
+                advisorMenu(advisor);
+                break;
+            default:
+                ConsoleColours.paintRedMenu();
+                System.out.println("Invalid choice!");
+                advisorMenu(advisor);
+                break;
         }
     }
 
