@@ -374,7 +374,7 @@ public class JSONReader {
         }
 
         // Create a map to store the course and grade pairs.
-        Map<Course, Grade> courseGradeMap = new HashMap<>();
+        Map<Course, List<Grade>> courseGradeMap = new HashMap<>();
         // Create a list to store the courses of the student.
         List<Course> studentCourses = new ArrayList<>();
 
@@ -390,14 +390,27 @@ public class JSONReader {
             // Get the Course object corresponding to the course code.
             Course course1 = department.getCourseCodeCourseMap().get(courseCode);
             // Add the course to the student's courses.
-            studentCourses.add(course1);
-            // If the letter grade is "null", add a null grade to the course grade map.
-            // Otherwise, create a new Grade object with the letter grade and add it to the course grade map.
-            if (letterGrade.equals("null")) {
-                courseGradeMap.put(course1, null);
+
+            if (!studentCourses.contains(course1)) {
+                studentCourses.add(course1);
+                List<Grade> grades = new ArrayList<>();
+
+                if (letterGrade.equals("null")) {
+                    grades.add(null);
+                    courseGradeMap.put(course1, grades);
+                } else {
+                    grades.add(new Grade(letterGrade));
+                    courseGradeMap.put(course1, grades);
+                }
             } else {
-                courseGradeMap.put(course1, new Grade(letterGrade));
+                if (letterGrade.equals("null")) {
+                    courseGradeMap.get(course1).add(null);
+                } else {
+                    courseGradeMap.get(course1).add(new Grade(letterGrade));
+                }
             }
+
+
         }
         // Create a new Transcript object for the student.
         Transcript transcript1 = new Transcript(student);
