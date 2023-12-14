@@ -37,8 +37,9 @@ public class JSONReader {
     private Department department;
 
     private Map<Course, List<String>> coursePrerequisiteCourseCodesMap = new HashMap<>();
-    private Map<Course, List<String>> courseSectionCodesMap = new HashMap<>();
+    private Map<Course, List<String>> labSectionCodesMap = new HashMap<>();
     private Map<Integer, List<String>> lecturerIDCoursesMap = new HashMap<>();
+    private Map<Integer, List<String>> assistantIDCoursesMap = new HashMap<>();
     private Map<Integer, List<String>> advisorIDCoursesMap = new HashMap<>();
     private Map<Integer, Integer> studentIDAdvisorIDMap = new HashMap<>();
     private Map<Integer, List<String>> studentIDDraftMap = new HashMap<>();
@@ -97,11 +98,44 @@ public class JSONReader {
      */
     public void readJson() {
         readCourses();
-        readCourseSections();
+        readLabSections();
+        readAssistants();
         readLecturers();
         readStudents();
         readRequests();
         readAdvisors();
+    }
+
+    public void readAssistants() {
+        // Create an ObjectMapper instance for converting between Java objects and JSON.
+        mapper = new ObjectMapper();
+        try {
+            // Parse the JSON file into a Java object.
+            jsonNode = mapper.readTree(new File("iteration2/jsons/assistants.json"));
+        } catch (IOException e) {
+            // If the file is not found, print an error message and terminate the program.
+            System.out.println("File not found");
+            System.exit(0);
+        }
+        // Get the array of lecturers from the parsed JSON.
+        JsonNode assistantsArray = jsonNode;
+
+        // Iterate over each lecturer in the array.
+        for (JsonNode lecturer : assistantsArray) {
+            // Retrieve the lecturer's ID, name, and surname from the JSON.
+            int id = lecturer.get("assistantID").asInt();
+            String name = lecturer.get("name").asText();
+            String surname = lecturer.get("surname").asText();
+
+            // Create a new Lecturer object with the retrieved details.
+            Person assistant1 = new Assistant(id, name, surname);
+
+            // Add the new Lecturer object to the department's list of lecturers.
+            department.getAssistants().add((Assistant) assistant1);
+
+            // Set the department for the lecturer.
+            assistant1.setDepartment(department);
+        }
     }
 
     /**
@@ -111,7 +145,7 @@ public class JSONReader {
      * - "courseName" (String): the name of the course.
      * - "courseCode" (String): the code of the course.
      * - "courseCredit" (int): the credit value of the course.
-     * - "gradeLevel" (int): the grade level of the course.
+     * - "semester" (int): the grade level of the course.
      * - "preRequisiteCourseCodes" (Array of Strings): the list of prerequisite course codes for the course.
      * - "courseSectionCodes" (Array of Strings): the list of course section codes for the course.
      * <p>
@@ -139,10 +173,13 @@ public class JSONReader {
             String courseName = course.get("courseName").asText();
             String courseCode = course.get("courseCode").asText();
             int courseCredit = course.get("courseCredit").asInt();
-            byte gradeLevel = (byte) course.get("gradeLevel").asInt();
+            byte semester = (byte) course.get("semester").asInt();
+            int capacity = course.get("capacity").asInt();
+            int hour = course.get("hour").asInt();
+            String day = course.get("day").asText();
 
             // Create a new Course object with the retrieved details.
-            Course course1 = new Course(courseName, courseCode, courseCredit, gradeLevel);
+            Course course1 = new Course(courseName, courseCode, courseCredit, semester, capacity, hour, day);
 
             // Add the new Course object to the department's list of courses.
             department.getCourses().add(course1);
@@ -152,7 +189,7 @@ public class JSONReader {
 
             // Create a list to store the prerequisite course codes and course section codes.
             List<String> preRequisiteCourseCodes = new ArrayList<>();
-            List<String> courseSectionCodes = new ArrayList<>();
+            List<String> labSections = new ArrayList<>(); //TODO: sync lab sections
 
             // Get the array of prerequisite course codes and course section codes from the course.
             JsonNode preRequisiteCourseCodesArray = course.get("preRequisiteCourseCodes");
@@ -160,11 +197,6 @@ public class JSONReader {
                 preRequisiteCourseCodes.add(preRequisiteCourseCode.asText());
             }
             coursePrerequisiteCourseCodesMap.put(course1, preRequisiteCourseCodes);
-            JsonNode courseSectionCodesArray = course.get("courseSectionCodes");
-            for (JsonNode courseSectionCode : courseSectionCodesArray) {
-                courseSectionCodes.add(courseSectionCode.asText());
-            }
-            courseSectionCodesMap.put(course1, courseSectionCodes);
         }
     }
 
@@ -181,42 +213,33 @@ public class JSONReader {
      * collection of course sections. The course section code will be mapped to the course object, and
      * the course section will also be added to the course's section list.
      */
-    public void readCourseSections() {
+    public void readLabSections() {
         // Create an ObjectMapper instance for converting between Java objects and JSON.
         mapper = new ObjectMapper();
         try {
             // Parse the JSON file into a Java object.
-            jsonNode = mapper.readTree(new File("iteration2/jsons/courseSections.json"));
+            jsonNode = mapper.readTree(new File("iteration2/jsons/labSections.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
             System.out.println("File not found");
             System.exit(0);
         }
-        // Get the array of course sections from the parsed JSON.
-        JsonNode courseSectionsArray = jsonNode;
+        JsonNode labSectionsArray = jsonNode;
 
-        // Iterate over each course section in the array.
-        for (JsonNode courseSection : courseSectionsArray) {
-            // Retrieve the course section code, course code, day, and hour from the JSON.
-            String courseSectionCode = courseSection.get("courseSectionCode").asText();
-            String courseCode = courseSection.get("courseCode").asText();
-            String day = courseSection.get("day").asText();
-            int hour = courseSection.get("hour").asInt();
+        for (JsonNode labSection : labSectionsArray) {
+            String labSectionCode = labSection.get("labSectionCode").asText();
+            String courseCode = labSection.get("courseCode").asText();
+            String day = labSection.get("day").asText();
+            int hour = labSection.get("hour").asInt();
+            int capacity = labSection.get("capacity").asInt();
 
-            // Get the Course object corresponding to the course code.
             Course course = department.getCourseCodeCourseMap().get(courseCode);
 
-            // Create a new CourseSection object with the retrieved details.
-            Course courseSection1 = new CourseSection(course, courseSectionCode, day, hour);
+            LaboratorySection labSection1 = new LaboratorySection(labSectionCode, capacity, hour, day);
 
-            // Add the new CourseSection object to the department's list of course sections.
-            department.getCourseSections().add((CourseSection) courseSection1);
-
-            // Map the course section code to the Course object in the department's sectionCodeCourseMap.
-            department.getSectionCodeCourseMap().put(courseSectionCode, course);
-
-            // Map the CourseSection object to the Course object in the department's sectionCourseMap.
-            department.getSectionCourseMap().put((CourseSection) courseSection1, course);
+            department.getLaboratorySections().add(labSection1);
+            department.getSectionCodeCourseMap().put(labSectionCode, course);
+            department.getLabSectionCourseMap().put(labSection1, course);
         }
     }
 
@@ -289,7 +312,7 @@ public class JSONReader {
      * - "surname" (String): the surname of the student.
      * - "userName" (String): the username of the student.
      * - "password" (String): the password of the student.
-     * - "gradeLevel" (int): the grade level of the student.
+     * - "semester" (int): the grade level of the student.
      * - "advisorID" (int): the ID of the advisor for the student.
      * - "draft" (Array of Strings): the list of draft courses for the student.
      * <p>
@@ -322,10 +345,10 @@ public class JSONReader {
             String surname = student.get("surname").asText();
             String userName = student.get("userName").asText();
             String password = student.get("password").asText();
-            int gradeLevel = student.get("gradeLevel").asInt();
+            int semester = student.get("semester").asInt();
 
             // Create a new Student object with the retrieved details.
-            Person student1 = new Student(id, name, surname, userName, password, (byte) gradeLevel);
+            Person student1 = new Student(id, name, surname, userName, password, (byte) semester);
             student1.setDepartment(department);
 
             // Add the new Student object to the department's list of students.
@@ -396,6 +419,9 @@ public class JSONReader {
                 List<Grade> grades = new ArrayList<>();
 
                 if (letterGrade.equals("null")) {
+
+//                    addToSchedule(course1, student); TODO : add to schedule
+                    course1.setNumberOfStudents(course1.getNumberOfStudents() + 1);
                     grades.add(null);
                     courseGradeMap.put(course1, grades);
                 } else {
@@ -404,6 +430,7 @@ public class JSONReader {
                 }
             } else {
                 if (letterGrade.equals("null")) {
+                    course1.setNumberOfStudents(course1.getNumberOfStudents() + 1);
                     courseGradeMap.get(course1).add(null);
                 } else {
                     courseGradeMap.get(course1).add(new Grade(letterGrade));
@@ -558,9 +585,10 @@ public class JSONReader {
                 course.getPreRequisiteCourses().add(department.getCourseCodeCourseMap().get(courseCode));
             }
 
-            for (String courseSectionCode : courseSectionCodesMap.get(course)) {
-                course.getCourseSections().add(department.getSectionCodeCourseMap().get(courseSectionCode));
-            }
+            //TODO: sync lab sections
+//            for (String labSectionCode : labSectionCodesMap.get(course)) {
+//                course.getLaboratorySections().add(department.getLabSectionCourseMap().get(labSectionCode));
+//            }
         }
 
         // Sync for lecturers
