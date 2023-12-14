@@ -1,5 +1,6 @@
 package iteration2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Registration {
@@ -16,8 +17,8 @@ public class Registration {
     /**
      * Constructs a new Registration object.
      *
-     * @param student  the student for whom the registration is being created
-     * @param courses  the list of courses the student is registering for
+     * @param student the student for whom the registration is being created
+     * @param courses the list of courses the student is registering for
      */
     public Registration(Student student, List<Course> courses) {
         this.student = student;
@@ -35,13 +36,44 @@ public class Registration {
         ConsoleColours.resetColour();
         System.out.println();
 
-        student.getTranscript().getStudentCourses().addAll(courses);
         for (Course course : courses) {
-            student.getTranscript().getCourseGradeMap().put(course, null);
+            //Student will add a course that he has never taken before for the first time
+            if (!student.getTranscript().getStudentCourses().contains(course)) {
+                ArrayList<Grade> tempGrade = new ArrayList<Grade>();
+                tempGrade.add(null);
+                student.getTranscript().getCourseGradeMap().put(course, tempGrade);
+                student.getTranscript().getStudentCourses().add(course);
+                course.setNumberOfStudents(course.getNumberOfStudents() + 1);
+            } else {
+
+                List<Grade> myTempList = student.getTranscript().getCourseGradeMap().get(course);
+
+                //If there is only one grade and it is null, student added it to the transcript with
+                // 'add' a moment ago, now he will cancel and delete it
+                if (myTempList.size() == 1 && myTempList.getFirst() == null) {
+                    student.getTranscript().getCourseGradeMap().remove(course);
+                    student.getTranscript().getStudentCourses().remove(course);
+                    course.setNumberOfStudents(course.getNumberOfStudents() - 1);
+                }
+
+                //Student had a grade before, and he had just taken the course. Now, he changed his mind,
+                // saying it would be too challenging, and deleted it
+                else if (myTempList.size() > 1 && myTempList.getLast() == null) {
+                    myTempList.remove(myTempList.getLast());
+                    course.setNumberOfStudents(course.getNumberOfStudents() - 1);
+                }
+
+                //He has a previous grade, and the final grade is not --, which means
+                // he will decide not to take the course again
+                else if (myTempList.size() >= 1 && myTempList.getLast() != null) {
+                    myTempList.add(null);
+                    course.setNumberOfStudents(course.getNumberOfStudents() + 1);
+                }
+//!!
+            }
         }
         student.setHasRequest(false);
         student.getDraft().clear();
-//!!
         (new Notification(student, "Your request has been approved.")).sendNotification();
     }
 
@@ -61,6 +93,7 @@ public class Registration {
         //!!
         (new Notification(student, "Your request has been rejected.")).sendNotification();
     }
+
     /**
      * Adds a request to the advisor's list of requests and sets the student's request status to true.
      * Prints a message indicating that the request has been sent to the advisor.
