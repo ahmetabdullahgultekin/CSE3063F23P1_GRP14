@@ -41,6 +41,8 @@ public class Registration {
         }
         student.setHasRequest(false);
         student.getDraft().clear();
+//!!
+        (new Notification(student, "Your request has been approved.")).sendNotification();
     }
 
     /**
@@ -55,6 +57,9 @@ public class Registration {
 
         student.setHasRequest(false);
         student.getDraft().clear();
+
+        //!!
+        (new Notification(student, "Your request has been rejected.")).sendNotification();
     }
     /**
      * Adds a request to the advisor's list of requests and sets the student's request status to true.
