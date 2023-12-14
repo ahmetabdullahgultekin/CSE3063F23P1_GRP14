@@ -2,6 +2,7 @@ package iteration2;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Represents an adviser who can log in, reach request of the student, approve and reject request of the student
  * Inherits from the Person class and implements the IDisplayMenu interface.
@@ -11,6 +12,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
     private List<Student> studentsAdvised;
     private List<Registration> requestList;
     private int requestNumber;
+    private Notification notification;
 
 
     /**
@@ -124,8 +126,14 @@ public class Advisor extends Lecturer implements IDisplayMenu {
     @Override
     public void printMenu(String menuType) {
         ConsoleColours.paintBlueMenu();
-        System.out.println("Welcome " + this.getName() + " " + this.getSurname() + "!");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        System.out.println("Welcome " + getName() + " " + getSurname() + "!");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+        ConsoleColours.paintYellowMenu();
+        String message = "You have " + requestList.size() + " request(s).";
+        System.out.println(message);
+        ConsoleColours.paintBlueMenu();
+
         System.out.println("Please select from the following options:");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
         System.out.println("                                Exit -> 0");
@@ -141,7 +149,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
      */
     @Override
     public boolean login(String userName, String password) {
-        return this.getUserName().equals(userName) && this.getPassword().equals(password);
+        return getUserName().equals(userName) && getPassword().equals(password);
     }
 
     public List<Student> getStudentsAdvised() {
@@ -154,5 +162,9 @@ public class Advisor extends Lecturer implements IDisplayMenu {
 
     public List<Registration> getRequestList() {
         return requestList;
+    }
+
+    public void setNotification(Notification notification) {
+        this.notification = notification;
     }
 }

@@ -3,7 +3,6 @@ package iteration2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-//import java.util.Scanner;
 
 //Inherits from the Person class and implements the ILogin interface
 public class Student extends Person implements IDisplayMenu {
@@ -13,14 +12,17 @@ public class Student extends Person implements IDisplayMenu {
     private Transcript transcript;
     private byte semester;
     private boolean hasRequest;
+    private Notification notification;
     private List<Course> draft;
-    private List<Course> availableCourses;
+    private List<Course> availableCoursesToAdd;
+    private List<Course> availableCoursesToDrop;
 
     //Implement Constructor
     public Student(int studentID, String name, String surname, String userName, String password, byte semester) {
         super(studentID, name, surname, userName, password);
         this.draft = new ArrayList<>();
-        this.availableCourses = new ArrayList<>();
+        this.availableCoursesToAdd = new ArrayList<>();
+        this.availableCoursesToDrop = new ArrayList<>();
         this.semester = semester;
     }
 
@@ -53,8 +55,16 @@ public class Student extends Person implements IDisplayMenu {
         switch (menuType) {
             case "studentMenu":
                 ConsoleColours.paintBlueMenu();
-                System.out.println("Welcome " + this.getName() + " " + this.getSurname() + "!");
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                System.out.println("Welcome " + getName() + " " + getSurname() + "!");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+                if (notification != null) {
+                    ConsoleColours.paintYellowMenu();
+                    System.out.println(notification.getMessage());
+                    notification = null;
+                    ConsoleColours.paintBlueMenu();
+                }
+
                 System.out.println("Please select from the following options:");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
                 System.out.println("                         Exit System -> 0");
@@ -63,7 +73,7 @@ public class Student extends Person implements IDisplayMenu {
                 System.out.println("                             Log out -> 3");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
                 ConsoleColours.paintGreenMenu();
-                System.out.print("Enter your choice: \n");
+                System.out.println("Enter your choice: ");
                 break;
             case "courseSelectionMenu":
                 ConsoleColours.paintBlueMenu();
@@ -80,82 +90,168 @@ public class Student extends Person implements IDisplayMenu {
                 System.out.println("                             Log out -> 6");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
                 ConsoleColours.paintGreenMenu();
-                System.out.print("Enter your choice: \n");
+                System.out.println("Enter your choice: ");
+                break;
+            case "innerCourseSelectionMenu":
+                ConsoleColours.paintBlueMenu();
+                System.out.println("Course Selection Menu");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                System.out.println("Please select from the following options:");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+                System.out.println("       Back to Course Selection Menu -> 0");
+                System.out.println("              Add Technical Elective -> 1");
+                System.out.println("          Add Non-Technical Elective -> 2");
+                System.out.println("      Add Faculty Technical Elective -> 3");
+                System.out.println("             Add University Elective -> 4");
+                System.out.println("                         Drop Course -> 5");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+                ConsoleColours.paintGreenMenu();
+                System.out.println("Enter your choice: ");
+                break;
         }
     }
 
     // The 'addCourse' function displays all accessible courses and adds these courses to
     // the student's draft, which is a private attribute.
-    public void addCourse() {
-        CourseRegistrationSystem controller = new CourseRegistrationSystem();
-
+    public void addCourseToDraft() {
         //If a request has been sent, terminate the function.
         if (hasRequest) {
             ConsoleColours.paintRedMenu();
             System.out.println("You can not add lecture because you have a request waiting for approval.");
             return;
         }
-        //Call the calculateNumberOfCourses() function to limit with the maximum number of courses.
-        int numberOfCourses = calculateNumberOfCourses();
-        if (numberOfCourses >= this.getDepartment().getMaxCourseNumber()) {
-            ConsoleColours.paintRedMenu();
-            System.out.println("You can not add more lectures.");
-            return;
-        }
-
         //Call the viewAvailableCourses() function to see all available courses.
         ConsoleColours.paintBlueMenu();
-        System.out.println("Add Course Menu");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
-        viewAvailableCourses();
-
-        System.out.println("      Back -> 0");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        System.out.println("Here is the available courses:");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        ConsoleColours.paintPurpleMenu();
-
-        //Print Available Courses
-        for (int i = 0; i < this.getAvailableCourses().size(); i++) {
-            System.out.println((i + 1) + ". " + this.getAvailableCourses().get(i).getCourseCode() +
-                    " - " + this.getAvailableCourses().get(i).getCourseName());
-            System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
+        printMenu("innerCourseSelectionMenu");
+        switch ((new CourseRegistrationSystem()).getInput()) {
+            case 0:
+                return;
+            case 1:
+                addTechnicalElective();
+                break;
+            case 2:
+                addNonTechnicalElective();
+                break;
+            case 3:
+                addFacultyTechnicalElective();
+                break;
+            case 4:
+                addUniversityElective();
+                break;
+            case 5:
+                addCourseToDrop();
+                break;
+            case -1:
+                // If the user enters string or -1 give error.
+                ConsoleColours.paintRedMenu();
+                System.out.println("Please enter valid number!");
+                addCourseToDraft();
+                break;
+            default:
+                ConsoleColours.paintRedMenu();
+                System.out.println("Invalid input, please enter a valid number!");
+                addCourseToDraft();
         }
+    }
 
-        //Take input from the user and make assignments to the courses.
-        ConsoleColours.paintGreenMenu();
-        System.out.print("Choose number between 1 to " + this.getAvailableCourses().size() + " to add course: \n");
+    private void addCourseToDrop() {
+        computeAvailableCoursesToDrop();
 
-        int userNumberInput = controller.getInput();
-        //Back to Course Section Menu with return value
-
-            //If incorrect input is entered, ask for input again.
-        if (1 <= userNumberInput && userNumberInput <= this.getAvailableCourses().size()) {
-            this.draft.add(this.getAvailableCourses().get(userNumberInput - 1));
-            this.getAvailableCourses().remove(userNumberInput - 1);
-            addCourse();
-        } else if (userNumberInput < 0 || userNumberInput > this.getAvailableCourses().size()){
+        if (availableCoursesToDrop.isEmpty()) {
             ConsoleColours.paintRedMenu();
-            System.out.println("Invalid input, please enter a valid number!");
-            addCourse();
+            System.out.println("You can not drop course.");
+            return;
+        } else {
+            ConsoleColours.paintBlueMenu();
+            System.out.println("Here is the available courses to drop:");
+            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+            ConsoleColours.paintPurpleMenu();
+
+
+            for (int i = 0; i < availableCoursesToDrop.size(); i++) {
+                Course course = availableCoursesToDrop.get(i);
+                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName());
+                System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
+            }
+            //TODO add back selection
+
+            //Take input from the user and make assignments to the courses.
+            ConsoleColours.paintGreenMenu();
+            System.out.print("Choose number between 1 to " + availableCoursesToDrop.size() + " to add course: \n");
+
+            int userNumberInput = (new CourseRegistrationSystem()).getInput();
+
+            if (userNumberInput <= availableCoursesToDrop.size() && userNumberInput >= 1) {
+                draft.add(availableCoursesToDrop.get(userNumberInput - 1));
+                availableCoursesToDrop.remove(userNumberInput - 1);
+                if (!availableCoursesToDrop.isEmpty())
+                    addCourseToDrop();
+            } else if (userNumberInput > availableCoursesToDrop.size() || userNumberInput < 0) {
+                ConsoleColours.paintRedMenu();
+                System.out.println("Invalid input, please enter a valid number");
+                addCourseToDrop();
+            }
+
         }
+    }
+
+    private void addUniversityElective() {
+        if (maxCoursesReached()) {
+            return;
+        }
+        System.out.println("Here is the available courses to add:");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        ConsoleColours.paintPurpleMenu();
+    }
+
+    private boolean maxCoursesReached() {
+        //Call the calculateNumberOfCourses() function to limit with the maximum number of courses.
+        int numberOfCourses = calculateNumberOfCourses();
+        if (numberOfCourses >= getDepartment().getMaxCourseNumber()) {
+            ConsoleColours.paintRedMenu();
+            System.out.println("You can not add more lectures.");
+            return true;
+        }
+        return false;
+    }
+
+    private void addFacultyTechnicalElective() {
+        System.out.println("Here is the available courses to add:");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        ConsoleColours.paintPurpleMenu();
+    }
+
+    private void addNonTechnicalElective() {
+        System.out.println("Here is the available courses to add:");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        ConsoleColours.paintPurpleMenu();
+    }
+
+    private void addTechnicalElective() {
+        System.out.println("Here is the available courses to add:");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        ConsoleColours.paintPurpleMenu();
     }
 
     // This method calculates the total number of courses, considering both the drafted courses
     // and the courses in the transcript for which the student has not received a grade yet.
     public int calculateNumberOfCourses() {
-        int numberOfCourses = draft.size();
-        for (Course course : this.getTranscript().getCourseGradeMap().keySet()) {
-            if (this.getTranscript().getCourseGradeMap().get(course) == null) {
+        int numberOfCourses = 0;
+        for (Course course : draft) {
+            if (transcript.getCourseGradeMap().get(course).getLast() == null) {
+                numberOfCourses++;
+            }
+        }
+
+        for (Course course : transcript.getCourseGradeMap().keySet()) {
+            if (transcript.getCourseGradeMap().get(course).getLast() == null) {
                 numberOfCourses++;
             }
         }
         return numberOfCourses;
     }
 
-    public void dropCourse() {
-        CourseRegistrationSystem controller = new CourseRegistrationSystem();
-
+    public void removeCourseFromDraft() {
         // Check if the student has already sent a request
         if (hasRequest) {
             ConsoleColours.paintRedMenu();
@@ -182,22 +278,21 @@ public class Student extends Person implements IDisplayMenu {
             for (int i = 0; i < draft.size(); i++) {
                 System.out.println((i + 1) + ". " + draft.get(i).getCourseCode() +
                         " - " + draft.get(i).getCourseName());
-                System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
+                System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
             // Remove input index element -1 from the draft list if the input is valid and in the appropriate range.
             ConsoleColours.paintGreenMenu();
-            System.out.print("Choose number between 1 to " + this.draft.size() + " to remove course: \n");
+            System.out.print("Choose number between 1 to " + draft.size() + " to remove course: \n");
 
-            int userNumberInput = controller.getInput();
+            int userNumberInput = (new CourseRegistrationSystem()).getInput();
 
-            if (userNumberInput <= draft.size() && userNumberInput >= 1){
+            if (userNumberInput <= draft.size() && userNumberInput >= 1) {
                 draft.remove(userNumberInput - 1);
-                dropCourse();
-            }
-            else if(userNumberInput > draft.size() || userNumberInput < 0) {
+                removeCourseFromDraft();
+            } else if (userNumberInput > draft.size() || userNumberInput < 0) {
                 ConsoleColours.paintRedMenu();
                 System.out.println("Invalid input, please enter a number");
-                dropCourse();
+                removeCourseFromDraft();
             }
         }
     }
@@ -218,27 +313,37 @@ public class Student extends Person implements IDisplayMenu {
         ConsoleColours.paintBlueMenu();
         System.out.println("Your draft: ");
         ConsoleColours.paintPurpleMenu();
-        for (Course course : draft){
+        for (Course course : draft) {
             System.out.println(course.getCourseCode() + "-" + course.getCourseName());
         }
         ConsoleColours.resetColour();
         System.out.println();
     }
 
-    public List<Course> getAvailableCourses() {
-        return availableCourses;
+    //TODO Edit for loop
+    private void computeAvailableCoursesToDrop() {
+        availableCoursesToDrop.clear();
+        Map<Course, List<Grade>> mapGrade = transcript.getCourseGradeMap();
+        for (Course course : transcript.getStudentCourses()) {
+            if (draft.contains(course))
+                continue;
+            if (mapGrade.get(course).getLast() == null) {
+                availableCoursesToDrop.add(course);
+            }
+        }
     }
 
-    public void viewAvailableCourses() {
+    public void viewAvailableCoursestoAdd() {
         /*
         Collect all course sections from the department, and for each course, store them in
         a map<course,grade> along with the grade value. Also, keep track of course sections
         with their respective courses.
         */
-        ArrayList<Course> availableCourses = new ArrayList<>();
-        List<CourseSection> allCourseSections = this.getDepartment().getCourseSections();
-        Map<Course, Grade> mapGrade = this.getTranscript().getCourseGradeMap();
-        Map<CourseSection, Course> courseSectionCourse = this.getDepartment().getSectionCourseMap();
+        ArrayList<Course> availableCoursestoAdd = new ArrayList<>();
+
+        List<CourseSection> allCourseSections = getDepartment().getCourseSections();
+        Map<Course, List<Grade>> mapGrade = transcript.getCourseGradeMap();
+        Map<CourseSection, Course> courseSectionCourse = getDepartment().getSectionCourseMap();
 
         /*
          While iterating through all course sections, check if the grade level is sufficient
@@ -246,7 +351,7 @@ public class Student extends Person implements IDisplayMenu {
          */
         for (CourseSection courseSection : allCourseSections) {
 
-            if (this.semester < courseSection.getGradeLevel()
+            if (semester < courseSection.semester()
                     || draft.contains(courseSectionCourse.get(courseSection)))
                 continue;
 
@@ -262,29 +367,30 @@ public class Student extends Person implements IDisplayMenu {
                 boolean status = true;
                 for (Course prerequisite : course.getPreRequisiteCourses()) {
                     if ((mapGrade.get(prerequisite) == null
-                            || mapGrade.get(prerequisite).getLetterGrade().equals("FF")
-                            || mapGrade.get(prerequisite).getLetterGrade().equals("FD"))) {
+                            || mapGrade.get(prerequisite).getLast().getLetterGrade().equals("FF")
+                            || mapGrade.get(prerequisite).getLast().getLetterGrade().equals("FD"))) {
                         status = false;
                     }
                 }
                 if (status)
-                    availableCourses.add(course);
+                    availableCoursestoAdd.add(course);
             } else {
                 // If the student has previously taken the course and has a grade lower than 'CC', include it
-                if (mapGrade.get(course) != null && mapGrade.get(course).getLetterGrade().compareTo("CC") > 0) {
-                    availableCourses.add(course);
+                if (mapGrade.get(course) != null && mapGrade.get(course).getLast().getLetterGrade().compareTo("CC") > 0) {
+                    availableCoursestoAdd.add(course);
                 }
             }
         }
-        this.availableCourses = availableCourses;
+        availableCoursesToAdd = availableCoursestoAdd;
     }
 
     //Checks if the provided username and password match the student's credentials.
     //Overrides the abstract login method in the Person class.
     @Override
     public boolean login(String userName, String password) {
-        return this.getUserName().equals(userName) && this.getPassword().equals(password);
+        return getUserName().equals(userName) && getPassword().equals(password);
     }
+
 
     public String getDepartmentName() {
         return this.getDepartment().getDepartmentName();
@@ -321,10 +427,6 @@ public class Student extends Person implements IDisplayMenu {
         return draft;
     }
 
-    public Transcript getTranscript() {
-        return transcript;
-    }
-
     public void setTranscript(Transcript transcript) {
         this.transcript = transcript;
     }
@@ -337,4 +439,11 @@ public class Student extends Person implements IDisplayMenu {
         return hasRequest;
     }
 
+    public void setNotification(Notification notification) {
+        this.notification = notification;
+    }
+
+    public Transcript getTranscript() {
+        return transcript;
+    }
 }
