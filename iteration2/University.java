@@ -9,8 +9,6 @@ public class University {
     private List<Department> departments; //it holds departments list.
     private Map<String, Person> userNamePersonMap;  //it holds username and password of users.
 
-
-
     public University(String name) {
         this.name = name;
         departments = new ArrayList<>();

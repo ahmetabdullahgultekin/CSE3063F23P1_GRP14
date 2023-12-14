@@ -27,7 +27,7 @@ public class CourseSection extends Course {
      */
 
     public CourseSection(Course course, String courseSessionCode, String day, int hour) {
-        super(course.getCourseName(), course.getCourseCode(), course.getCourseCredit(), course.getGradeLevel());
+        super(course.getCourseName(), course.getCourseCode(), course.getCourseCredit(), course.semester());
         this.courseSectionCode = courseSessionCode;
         this.day = day;
         this.hour = hour;

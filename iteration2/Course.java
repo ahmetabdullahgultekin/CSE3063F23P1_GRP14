@@ -12,7 +12,7 @@ public class Course {
     private String courseName;
     private String courseCode;
     private int courseCredit;
-    private byte gradeLevel;
+    private byte semester;
     private Lecturer lecturer;
     private List<CourseSection> courseSections;
     private List<Course> preRequisiteCourses;
@@ -23,15 +23,15 @@ public class Course {
      * @param courseName   the course's name
      * @param courseCode   the course's code
      * @param courseCredit the course's credit
-     * @param gradeLevel   the course's level
+     * @param semester   the course's level
      */
 
 
-    public Course(String courseName, String courseCode, int courseCredit, byte gradeLevel) {
+    public Course(String courseName, String courseCode, int courseCredit, byte semester) {
         this.courseName = courseName;
         this.courseCode = courseCode;
         this.courseCredit = courseCredit;
-        this.gradeLevel = gradeLevel;
+        this.semester = semester;
         courseSections = new ArrayList<>();
         preRequisiteCourses = new ArrayList<>();
     }
@@ -60,8 +60,8 @@ public class Course {
         return courseCredit;
     }
 
-    public byte getGradeLevel() {
-        return gradeLevel;
+    public byte semester() {
+        return semester;
     }
 
     public void setLecturer(Lecturer lecturer) {

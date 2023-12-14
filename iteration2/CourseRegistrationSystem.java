@@ -217,11 +217,11 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 courseSelectionMenu(student);
                 break;
             case 2:
-                student.addCourse();
+                student.addCourseToDraft();
                 courseSelectionMenu(student);
                 break;
             case 3:
-                student.dropCourse();
+                student.removeCourseFromDraft();
                 courseSelectionMenu(student);
                 break;
             case 4:
