@@ -10,13 +10,18 @@ import java.util.List;
  */
 public class Course {
     private String courseName;
-    private int numberOfStudents;
     private String courseCode;
+    private String courseType;
     private int courseCredit;
-    private byte gradeLevel;
+    private byte semester;
     private Lecturer lecturer;
-    private List<CourseSection> courseSections;
+    private List<LaboratorySection> laboratorySections;
     private List<Course> preRequisiteCourses;
+
+    private int numberOfStudents;
+    private int capacity;
+    private int hour;
+    private String day;
 
     /**
      * Creates a new course object with the given parameters
@@ -24,16 +29,20 @@ public class Course {
      * @param courseName   the course's name
      * @param courseCode   the course's code
      * @param courseCredit the course's credit
-     * @param gradeLevel   the course's level
+     * @param semester     the course's level
      */
 
 
-    public Course(String courseName, String courseCode, int courseCredit, byte gradeLevel) {
+    public Course(String courseName, String courseCode, String courseType, int courseCredit, byte semester, int capacity, int hour, String day) {
         this.courseName = courseName;
         this.courseCode = courseCode;
+        this.courseType = courseType;
+        this.capacity = capacity;
         this.courseCredit = courseCredit;
-        this.gradeLevel = gradeLevel;
-        courseSections = new ArrayList<>();
+        this.semester = semester;
+        this.hour = hour;
+        this.day = day;
+        laboratorySections = new ArrayList<>();
         preRequisiteCourses = new ArrayList<>();
     }
 
@@ -46,7 +55,7 @@ public class Course {
     }
 
     public List getCourseSections() {
-        return courseSections;
+        return laboratorySections;
     }
 
     public List<Course> getPreRequisiteCourses() {
@@ -62,19 +71,15 @@ public class Course {
     }
 
     public byte semester() {
-        return gradeLevel;
+        return semester;
     }
 
     public void setLecturer(Lecturer lecturer) {
         this.lecturer = lecturer;
     }
 
-    public void setPreRequisiteCourses(List<Course> preRequisiteCourses) {
-        this.preRequisiteCourses = preRequisiteCourses;
-    }
-
-    public void setCourseSections(List<CourseSection> courseSections) {
-        this.courseSections = courseSections;
+    public List<LaboratorySection> getLaboratorySections() {
+        return laboratorySections;
     }
 
     public int getNumberOfStudents() {
@@ -83,5 +88,13 @@ public class Course {
 
     public void setNumberOfStudents(int numberOfStudents) {
         this.numberOfStudents = numberOfStudents;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public int getHour() {
+        return hour;
     }
 }
