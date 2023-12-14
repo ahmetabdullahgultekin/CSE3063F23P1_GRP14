@@ -10,9 +10,10 @@ import java.util.List;
  */
 public class Course {
     private String courseName;
+    private int numberOfStudents;
     private String courseCode;
     private int courseCredit;
-    private byte semester;
+    private byte gradeLevel;
     private Lecturer lecturer;
     private List<CourseSection> courseSections;
     private List<Course> preRequisiteCourses;
@@ -23,15 +24,15 @@ public class Course {
      * @param courseName   the course's name
      * @param courseCode   the course's code
      * @param courseCredit the course's credit
-     * @param semester   the course's level
+     * @param gradeLevel   the course's level
      */
 
 
-    public Course(String courseName, String courseCode, int courseCredit, byte semester) {
+    public Course(String courseName, String courseCode, int courseCredit, byte gradeLevel) {
         this.courseName = courseName;
         this.courseCode = courseCode;
         this.courseCredit = courseCredit;
-        this.semester = semester;
+        this.gradeLevel = gradeLevel;
         courseSections = new ArrayList<>();
         preRequisiteCourses = new ArrayList<>();
     }
@@ -61,7 +62,7 @@ public class Course {
     }
 
     public byte semester() {
-        return semester;
+        return gradeLevel;
     }
 
     public void setLecturer(Lecturer lecturer) {
@@ -76,4 +77,11 @@ public class Course {
         this.courseSections = courseSections;
     }
 
+    public int getNumberOfStudents() {
+        return numberOfStudents;
+    }
+
+    public void setNumberOfStudents(int numberOfStudents) {
+        this.numberOfStudents = numberOfStudents;
+    }
 }
