@@ -35,11 +35,13 @@ public class Registration {
         System.out.println("Request approved.");
         ConsoleColours.resetColour();
         System.out.println();
+        CourseRegistrationSystem system = new CourseRegistrationSystem();
 
         for (Course course : courses) {
             //Student will add a course that he has never taken before for the first time
             if (!student.getTranscript().getStudentCourses().contains(course)) {
-                ArrayList<Grade> tempGrade = new ArrayList<Grade>();
+                ArrayList<Grade> tempGrade = new ArrayList<>();
+                system.addToSchedule(course, student);
                 tempGrade.add(null);
                 student.getTranscript().getCourseGradeMap().put(course, tempGrade);
                 student.getTranscript().getStudentCourses().add(course);
@@ -65,11 +67,11 @@ public class Registration {
 
                 //He has a previous grade, and the final grade is not --, which means
                 // he will decide not to take the course again
-                else if (myTempList.size() >= 1 && myTempList.getLast() != null) {
+                else if (!myTempList.isEmpty() && myTempList.getLast() != null) {
+                    system.addToSchedule(course, student);
                     myTempList.add(null);
                     course.setNumberOfStudents(course.getNumberOfStudents() + 1);
                 }
-//!!
             }
         }
         student.setHasRequest(false);

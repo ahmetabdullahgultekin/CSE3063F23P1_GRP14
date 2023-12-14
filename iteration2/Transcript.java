@@ -9,7 +9,7 @@ import java.util.Map;
 public class Transcript {
     private List<Course> studentCourses;
     private double cgpa;
-    private byte gradeLevel;
+    private byte semester;
     private int takenCredits;
     private int completedCredits;
     private Student student;
@@ -24,7 +24,7 @@ public class Transcript {
     public Transcript(Student student) {
         this.studentCourses = new ArrayList<>();
         this.student = student;
-        this.gradeLevel = student.getSemester();
+        this.semester = student.getSemester();
         this.cgpa = calculateCgpa();
         this.takenCredits = calculateTakenCredits();
         this.completedCredits = calculateCompletedCredits();
@@ -112,7 +112,7 @@ public class Transcript {
         System.out.printf("CGPA             : %.2f\n", cgpa);
         System.out.println("Completed Credits: " + calculateCompletedCredits());
         System.out.println("Taken Credits    : " + calculateTakenCredits());
-        System.out.println("Grade Level      : " + gradeLevel);
+        System.out.println("Semester         : " + semester);
         System.out.println("Department       : " + student.getDepartmentName());
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
 
@@ -120,11 +120,11 @@ public class Transcript {
         System.out.format("%-15s%-38s%-20s%-15s\n", "Course Code", "Course Name", "Course Credit", "Grade");
         System.out.println("-------------------------------------------------------------------------------");
         for (Course course : studentCourses) {
-            for (Grade grade: courseGradeMap.get(course)) {
+            for (Grade grade : courseGradeMap.get(course)) {
                 if (grade == null) {
                     System.out.format("%-15s%-45s%-15s%-15s\n", course.getCourseCode(),
                             course.getCourseName(), course.getCourseCredit(), "--");
-                } else {//TODO We bozduk how to show transkript
+                } else {
                     System.out.format("%-15s%-45s%-15s%-15s\n", course.getCourseCode(),
                             course.getCourseName(), course.getCourseCredit(),
                             grade.getLetterGrade());
@@ -184,20 +184,16 @@ public class Transcript {
         return studentCourses;
     }
 
-    public void setTakenCredits(int takenCredits) {
-        this.takenCredits = takenCredits;
-    }
-
-    public void setCourseGradeMap(Map<Course, List<Grade>> courseGradeMap) {
-        this.courseGradeMap = courseGradeMap;
-    }
-
     public void setStudentCourses(List<Course> studentCourses) {
         this.studentCourses = studentCourses;
     }
 
     public int getTakenCredits() {
         return takenCredits;
+    }
+
+    public void setTakenCredits(int takenCredits) {
+        this.takenCredits = takenCredits;
     }
 
     public int getCompletedCredits() {
@@ -214,5 +210,9 @@ public class Transcript {
 
     public Map<Course, List<Grade>> getCourseGradeMap() {
         return courseGradeMap;
+    }
+
+    public void setCourseGradeMap(Map<Course, List<Grade>> courseGradeMap) {
+        this.courseGradeMap = courseGradeMap;
     }
 }
