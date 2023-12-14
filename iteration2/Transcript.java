@@ -13,7 +13,7 @@ public class Transcript {
     private int takenCredits;
     private int completedCredits;
     private Student student;
-    private Map<Course, Grade> courseGradeMap;
+    private Map<Course, List<Grade>> courseGradeMap;
 
 
     /**
@@ -24,7 +24,7 @@ public class Transcript {
     public Transcript(Student student) {
         this.studentCourses = new ArrayList<>();
         this.student = student;
-        this.gradeLevel = student.getGradeLevel();
+        this.gradeLevel = student.getSemester();
         this.cgpa = calculateCgpa();
         this.takenCredits = calculateTakenCredits();
         this.completedCredits = calculateCompletedCredits();
@@ -53,8 +53,8 @@ public class Transcript {
         double totalGrade = 0;
         int totalCredits = 0;
         for (Course course : studentCourses) {
-            if (courseGradeMap.get(course) != null) {
-                totalGrade += courseGradeMap.get(course).getGradeOver4() * course.getCourseCredit();
+            if (courseGradeMap.get(course).getLast() != null) {
+                totalGrade += courseGradeMap.get(course).getLast().getGradeOver4() * course.getCourseCredit();
                 totalCredits += course.getCourseCredit();
             }
         }
@@ -87,10 +87,11 @@ public class Transcript {
     public int calculateCompletedCredits() {
         completedCredits = 0;
         for (Course course : studentCourses) {
-            if (!(courseGradeMap.get(course) == null
-                    || courseGradeMap.get(course).getLetterGrade().equals("FF")
-                    || courseGradeMap.get(course).getLetterGrade().equals("FD")))
-            { completedCredits += course.getCourseCredit(); }
+            if (!(courseGradeMap.get(course).getLast() == null
+                    || courseGradeMap.get(course).getLast().getLetterGrade().equals("FF")
+                    || courseGradeMap.get(course).getLast().getLetterGrade().equals("FD"))) {
+                completedCredits += course.getCourseCredit();
+            }
         }
         return completedCredits;
     }
@@ -114,15 +115,20 @@ public class Transcript {
         System.out.println("Grade Level      : " + gradeLevel);
         System.out.println("Department       : " + student.getDepartmentName());
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        
+
         ConsoleColours.paintPurpleMenu();
         System.out.format("%-15s%-38s%-20s%-15s\n", "Course Code", "Course Name", "Course Credit", "Grade");
         System.out.println("-------------------------------------------------------------------------------");
         for (Course course : studentCourses) {
-            if (courseGradeMap.get(course) == null) {
-                System.out.format("%-15s%-45s%-15s%-15s\n", course.getCourseCode(), course.getCourseName(), course.getCourseCredit(), "--");
-            } else {
-                System.out.format("%-15s%-45s%-15s%-15s\n", course.getCourseCode(), course.getCourseName(), course.getCourseCredit(), courseGradeMap.get(course).getLetterGrade());
+            for (Grade grade: courseGradeMap.get(course)) {
+                if (grade == null) {
+                    System.out.format("%-15s%-45s%-15s%-15s\n", course.getCourseCode(),
+                            course.getCourseName(), course.getCourseCredit(), "--");
+                } else {//TODO We bozduk how to show transkript
+                    System.out.format("%-15s%-45s%-15s%-15s\n", course.getCourseCode(),
+                            course.getCourseName(), course.getCourseCredit(),
+                            grade.getLetterGrade());
+                }
             }
         }
         ConsoleColours.resetColour();
@@ -137,15 +143,16 @@ public class Transcript {
         List<Course> successfulCourses = new ArrayList<>();
         List<Course> failedCourses = new ArrayList<>();
         List<Course> ongoingCourses = new ArrayList<>();
-        
+
         for (Course course : studentCourses) {
-            if (courseGradeMap.get(course) == null) {
-                ongoingCourses.add(course);
-            } else if (courseGradeMap.get(course).getLetterGrade().equals("FF")
-                    || courseGradeMap.get(course).getLetterGrade().equals("FD")) {
-                failedCourses.add(course);
-            } else {
-                successfulCourses.add(course);
+            List<Grade> grades = courseGradeMap.get(course);
+            for (Grade grade : grades) {
+                if (grade == null)
+                    ongoingCourses.add(course);
+                else if (grade.getLetterGrade().equals("FF") || grade.getLetterGrade().equals("FD"))
+                    failedCourses.add(course);
+                else
+                    successfulCourses.add(course);
             }
         }
 
@@ -181,7 +188,7 @@ public class Transcript {
         this.takenCredits = takenCredits;
     }
 
-    public void setCourseGradeMap(Map<Course, Grade> courseGradeMap) {
+    public void setCourseGradeMap(Map<Course, List<Grade>> courseGradeMap) {
         this.courseGradeMap = courseGradeMap;
     }
 
@@ -205,7 +212,7 @@ public class Transcript {
         this.student = student;
     }
 
-    public Map<Course, Grade> getCourseGradeMap() {
+    public Map<Course, List<Grade>> getCourseGradeMap() {
         return courseGradeMap;
     }
 }
