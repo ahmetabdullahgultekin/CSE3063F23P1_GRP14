@@ -1,1 +1,111 @@
-{"studentID":150120045,"name":"Enes","surname":"Demir","cgpa":2.61,"takenCredits":18,"completedCredits":18,"gradeLevel":3,"courses":[{"courseCode":"CSE2023","letterGrade":"CB"},{"courseCode":"CSE2225","letterGrade":"BA"},{"courseCode":"EE2031","letterGrade":"DC"}]}
+{
+  "studentID": 150120045,
+  "name": "Enes",
+  "surname": "Demir",
+  "cgpa": 2.61,
+  "takenCredits": 18,
+  "completedCredits": 18,
+  "semester": 5,
+  "courses": [
+    {
+      "courseCode": "MATH1001",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "CSE1200",
+      "letterGrade": "CC"
+    },
+    {
+      "courseCode": "CSE1241",
+      "letterGrade": "BB"
+    },
+    {
+      "courseCode": "PHYS1101",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "MBG1201",
+      "letterGrade": "DC"
+    },
+    {
+      "courseCode": "ATA121",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "TRD121",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "PHYS1103",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "MATH1002",
+      "letterGrade": "DD"
+    },
+    {
+      "courseCode": "PHYS1104",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "CSE1242",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "PHYS1102",
+      "letterGrade": "CB"
+    },
+    {
+      "courseCode": "ATA122",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "MATH2256",
+      "letterGrade": "BB"
+    },
+    {
+      "courseCode": "TRD122",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "MATH2059",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "CSE2225",
+      "letterGrade": "FF"
+    },
+    {
+      "courseCode": "CSE2023",
+      "letterGrade": "CC"
+    },
+    {
+      "courseCode": "EE2031",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "ECON2004",
+      "letterGrade": "DD"
+    },
+    {
+      "courseCode": "MATH2055",
+      "letterGrade": "AA"
+    },
+    {
+      "courseCode": "CSE2260",
+      "letterGrade": "DC"
+    },
+    {
+      "courseCode": "EE2032",
+      "letterGrade": "CC"
+    },
+    {
+      "courseCode": "CSE2138",
+      "letterGrade": "BA"
+    },
+    {
+      "courseCode": "STAT2253",
+      "letterGrade": "BA"
+    }
+  ]
+}
