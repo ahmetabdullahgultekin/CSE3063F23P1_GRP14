@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class JSONWriter {
-    //TODO update
     private Department department;
 
     private ObjectMapper objectMapper;
@@ -66,11 +65,10 @@ public class JSONWriter {
 
                 ArrayNode newCoursesArray = JsonNodeFactory.instance.arrayNode();
 
-                for (Course course : student.getTranscript().getStudentCourses()) {
-                    ObjectNode courseNode = JsonNodeFactory.instance.objectNode();
-                    courseNode.put("courseCode", course.getCourseCode());
-                    //TODO OOOOOOOOOOOOOOOOOOOOOOOOOOO
+                for (Course course : student.getTranscript().getCourseGradeMap().keySet()) {
                     for (Grade grade : student.getTranscript().getCourseGradeMap().get(course)) {
+                        ObjectNode courseNode = JsonNodeFactory.instance.objectNode();
+                        courseNode.put("courseCode", course.getCourseCode());
                         if (grade == null) {
                             courseNode.put("letterGrade", (JsonNode) null);
                         } else {
