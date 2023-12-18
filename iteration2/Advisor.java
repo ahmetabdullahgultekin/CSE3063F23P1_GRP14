@@ -60,11 +60,23 @@ public class Advisor extends Lecturer implements IDisplayMenu {
 
             ConsoleColours.paintBlueMenu();
             if (requestNumber <= requestList.size() && requestNumber >= 1) {
-                System.out.println(requestList.get(requestNumber - 1).getStudent().getName() + " "
-                        + requestList.get(requestNumber - 1).getStudent().getSurname() + " wants to take these courses:");
+                Registration request = requestList.get(requestNumber - 1);
+                System.out.println(request.getStudent().getName() + " "
+                        + request.getStudent().getSurname() + " wants to take these courses:");
                 ConsoleColours.paintPurpleMenu();
-                for (Course course : requestList.get(requestNumber - 1).getCourses()) {
-                    System.out.println(course.getCourseCode() + " " + course.getCourseName());
+                for (Course course : request.getCourses()) {
+                    if (!(request.getStudent().getTranscript().getCourseGradeMap().get(course) != null
+                            && request.getStudent().getTranscript().getCourseGradeMap().get(course).getLast() == null))
+                        System.out.println(course.getCourseCode() + " " + course.getCourseName());
+                }
+                ConsoleColours.paintBlueMenu();
+                System.out.println(request.getStudent().getName() + " "
+                        + request.getStudent().getSurname() + " wants to drop these courses:");
+                ConsoleColours.paintPurpleMenu();
+                for (Course course : request.getCourses()) {
+                    if ((request.getStudent().getTranscript().getCourseGradeMap().get(course) != null
+                            && request.getStudent().getTranscript().getCourseGradeMap().get(course).getLast() == null))
+                        System.out.println(course.getCourseCode() + " " + course.getCourseName());
                 }
                 replyRequests();
             } else if (requestNumber > requestList.size() || requestNumber < 0) {
