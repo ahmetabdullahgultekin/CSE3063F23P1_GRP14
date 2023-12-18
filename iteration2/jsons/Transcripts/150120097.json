@@ -144,16 +144,8 @@
       "letterGrade": "CC"
     },
     {
-      "courseCode": "CSE3038",
-      "letterGrade": "BA"
-    },
-    {
       "courseCode": "CSE3048",
       "letterGrade": "CB"
-    },
-    {
-      "courseCode": "IE3235",
-      "letterGrade": "AA"
     }
   ]
 }

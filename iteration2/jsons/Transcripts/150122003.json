@@ -1,0 +1,11 @@
+{
+  "studentID": 150122003,
+  "name": "Derin",
+  "surname": "Özel",
+  "cgpa": 2.83,
+  "takenCredits": 49,
+  "completedCredits": 43,
+  "semester": 1,
+  "courses": [
+  ]
+}
