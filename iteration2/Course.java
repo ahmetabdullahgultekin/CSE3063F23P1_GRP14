@@ -54,9 +54,6 @@ public class Course {
         return courseName;
     }
 
-    public List getCourseSections() {
-        return laboratorySections;
-    }
 
     public List<Course> getPreRequisiteCourses() {
         return preRequisiteCourses;
@@ -96,5 +93,13 @@ public class Course {
 
     public int getHour() {
         return hour;
+    }
+
+    public boolean hasCapacity() {
+        return numberOfStudents < capacity;
+    }
+
+    public String getCourseType() {
+        return courseType;
     }
 }
