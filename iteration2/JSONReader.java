@@ -2,6 +2,8 @@ package iteration2;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +25,7 @@ import java.util.Map;
  * Each of these methods is responsible for reading its respective JSON file and populating the department object with the data.
  */
 public class JSONReader {
+    private static final Logger logger = LogManager.getLogger(JSONReader.class);
     private final Map<Course, List<String>> coursePrerequisiteCourseCodesMap = new HashMap<>();
     private final Map<Integer, List<String>> lecturerIDCoursesMap = new HashMap<>();
     private final Map<Integer, Assistant> assistantIDAssistantMap = new HashMap<>();
@@ -70,6 +73,7 @@ public class JSONReader {
 
             // Create a new department object with the retrieved details.
             Department department1 = new Department(departmentName);
+            logger.info("Department " + departmentName + " created.");
             university.getDepartments().add(department1);
         }
     }
@@ -82,8 +86,10 @@ public class JSONReader {
      */
     public void start(Department department) {
         this.department = department;
+        logger.info("Reading JSON data and synchronizing objects for department: {}", department.getDepartmentName());
         readJson();
         syncObjects();
+        logger.info("JSON data read and objects synchronized for department: {}", department.getDepartmentName());
     }
 
 
@@ -151,6 +157,7 @@ public class JSONReader {
 
             // Create a new Course object with the retrieved details.
             Course course1 = new Course(courseName, courseCode, courseType, courseCredit, semester, capacity, hour, day);
+            logger.info("Course " + courseCode + " created.");
 
             // Add the new Course object to the department's list of courses.
             department.getCourses().add(course1);
@@ -205,6 +212,7 @@ public class JSONReader {
 
             // Create a new Lecturer object with the retrieved details.
             Person assistant1 = new Assistant(id, name, surname);
+            logger.info("Assistant created with ID: {}", id);
 
             // Add the new Lecturer object to the department's list of lecturers.
             department.getAssistants().add((Assistant) assistant1);
@@ -252,6 +260,7 @@ public class JSONReader {
             Course course = department.getCourseCodeCourseMap().get(courseCode);
 
             LaboratorySection labSection1 = new LaboratorySection(labSectionCode, capacity, hour, day);
+            logger.info("Lab section created with code: {}", labSectionCode);
 
             labSection1.setAssistant(assistantIDAssistantMap.get(assistantID));
             department.getLaboratorySections().add(labSection1);
@@ -297,6 +306,7 @@ public class JSONReader {
 
             // Create a new Lecturer object with the retrieved details.
             Person lecturer1 = new Lecturer(id, name, surname);
+            logger.info("Lecturer created with ID: {}", id);
 
             // Add the new Lecturer object to the department's list of lecturers.
             department.getLecturers().add((Lecturer) lecturer1);
@@ -362,6 +372,7 @@ public class JSONReader {
 
             // Create a new Student object with the retrieved details.
             Person student1 = new Student(id, name, surname, userName, password, (byte) semester);
+            logger.info("Student created with ID: {}", id);
             student1.setDepartment(department);
 
             // Add the new Student object to the department's list of students.
@@ -464,6 +475,7 @@ public class JSONReader {
         student.getTranscript().setCourseGradeMap(courseGradeMap);
         // Calculate the values for the transcript.
         transcript1.calculateValues();
+        logger.info("Transcript created for student with ID: {}", student.getID());
     }
 
     /**
@@ -556,6 +568,7 @@ public class JSONReader {
 
             // Create a new Advisor object with the retrieved details.
             Person advisor1 = new Advisor(id, name, surname, userName, password);
+            logger.info("Advisor created with ID: {}", id);
 
             // Add the new Advisor object to the department's list of advisors.
             department.getAdvisors().add((Advisor) advisor1);
