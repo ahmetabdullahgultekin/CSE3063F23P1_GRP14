@@ -1,5 +1,6 @@
 package iteration2;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,14 +54,20 @@ public class Registration {
                 //If there is only one grade and it is null, student added it to the transcript with
                 // 'add' a moment ago, now he will cancel and delete it
                 if (myTempList.size() == 1 && myTempList.getFirst() == null) {
+                    system.removeFromSchedule(course, student);
                     student.getTranscript().getCourseGradeMap().remove(course);
                     student.getTranscript().getStudentCourses().remove(course);
                     course.setNumberOfStudents(course.getNumberOfStudents() - 1);
+                } else if (myTempList.size() == 1 && myTempList.getFirst() != null) {
+                    system.addToSchedule(course, student);
+                    myTempList.add(null);
+                    course.setNumberOfStudents(course.getNumberOfStudents() + 1);
                 }
 
                 //Student had a grade before, and he had just taken the course. Now, he changed his mind,
                 // saying it would be too challenging, and deleted it
                 else if (myTempList.size() > 1 && myTempList.getLast() == null) {
+                    system.removeFromSchedule(course, student);
                     myTempList.remove(myTempList.getLast());
                     course.setNumberOfStudents(course.getNumberOfStudents() - 1);
                 }
@@ -92,7 +99,6 @@ public class Registration {
         student.setHasRequest(false);
         student.getDraft().clear();
 
-        //!!
         (new Notification(student, "Your request has been rejected.")).sendNotification();
     }
 
