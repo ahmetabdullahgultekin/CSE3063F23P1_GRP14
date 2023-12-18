@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +17,7 @@ public class JSONWriter {
     private ObjectMapper objectMapper;
 
     private JsonNode jsonNode;
+    private static final Logger logger = LogManager.getLogger(JSONWriter.class);
 
     /**
      * Starts the process with the given department and writes the result to a JSON file.
@@ -34,9 +37,11 @@ public class JSONWriter {
      * This method is called internally by the start method.
      */
     public void writeJson() {
+        logger.info("Writing JSON data for the department");
         writeStudents();
         writeRequests();
         writeTranscripts();
+        logger.info("JSON data for the department has been written");
     }
 
     /**
@@ -67,8 +72,8 @@ public class JSONWriter {
 
                 for (Course course : student.getTranscript().getCourseGradeMap().keySet()) {
                     for (Grade grade : student.getTranscript().getCourseGradeMap().get(course)) {
-                        ObjectNode courseNode = JsonNodeFactory.instance.objectNode();
-                        courseNode.put("courseCode", course.getCourseCode());
+                    ObjectNode courseNode = JsonNodeFactory.instance.objectNode();
+                    courseNode.put("courseCode", course.getCourseCode());
                         if (grade == null) {
                             courseNode.put("letterGrade", (JsonNode) null);
                         } else {
