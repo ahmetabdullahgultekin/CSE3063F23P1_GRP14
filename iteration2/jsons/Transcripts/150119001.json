@@ -1,15 +1,15 @@
 {
-  "studentID": 150120090,
-  "name": "Mahmut",
-  "surname": "Subaşı",
+ "studentID": 150119001,
+        "name": "Ali",
+        "surname": "Yüksüz",
   "cgpa": 1.39,
-  "takenCredits": 18,
+  "takenCredits": 28,
   "completedCredits": 11,
   "semester": 7,
-  "courses": [ 
-{
+  "courses": [
+    {
       "courseCode": "MATH1001",
-      "letterGrade": "BA"
+      "letterGrade": "DC"
     },
     {
       "courseCode": "CSE1200",
@@ -17,7 +17,7 @@
     },
     {
       "courseCode": "CSE1241",
-      "letterGrade": "BB"
+      "letterGrade": "AA"
     },
     {
       "courseCode": "PHYS1101",
@@ -33,7 +33,7 @@
     },
     {
       "courseCode": "TRD121",
-      "letterGrade": "AA"
+      "letterGrade": "BA"
     },
     {
       "courseCode": "PHYS1103",
@@ -53,7 +53,7 @@
     },
     {
       "courseCode": "PHYS1102",
-      "letterGrade": "BA"
+      "letterGrade": "DC"
     },
     {
       "courseCode": "ATA122",
@@ -61,7 +61,7 @@
     },
     {
       "courseCode": "MATH2256",
-      "letterGrade": "DC"
+      "letterGrade": "CC"
     },
     {
       "courseCode": "TRD122",
@@ -85,11 +85,11 @@
     },
     {
       "courseCode": "ECON2004",
-      "letterGrade": "AA"
+      "letterGrade": "DD"
     },
     {
       "courseCode": "MATH2055",
-      "letterGrade": "AA"
+      "letterGrade": "DC"
     },
     {
       "courseCode": "CSE2246",
@@ -97,15 +97,15 @@
     },
     {
       "courseCode": "CSE2260",
-      "letterGrade": "CB"
+      "letterGrade": "AA"
     },
     {
       "courseCode": "EE2032",
-      "letterGrade": "BB"
+      "letterGrade": "AA"
     },
     {
       "courseCode": "CSE2138",
-      "letterGrade": "CC"
+      "letterGrade": "AA"
     },
     {
       "courseCode": "STAT2253",
@@ -144,12 +144,16 @@
       "letterGrade": "CC"
     },
     {
+      "courseCode": "CSE3038",
+      "letterGrade": "BA"
+    },
+    {
       "courseCode": "CSE3048",
       "letterGrade": "CB"
     },
     {
       "courseCode": "IE3235",
-      "letterGrade": "FF"
+      "letterGrade": "AA"
     }
-	]
+  ]
 }

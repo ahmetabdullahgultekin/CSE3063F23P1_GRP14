@@ -1,0 +1,11 @@
+{
+  "studentID": 150122005,
+  "name": "Zeynep",
+  "surname": "Turhan",
+  "cgpa": 2.83,
+  "takenCredits": 49,
+  "completedCredits": 43,
+  "semester": 1,
+  "courses": [
+  ]
+}

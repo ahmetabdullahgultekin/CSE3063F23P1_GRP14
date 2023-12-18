@@ -5,7 +5,7 @@
   "cgpa": 2.83,
   "takenCredits": 49,
   "completedCredits": 43,
-  "semester": 7,
+  "semester": 3,
   "courses": [
     {
       "courseCode": "MATH1001",
@@ -13,7 +13,7 @@
     },
     {
       "courseCode": "CSE1200",
-      "letterGrade": "CC"
+      "letterGrade": "AA"
     },
     {
       "courseCode": "CSE1241",
@@ -25,7 +25,7 @@
     },
     {
       "courseCode": "MBG1201",
-      "letterGrade": "DC"
+      "letterGrade": "BA"
     },
     {
       "courseCode": "ATA121",
@@ -41,7 +41,7 @@
     },
     {
       "courseCode": "MATH1002",
-      "letterGrade": "DD"
+      "letterGrade": "BA"
     },
     {
       "courseCode": "PHYS1104",
@@ -49,7 +49,7 @@
     },
     {
       "courseCode": "CSE1242",
-      "letterGrade": "BA"
+      "letterGrade": "CC"
     },
     {
       "courseCode": "PHYS1102",
@@ -58,98 +58,6 @@
     {
       "courseCode": "ATA122",
       "letterGrade": "AA"
-    },
-    {
-      "courseCode": "MATH2256",
-      "letterGrade": "DC"
-    },
-    {
-      "courseCode": "TRD122",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "MATH2059",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE2225",
-      "letterGrade": "DC"
-    },
-    {
-      "courseCode": "CSE2023",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "EE2031",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "ECON2004",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "MATH2055",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE2246",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE2260",
-      "letterGrade": "CB"
-    },
-    {
-      "courseCode": "EE2032",
-      "letterGrade": "FF"
-    },
-    {
-      "courseCode": "CSE2138",
-      "letterGrade": "FF"
-    },
-    {
-      "courseCode": "STAT2253",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE3055",
-      "letterGrade": "BB"
-    },
-    {
-      "courseCode": "CSE3033",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE3063",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE3215",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "IE3081",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "COM2202",
-      "letterGrade": "CB"
-    },
-    {
-      "courseCode": "CSE3044",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE3264",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "CSE3048",
-      "letterGrade": "CB"
-    },
-    {
-      "courseCode": "IE3235",
-      "letterGrade": "BA"
-    }
+    }    
   ]
 }

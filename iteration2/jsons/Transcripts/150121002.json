@@ -1,12 +1,14 @@
 {
-  "studentID": 150121067,
-  "name": "Fatma",
-  "surname": "Öztürk",
-  "cgpa": 3.55,
-  "takenCredits": 47,
-  "completedCredits": 47,
+  
+        "studentID": 150121002,
+        "name": "Kaan",
+        "surname": "Deveci",
+  "cgpa": 2.36,
+  "takenCredits": 18,
+  "completedCredits": 13,
   "semester": 3,
   "courses": [
+   
     {
       "courseCode": "MATH1001",
       "letterGrade": "BA"
@@ -25,7 +27,7 @@
     },
     {
       "courseCode": "MBG1201",
-      "letterGrade": "DC"
+      "letterGrade": "AA"
     },
     {
       "courseCode": "ATA121",
@@ -33,7 +35,7 @@
     },
     {
       "courseCode": "TRD121",
-      "letterGrade": "AA"
+      "letterGrade": "BB"
     },
     {
       "courseCode": "PHYS1103",
@@ -53,11 +55,19 @@
     },
     {
       "courseCode": "PHYS1102",
-      "letterGrade": "CC"
+      "letterGrade": "DC"
     },
     {
       "courseCode": "ATA122",
+      "letterGrade": "CB"
+    },
+    {
+      "courseCode": "MATH2256",
+      "letterGrade": "FF"
+    },
+    {
+      "courseCode": "TRD122",
       "letterGrade": "BA"
-    }
+    },
   ]
 }
