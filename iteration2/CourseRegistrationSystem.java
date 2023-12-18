@@ -1,5 +1,8 @@
 package iteration2;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
 /**
@@ -13,6 +16,7 @@ import java.util.Scanner;
  * - int choice: An integer used for storing the user's menu choice.
  */
 public class CourseRegistrationSystem implements IDisplayMenu {
+    private static final Logger logger = LogManager.getLogger(CourseRegistrationSystem.class);
     private Scanner input;
     private int choice;
     private University university;
@@ -54,10 +58,12 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         // Handle the user's choice.
         switch (choice) {
             case 0:
+                logger.info("User exited the system.");
                 // If the user chooses to exit, print a message and terminate the program.
                 exitProgram();
                 break;
             case 1:
+                logger.info("User navigated to the login page.");
                 // If the user chooses to navigate to the login page, call the loginMenu method.
                 loginMenu();
                 break;
@@ -115,6 +121,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         person = university.getUserNamePersonMap().get(userName);
         if (person != null) { //Check if there is such user
             if (person.login(userName, password)) {
+                logger.info(person.getID() + " " + person.getName() + " " + person.getSurname() + " logged in.");
                 if (person instanceof Student) {
                     studentMenu((Student) person);
                 } else if (person instanceof Advisor) {
@@ -122,12 +129,14 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 }
             } else {
                 ConsoleColours.paintRedMenu();
+                logger.warn("User entered a invalid username or password. -> " + "Username: " + userName + " Password: " + password);
                 System.out.println("Username or password is incorrect. Please try again!");
                 loginMenu();
             }
         } else {
             ConsoleColours.paintRedMenu();
-            System.out.println("There is no such user. Please try again!");
+            logger.warn("User entered a invalid username or password. -> " + "Username: " + userName + " Password: " + password);
+            System.out.println("Username or password is incorrect. Please try again!");
             loginMenu();
         }
     }
@@ -157,6 +166,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         } else {
             switch (choice) {
                 case 0:
+                    logger.info("Student " + student.getName() + " " + student.getSurname() + " exited the system.");
                     exitProgram();
                     break;
                 case 1:
@@ -167,6 +177,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                     studentMenu(student);
                     break;
                 case 3:
+                    logger.info("Student " + student.getName() + " " + student.getSurname() + " logged out.");
                     loginMenu();
                     break;
                 default:
@@ -230,6 +241,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 courseSelectionMenu(student);
                 break;
             case 6:
+                logger.info("Student " + student.getName() + " " + student.getSurname() + " logged out.");
                 loginMenu();
                 break;
             case -1:
@@ -267,6 +279,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
 
         switch (choice) {
             case 0:
+                logger.info("Advisor " + advisor.getName() + " " + advisor.getSurname() + " exited the system.");
                 exitProgram();
                 break;
             case 1:
@@ -274,6 +287,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
                 advisorMenu(advisor);
                 break;
             case 2:
+                logger.info("Advisor " + advisor.getName() + " " + advisor.getSurname() + " logged out.");
                 loginMenu();
                 break;
             case -1:
@@ -297,12 +311,15 @@ public class CourseRegistrationSystem implements IDisplayMenu {
      * @return The user's input as an integer, or -1 if the input is invalid.
      */
     public int getInput() {
+        String userInput = null;
         try {
             input = new Scanner(System.in);
-            choice = input.nextInt();
+            userInput = input.nextLine();
+            choice = Integer.parseInt(userInput);
         } catch (Exception e) {
             ConsoleColours.paintRedMenu();
             System.out.println("Invalid input, please do not enter a nonnumeric input!");
+            logger.error("User entered a invalid input. -> " + "Input: " + userInput);
             return -1;
         }
         return choice;
@@ -321,6 +338,7 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         JSONWriter jsonWriter = new JSONWriter();
         // Write the current state of the university to JSON files.
         jsonWriter.start(university);
+        logger.info("User exited the system.");
         // Close the Scanner object.
         input.close();
         // Terminate the program.
@@ -374,17 +392,25 @@ public class CourseRegistrationSystem implements IDisplayMenu {
         student.getSchedule()[i][j] = course;
     }
 
-    /*
-        Menu patterns
-        System.out.println("||||||||||||||||||||||||||||||||||||||||||");
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println("");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("``````````````````````````````````````````");
-        System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
-        System.out.println("------------------------------------------");
-        System.out.println("''''''''''''''''''''''''''''''''''''''''''");
-        System.out.println("__________________________________________");
-     */
+    public void removeFromSchedule(Course course, Student student) {
+        int i = 0, j = 0;
+        switch (course.getDay()) {
+            case "Monday" -> i = 0;
+            case "Tuesday" -> i = 1;
+            case "Wednesday" -> i = 2;
+            case "Thursday" -> i = 3;
+            case "Friday" -> i = 4;
+        }
+        switch (course.getHour()) {
+            case 8 -> j = 0;
+            case 9 -> j = 1;
+            case 10 -> j = 2;
+            case 11 -> j = 3;
+            case 13 -> j = 4;
+            case 14 -> j = 5;
+            case 15 -> j = 6;
+            case 16 -> j = 7;
+        }
+        student.getSchedule()[i][j] = null;
+    }
 }
