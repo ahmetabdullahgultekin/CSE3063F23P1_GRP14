@@ -1,5 +1,8 @@
 package iteration2;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +12,7 @@ import java.util.List;
  */
 public class Advisor extends Lecturer implements IDisplayMenu {
 
+    private static final Logger logger = LogManager.getLogger(Advisor.class);
     private List<Student> studentsAdvised;
     private List<Registration> requestList;
     private int requestNumber;
@@ -81,6 +85,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
                 replyRequests();
             } else if (requestNumber > requestList.size() || requestNumber < 0) {
                 ConsoleColours.paintRedMenu();
+                logger.warn("Advisor " + this.getID() + " entered invalid input.");
                 System.out.println("Invalid choice Please select again!");
                 printRequests();
             }
@@ -112,11 +117,15 @@ public class Advisor extends Lecturer implements IDisplayMenu {
         switch (choice) {
             case 1:
                 requestList.get(requestNumber - 1).approveRequest();
+                logger.info("Advisor " + this.getID() + " approved request of student "
+                        + requestList.get(requestNumber - 1).getStudent().getID());
                 requestList.remove(requestNumber - 1);
                 printRequests();
                 break;
             case 2:
                 requestList.get(requestNumber - 1).rejectRequest();
+                logger.info("Advisor " + this.getID() + " rejected request of student "
+                        + requestList.get(requestNumber - 1).getStudent().getID());
                 requestList.remove(requestNumber - 1);
                 printRequests();
                 break;
@@ -125,6 +134,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
                 break;
             default:
                 ConsoleColours.paintRedMenu();
+                logger.warn("Advisor " + this.getID() + " entered invalid input.");
                 System.out.println("Invalid choice. Please select again!");
                 replyRequests();
                 break;
