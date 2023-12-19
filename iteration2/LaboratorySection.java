@@ -31,15 +31,29 @@ public class LaboratorySection {
     public String getLaboratorySectionCode() {
         return laboratorySectionCode;
     }
+
+    public void setAssistant(Assistant assistant) {
+        this.assistant = assistant;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
     public int getNumberOfStudents() {
         return numberOfStudents;
     }
 
     public void setNumberOfStudents(int numberOfStudents) {
         this.numberOfStudents = numberOfStudents;
-    }
-    public void setAssistant(Assistant assistant) {
-        this.assistant = assistant;
     }
 
   
