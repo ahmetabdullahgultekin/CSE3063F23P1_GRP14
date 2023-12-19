@@ -1,111 +1,85 @@
 {
-   "studentID": 150121017,
-        "name": "Barış Efe",
-        "surname": "Ergen",
-  "cgpa": 2.61,
-  "takenCredits": 18,
-  "completedCredits": 18,
-  "semester": 5,
-  "courses": [
-    {
-      "courseCode": "MATH1001",
-      "letterGrade": "DC"
-    },
-    {
-      "courseCode": "CSE1200",
-      "letterGrade": "DD"
-    },
-    {
-      "courseCode": "CSE1241",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "PHYS1101",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "MBG1201",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "ATA121",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "TRD121",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "PHYS1103",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "MATH1002",
-      "letterGrade": "DD"
-    },
-    {
-      "courseCode": "PHYS1104",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE1242",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "PHYS1102",
-      "letterGrade": "CB"
-    },
-    {
-      "courseCode": "ATA122",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "MATH2256",
-      "letterGrade": "BB"
-    },
-    {
-      "courseCode": "TRD122",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "MATH2059",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE2225",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE2023",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "EE2031",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "ECON2004",
-      "letterGrade": "FF"
-    },
-    {
-      "courseCode": "MATH2055",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE2260",
-      "letterGrade": "BB"
-    },
-    {
-      "courseCode": "EE2032",
-      "letterGrade": "FF"
-    },
-    {
-      "courseCode": "CSE2138",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "STAT2253",
-      "letterGrade": "CC"
-    }
-  ]
+  "studentID" : 150121017,
+  "name" : "Barış Efe",
+  "surname" : "Ergen",
+  "cgpa" : 2.68,
+  "takenCredits" : 111,
+  "completedCredits" : 102,
+  "semester" : 5,
+  "courses" : [ {
+    "courseCode" : "TRD122",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "STAT2253",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "MATH2055",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1200",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "CSE2138",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH1001",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "CSE2225",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1101",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MBG1201",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2260",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MATH1002",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "ECON2004",
+    "letterGrade" : "FF"
+  }, {
+    "courseCode" : "ATA122",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2023",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "ATA121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "TRD121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "EE2032",
+    "letterGrade" : "FF"
+  }, {
+    "courseCode" : "CSE1241",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "PHYS1104",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "EE2031",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH2256",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "PHYS1103",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1102",
+    "letterGrade" : "CB"
+  }, {
+    "courseCode" : "MATH2059",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE1242",
+    "letterGrade" : "BA"
+  } ]
 }

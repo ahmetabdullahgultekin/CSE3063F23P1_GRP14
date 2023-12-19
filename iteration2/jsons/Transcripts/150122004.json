@@ -1,11 +1,10 @@
 {
-  "studentID": 150122004,
-  "name": "Emre Can",
-  "surname": "Bozdoğan",
-  "cgpa": 2.83,
-  "takenCredits": 49,
-  "completedCredits": 43,
-  "semester": 1,
-  "courses": [
-  ]
+  "studentID" : 150122004,
+  "name" : "Emre Can",
+  "surname" : "Bozdoğan",
+  "cgpa" : 0.0,
+  "takenCredits" : 0,
+  "completedCredits" : 0,
+  "semester" : 1,
+  "courses" : [ ]
 }

@@ -1,63 +1,49 @@
 {
-  "studentID": 150121067,
-  "name": "Fatma",
-  "surname": "Öztürk",
-  "cgpa": 3.55,
-  "takenCredits": 47,
-  "completedCredits": 47,
-  "semester": 3,
-  "courses": [
-    {
-      "courseCode": "MATH1001",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE1200",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "CSE1241",
-      "letterGrade": "BB"
-    },
-    {
-      "courseCode": "PHYS1101",
-      "letterGrade": "BB"
-    },
-    {
-      "courseCode": "MBG1201",
-      "letterGrade": "DC"
-    },
-    {
-      "courseCode": "ATA121",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "TRD121",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "PHYS1103",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "MATH1002",
-      "letterGrade": "DD"
-    },
-    {
-      "courseCode": "PHYS1104",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE1242",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "PHYS1102",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "ATA122",
-      "letterGrade": "BA"
-    }
-  ]
+  "studentID" : 150121067,
+  "name" : "Fatma",
+  "surname" : "Öztürk",
+  "cgpa" : 2.74,
+  "takenCredits" : 51,
+  "completedCredits" : 51,
+  "semester" : 3,
+  "courses" : [ {
+    "courseCode" : "ATA121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1200",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "TRD121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1241",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MATH1001",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1104",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1101",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MBG1201",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "MATH1002",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "PHYS1103",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "ATA122",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1102",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "CSE1242",
+    "letterGrade" : "BA"
+  } ]
 }
