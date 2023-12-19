@@ -35,7 +35,6 @@ public class Registration {
         ConsoleColours.paintYellowMenu();
         System.out.println("Request approved.");
         ConsoleColours.resetColour();
-        System.out.println();
         CourseRegistrationSystem system = new CourseRegistrationSystem();
 
         for (Course course : courses) {
@@ -114,7 +113,6 @@ public class Registration {
         ConsoleColours.paintYellowMenu();
         System.out.println("Request sent to advisor.");
         ConsoleColours.resetColour();
-        System.out.println();
     }
 
     public Student getStudent() {

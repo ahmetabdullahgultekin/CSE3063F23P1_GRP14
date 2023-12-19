@@ -156,26 +156,27 @@ public class Transcript {
             }
         }
 
-        ConsoleColours.paintYellowMenu();
-        System.out.println("Ongoing Courses:");
-        for (Course course : ongoingCourses) {
-            System.out.println(course.getCourseCode() + " " + course.getCourseName());
-        }
-        System.out.println();
-
         ConsoleColours.paintGreenMenu();
-        System.out.println("Successful Courses:");
+        System.out.println("Successful Courses:\n");
         for (Course course : successfulCourses) {
             System.out.println(course.getCourseCode() + " " + course.getCourseName());
         }
         System.out.println();
 
         ConsoleColours.paintRedMenu();
-        System.out.println("Failed Courses:");
+        System.out.println("Failed Courses:\n");
         for (Course course : failedCourses) {
             System.out.println(course.getCourseCode() + " " + course.getCourseName());
         }
         System.out.println();
+
+        ConsoleColours.paintYellowMenu();
+        System.out.println("Ongoing Courses:\n");
+        for (Course course : ongoingCourses) {
+            System.out.println(course.getCourseCode() + " " + course.getCourseName());
+        }
+        System.out.println();
+
         ConsoleColours.resetColour();
         System.out.println();
     }
