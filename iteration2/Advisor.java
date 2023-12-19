@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Advisor extends Lecturer implements IDisplayMenu {
 
-    private static final Logger logger = LogManager.getLogger(Advisor.class);
+    private final Logger logger = LogManager.getLogger(Advisor.class);
     private List<Student> studentsAdvised;
     private List<Registration> requestList;
     private int requestNumber;
