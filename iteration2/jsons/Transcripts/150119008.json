@@ -1,159 +1,121 @@
 {
-  "studentID": 150119008,
-        "name": "Naz",
-        "surname": "Okçuoğlu",
-  "cgpa": 1.39,
-  "takenCredits": 28,
-  "completedCredits": 11,
-  "semester": 7,
-  "courses": [
-    {
-      "courseCode": "MATH1001",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE1200",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "CSE1241",
-      "letterGrade": "BB"
-    },
-    {
-      "courseCode": "PHYS1101",
-      "letterGrade": "BB"
-    },
-    {
-      "courseCode": "MBG1201",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "ATA121",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "TRD121",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "PHYS1103",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "MATH1002",
-      "letterGrade": "DD"
-    },
-    {
-      "courseCode": "PHYS1104",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE1242",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "PHYS1102",
-      "letterGrade": "DC"
-    },
-    {
-      "courseCode": "ATA122",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "MATH2256",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "TRD122",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "MATH2059",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE2225",
-      "letterGrade": "DC"
-    },
-    {
-      "courseCode": "CSE2023",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "EE2031",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "ECON2004",
-      "letterGrade": "DD"
-    },
-    {
-      "courseCode": "MATH2055",
-      "letterGrade": "DC"
-    },
-    {
-      "courseCode": "CSE2246",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE2260",
-      "letterGrade": "FF"
-    },
-    {
-      "courseCode": "EE2032",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE2138",
-      "letterGrade": "DC"
-    },
-    {
-      "courseCode": "STAT2253",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE3055",
-      "letterGrade": "BB"
-    },
-    {
-      "courseCode": "CSE3033",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE3063",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "CSE3215",
-      "letterGrade": "AA"
-    },
-    {
-      "courseCode": "IE3081",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "COM2202",
-      "letterGrade": "CB"
-    },
-    {
-      "courseCode": "CSE3044",
-      "letterGrade": "BA"
-    },
-    {
-      "courseCode": "CSE3264",
-      "letterGrade": "CC"
-    },
-    {
-      "courseCode": "CSE3038",
-      "letterGrade": "FF"
-    },
-    {
-      "courseCode": "CSE3048",
-      "letterGrade": "FF"
-    },
-    {
-      "courseCode": "IE3235",
-      "letterGrade": "AA"
-    }
-  ]
+  "studentID" : 150119008,
+  "name" : "Naz",
+  "surname" : "Okçuoğlu",
+  "cgpa" : 2.67,
+  "takenCredits" : 176,
+  "completedCredits" : 158,
+  "semester" : 7,
+  "courses" : [ {
+    "courseCode" : "TRD122",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "STAT2253",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH2055",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "CSE3063",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1200",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "CSE2138",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "MATH1001",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "COM2202",
+    "letterGrade" : "CB"
+  }, {
+    "courseCode" : "CSE2225",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "PHYS1101",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MBG1201",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2260",
+    "letterGrade" : "FF"
+  }, {
+    "courseCode" : "CSE3038",
+    "letterGrade" : "FF"
+  }, {
+    "courseCode" : "MATH1002",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "ECON2004",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "IE3235",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE3055",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "ATA122",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2023",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "CSE3033",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE3264",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "ATA121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "TRD121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "EE2032",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1241",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "PHYS1104",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "IE3081",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "EE2031",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE3044",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE3215",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2246",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH2256",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1103",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1102",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "MATH2059",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE1242",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE3048",
+    "letterGrade" : "FF"
+  } ]
 }
