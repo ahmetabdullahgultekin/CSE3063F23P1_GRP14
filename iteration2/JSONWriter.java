@@ -17,7 +17,7 @@ public class JSONWriter {
     private ObjectMapper objectMapper;
 
     private JsonNode jsonNode;
-    private static final Logger logger = LogManager.getLogger(JSONWriter.class);
+    private final Logger logger = LogManager.getLogger(JSONWriter.class);
 
     /**
      * Starts the process with the given department and writes the result to a JSON file.
@@ -155,6 +155,12 @@ public class JSONWriter {
                 ((ObjectNode) jsonNode).put("userName", userName);
                 ((ObjectNode) jsonNode).put("password", password);
                 ((ObjectNode) jsonNode).put("departmentName", departmentName);
+
+                ArrayNode newLabSectionsArray = JsonNodeFactory.instance.arrayNode();
+                for (LaboratorySection labSection : student.getLabSections()) {
+                    newLabSectionsArray.add(labSection.getLaboratorySectionCode());
+                }
+                ((ObjectNode) jsonNode).set("labSections", newLabSectionsArray);
             }
             // Write the updated JsonNode back to the file
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), jsonArray);
