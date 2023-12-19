@@ -195,7 +195,8 @@ public class Student extends Person implements IDisplayMenu {
 
             for (int i = 0; i < availableCoursesToAdd.size(); i++) {
                 Course course = availableCoursesToAdd.get(i);
-                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName());
+                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName()+ " - "
+                        + course.getDay() + " - " + course.getHour()+".00");
                 System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
 
@@ -267,7 +268,8 @@ public class Student extends Person implements IDisplayMenu {
 
             for (int i = 0; i < availableCoursesToAdd.size(); i++) {
                 Course course = availableCoursesToAdd.get(i);
-                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName());
+                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName() + " - "
+                        + course.getDay() + " - " + course.getHour()+ ".00");
                 System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
 
@@ -334,7 +336,8 @@ public class Student extends Person implements IDisplayMenu {
 
             for (int i = 0; i < availableCoursesToAdd.size(); i++) {
                 Course course = availableCoursesToAdd.get(i);
-                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName());
+                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName()+ " - "
+                        + course.getDay() + " - " + course.getHour()+".00");
                 System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
 
@@ -369,7 +372,8 @@ public class Student extends Person implements IDisplayMenu {
 
             for (int i = 0; i < availableCoursesToAdd.size(); i++) {
                 Course course = availableCoursesToAdd.get(i);
-                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName());
+                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName()+ " - "
+                        + course.getDay() + " - " + course.getHour() + ".00");
                 System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
 
@@ -442,7 +446,8 @@ public class Student extends Person implements IDisplayMenu {
 
             for (int i = 0; i < availableCoursesToDrop.size(); i++) {
                 Course course = availableCoursesToDrop.get(i);
-                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName());
+                System.out.println((i + 1) + ". " + course.getCourseCode() + " - " + course.getCourseName()+ " - "
+                        + course.getDay() + " - " + course.getHour()+ ".00");
                 System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
 
@@ -625,7 +630,8 @@ public class Student extends Person implements IDisplayMenu {
 
             // Manipulation for displaying and removing courses in the menu.
             for (int i = 0; i < draft.size(); i++) {
-                System.out.println((i + 1) + ". " + draft.get(i).getCourseCode() + " - " + draft.get(i).getCourseName());
+                System.out.println((i + 1) + ". " + draft.get(i).getCourseCode() + " - " + draft.get(i).getCourseName()+ " - "
+                        + draft.get(i).getDay() + " - " + draft.get(i).getHour() +".00");
                 System.out.println("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´");
             }
             // Remove input index element -1 from the draft list if the input is valid and in the appropriate range.
@@ -686,7 +692,8 @@ public class Student extends Person implements IDisplayMenu {
         for (Course course : draft) {
             if ((this.getTranscript().getCourseGradeMap().get(course) != null
                     && this.getTranscript().getCourseGradeMap().get(course).getLast() == null))
-                System.out.println(course.getCourseCode() + "-" + course.getCourseName());
+                System.out.println(course.getCourseCode() + "-" + course.getCourseName()+ " - "
+                        + course.getDay() + " - " + course.getHour());
         }
         System.out.println();
         System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
@@ -757,23 +764,4 @@ public class Student extends Person implements IDisplayMenu {
         this.hasRequest = hasRequest;
     }
 
-    public void setNotification(Notification notification) {
-        this.notification = notification;
-    }
-
-    public Transcript getTranscript() {
-        return transcript;
-    }
-
-    public void setTranscript(Transcript transcript) {
-        this.transcript = transcript;
-    }
-
-    public Course[][] getSchedule() {
-        return schedule;
-    }
-
-    public List<LaboratorySection> getLabSections() {
-        return labSections;
-    }
-}
+ 
