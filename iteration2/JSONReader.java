@@ -25,7 +25,7 @@ import java.util.Map;
  * Each of these methods is responsible for reading its respective JSON file and populating the department object with the data.
  */
 public class JSONReader {
-    private static final Logger logger = LogManager.getLogger(JSONReader.class);
+    private final Logger logger = LogManager.getLogger(JSONReader.class);
     private final Map<Course, List<String>> coursePrerequisiteCourseCodesMap = new HashMap<>();
     private final Map<Integer, List<String>> lecturerIDCoursesMap = new HashMap<>();
     private final Map<Integer, Assistant> assistantIDAssistantMap = new HashMap<>();
