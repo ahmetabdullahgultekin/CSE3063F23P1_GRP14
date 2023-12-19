@@ -87,7 +87,7 @@ public class JSONWriter {
                 ((ObjectNode) jsonNode).set("courses", newCoursesArray);
 
                 // Write the updated JsonNode back to the file
-                objectMapper.writeValue(new File(filePath), jsonNode);
+                objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), jsonNode);
             } catch (IOException e) {
                 System.out.println("File not found");
                 System.exit(0);
@@ -116,7 +116,7 @@ public class JSONWriter {
                 }
             }
             // Write the entirely new ArrayNode back to the file
-            objectMapper.writeValue(new File(filePath), jsonArray);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), jsonArray);
         } catch (IOException e) {
             System.out.println("File not found");
             System.exit(0);
@@ -157,7 +157,7 @@ public class JSONWriter {
                 ((ObjectNode) jsonNode).put("departmentName", departmentName);
             }
             // Write the updated JsonNode back to the file
-            objectMapper.writeValue(new File(filePath), jsonArray);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), jsonArray);
         } catch (IOException e) {
             System.out.println("File not found");
             System.exit(0);
