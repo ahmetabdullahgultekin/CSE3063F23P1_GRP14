@@ -763,5 +763,25 @@ public class Student extends Person implements IDisplayMenu {
     public void setHasRequest(boolean hasRequest) {
         this.hasRequest = hasRequest;
     }
+    public void setNotification(Notification notification) {
+        this.notification = notification;
+    }
+
+    public Transcript getTranscript() {
+        return transcript;
+    }
+
+    public void setTranscript(Transcript transcript) {
+        this.transcript = transcript;
+    }
+
+    public Course[][] getSchedule() {
+        return schedule;
+    }
+
+    public List<LaboratorySection> getLabSections() {
+        return labSections;
+    }
+}
 
  
