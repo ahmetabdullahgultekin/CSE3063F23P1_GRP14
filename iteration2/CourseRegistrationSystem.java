@@ -16,7 +16,7 @@ import java.util.Scanner;
  * - int choice: An integer used for storing the user's menu choice.
  */
 public class CourseRegistrationSystem implements IDisplayMenu {
-    private static final Logger logger = LogManager.getLogger(CourseRegistrationSystem.class);
+    private final Logger logger = LogManager.getLogger(CourseRegistrationSystem.class);
     private Scanner input;
     private int choice;
     private University university;

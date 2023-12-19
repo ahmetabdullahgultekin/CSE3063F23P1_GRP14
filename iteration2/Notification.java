@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Notification {
-    private static final Logger logger = LogManager.getLogger(Notification.class);
+    private final Logger logger = LogManager.getLogger(Notification.class);
     private String message;
     private Person recipient;
 
