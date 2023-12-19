@@ -25,13 +25,14 @@ import java.util.Map;
  * Each of these methods is responsible for reading its respective JSON file and populating the department object with the data.
  */
 public class JSONReader {
-    private final Logger logger = LogManager.getLogger(JSONReader.class);
     private final Map<Course, List<String>> coursePrerequisiteCourseCodesMap = new HashMap<>();
     private final Map<Integer, List<String>> lecturerIDCoursesMap = new HashMap<>();
     private final Map<Integer, Assistant> assistantIDAssistantMap = new HashMap<>();
     private final Map<Integer, List<String>> advisorIDCoursesMap = new HashMap<>();
     private final Map<Integer, Integer> studentIDAdvisorIDMap = new HashMap<>();
     private final Map<Student, Registration> studentRegistrationMap = new HashMap<>();
+    private final Map<String, LaboratorySection> sectionCodeSectionMap = new HashMap<>();
+    private final Logger logger = LogManager.getLogger(JSONReader.class);
     /**
      * The JSONReader class contains several private fields used throughout the class.
      * <p>
@@ -263,6 +264,7 @@ public class JSONReader {
             logger.info("Lab section created with code: {}", labSectionCode);
 
             labSection1.setAssistant(assistantIDAssistantMap.get(assistantID));
+            sectionCodeSectionMap.put(labSectionCode, labSection1);
             department.getLaboratorySections().add(labSection1);
             department.getSectionCodeCourseMap().put(labSectionCode, course);
             department.getLabSectionCourseMap().put(labSection1, course);
@@ -374,6 +376,12 @@ public class JSONReader {
             Person student1 = new Student(id, name, surname, userName, password, (byte) semester);
             logger.info("Student created with ID: {}", id);
             student1.setDepartment(department);
+
+
+            JsonNode labSectionsArray = student.get("labSections");
+            for (JsonNode labSectionCode : labSectionsArray) {
+                ((Student) student1).getLabSections().add(sectionCodeSectionMap.get(labSectionCode.asText()));
+            }
 
             // Add the new Student object to the department's list of students.
             department.getStudents().add((Student) student1);
