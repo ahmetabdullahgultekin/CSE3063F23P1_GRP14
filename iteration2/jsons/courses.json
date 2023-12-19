@@ -20,7 +20,7 @@
     "courseCode": "CSE1200",
     "courseCredit": 4,
     "capacity": 120,
-    "day": "Tuesday",
+    "day": "Monday",
     "hour": "9",
     "preRequisiteCourseCodes": []
   },
@@ -534,7 +534,8 @@
     "day": "Friday",
     "hour": "8",
     "preRequisiteCourseCodes": [
-      "EE2004"
+      "STAT2253",
+      "MATH2256"
     ]
   },
   {
