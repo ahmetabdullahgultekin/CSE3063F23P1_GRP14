@@ -39,16 +39,14 @@ public class Student extends Person implements IDisplayMenu {
     /* Create a new Registration object and initialize it with the current
     student object (this) and draft information */
     public void sendRequest() {
-        ConsoleColours.paintYellowMenu();
+        ConsoleColours.paintRedMenu();
         if (hasRequest) {
             System.out.println("You already have a request waiting for approval.");
-            ConsoleColours.resetColour();
             logger.warn("Student " + this.getID() + " already has a request waiting for " + advisor.getID() + "'s approval.");
-            System.out.println();
+            ConsoleColours.resetColour();
         } else if (draft.isEmpty()) {
             System.out.println("Your draft is empty!");
             ConsoleColours.resetColour();
-            System.out.println();
         } else {
             Registration registration = new Registration(this, draft);
             registration.addRequest(advisor);
@@ -65,8 +63,9 @@ public class Student extends Person implements IDisplayMenu {
         switch (menuType) {
             case "studentMenu":
                 ConsoleColours.paintBlueMenu();
-                System.out.println("Welcome " + getName() + " " + getSurname() + "!");
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                System.out.println("Welcome " + getName() + " " + getSurname() + "!");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
                 if (notification != null) {
                     ConsoleColours.paintYellowMenu();
@@ -78,17 +77,17 @@ public class Student extends Person implements IDisplayMenu {
                 System.out.println("Please select from the following options:");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
                 System.out.println("                         Exit System -> 0");
-                System.out.println("               Course Selection Menu -> 1");
+                System.out.println("                 Course Registration -> 1");
                 System.out.println("                     View Transcript -> 2");
                 System.out.println("                             Log out -> 3");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
                 ConsoleColours.paintGreenMenu();
                 System.out.println("Enter your choice: ");
                 break;
-            case "courseSelectionMenu":
+            case "courseRegistrationMenu":
                 ConsoleColours.paintBlueMenu();
-                System.out.println("Course Selection Menu");
-                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                System.out.println("Course Registration Menu");
+                System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
                 System.out.println("Please select from the following options:");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
                 System.out.println("                   Back to Main Menu -> 0");
@@ -102,13 +101,13 @@ public class Student extends Person implements IDisplayMenu {
                 ConsoleColours.paintGreenMenu();
                 System.out.println("Enter your choice: ");
                 break;
-            case "innerCourseSelectionMenu":
+            case "courseSelectionMenu":
                 ConsoleColours.paintBlueMenu();
                 System.out.println("Course Selection Menu");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
                 System.out.println("Please select from the following options:");
                 System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-                System.out.println("       Back to Course Selection Menu -> 0");
+                System.out.println("    Back to Course Registration Menu -> 0");
                 System.out.println("                       Add Mandatory -> 1");
                 System.out.println("              Add Technical Elective -> 2");
                 System.out.println("          Add Non-Technical Elective -> 3");
@@ -153,7 +152,7 @@ public class Student extends Person implements IDisplayMenu {
         }
         //Call the viewAvailableCourses() function to see all available courses.
         ConsoleColours.paintBlueMenu();
-        printMenu("innerCourseSelectionMenu");
+        printMenu("courseSelectionMenu");
         switch ((new CourseRegistrationSystem()).getInput()) {
             case 0:
                 return;
@@ -313,7 +312,7 @@ public class Student extends Person implements IDisplayMenu {
                         || hasCourseOverlap(course, false)
                         || (semester < course.semester() && transcript.getCgpa() < 3)
                         || draft.contains(course)
-                        || !checkPrerequisiteAndCourseThatWasTaken(course)
+                        || !checkThePrerequisiteAndCourseThatWasTaken(course)
                         || (course.semester() % 2 != this.semester % 2)) {
                     continue;
                 } else {
@@ -386,7 +385,7 @@ public class Student extends Person implements IDisplayMenu {
                 if (!availableCoursesToAdd.isEmpty()) addNonTechnicalElective();
             } else if (userNumberInput1 > availableCoursesToAdd.size() || userNumberInput1 < 0) {
                 ConsoleColours.paintRedMenu();
-                System.out.println("Invalid input, please enter a valid number");
+                System.out.println("Invalid input, please enter a valid number!");
                 addNonTechnicalElective();
             } else return;
         }
@@ -403,7 +402,7 @@ public class Student extends Person implements IDisplayMenu {
                     || hasCourseOverlap(course, false)
                     || (semester < course.semester() && transcript.getCgpa() < 3)
                     || draft.contains(course)
-                    || !checkPrerequisiteAndCourseThatWasTaken(course)
+                    || !checkThePrerequisiteAndCourseThatWasTaken(course)
                     || (course.semester() % 2 != this.semester % 2)) {
                 continue;
             } else {
@@ -423,7 +422,7 @@ public class Student extends Person implements IDisplayMenu {
                     || hasCourseOverlap(course, false)
                     || (semester < course.semester() && transcript.getCgpa() < 3)
                     || draft.contains(course)
-                    || !checkPrerequisiteAndCourseThatWasTaken(course)
+                    || !checkThePrerequisiteAndCourseThatWasTaken(course)
                     || (course.semester() % 2 != this.semester % 2)) {
                 continue;
             } else {
@@ -466,10 +465,13 @@ public class Student extends Person implements IDisplayMenu {
         }
     }
 
-    private boolean checkPrerequisiteAndCourseThatWasTaken(Course course) {
+    //TODO İsim bulunacak :D
+    private boolean checkThePrerequisiteAndCourseThatWasTaken(Course course) {
         Map<Course, List<Grade>> mapGrade = transcript.getCourseGradeMap();
-        //If student take the course for the first time, prerequisites is checked.
+        //If student take the course for the first time, prerequisities is checked.
         if (!mapGrade.containsKey(course)) {
+            boolean status = true;
+
             for (Course prerequisite : course.getPreRequisiteCourses()) {
                 if ((!transcript.getStudentCourses().contains(prerequisite)
                         || mapGrade.get(prerequisite).getLast() == null
@@ -608,10 +610,9 @@ public class Student extends Person implements IDisplayMenu {
         }
         // Check if the draft is empty.
         if (draft.isEmpty()) {
-            ConsoleColours.paintYellowMenu();
+            ConsoleColours.paintRedMenu();
             System.out.println("Your draft is empty!");
             ConsoleColours.resetColour();
-            System.out.println();
         } else {
             ConsoleColours.paintBlueMenu();
             System.out.println("Remove Course from Draft");
@@ -661,18 +662,35 @@ public class Student extends Person implements IDisplayMenu {
             logger.info("Student " + this.getID() + " has a request waiting for " + advisor.getID() + "'s approval.");
             System.out.println("Your request is waiting for advisor approval.");
         } else {
-            System.out.println("There is no waiting request!");
+            System.out.println("There is no waiting request.");
             ConsoleColours.resetColour();
-            System.out.println();
             return;
         }
 
         ConsoleColours.paintBlueMenu();
-        System.out.println("Your draft: ");
-        ConsoleColours.paintPurpleMenu();
+        System.out.println(":::::::::::::::::::::::Your draft:::::::::::::::::::::::");
+        ConsoleColours.paintGreenMenu();
+        System.out.println("::::::Courses that have been requested to be added::::::");
+        System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
         for (Course course : draft) {
-            System.out.println(course.getCourseCode() + "-" + course.getCourseName());
+            if (!(this.getTranscript().getCourseGradeMap().get(course) != null
+                    && this.getTranscript().getCourseGradeMap().get(course).getLast() == null))
+                System.out.println(course.getCourseCode() + "-" + course.getCourseName());
         }
+        System.out.println();
+        System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+
+        ConsoleColours.paintRedMenu();
+        System.out.println(":::::Courses that have been requested to be dropped:::::");
+        System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+        for (Course course : draft) {
+            if ((this.getTranscript().getCourseGradeMap().get(course) != null
+                    && this.getTranscript().getCourseGradeMap().get(course).getLast() == null))
+                System.out.println(course.getCourseCode() + "-" + course.getCourseName());
+        }
+        System.out.println();
+        System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+
         ConsoleColours.resetColour();
         System.out.println();
     }

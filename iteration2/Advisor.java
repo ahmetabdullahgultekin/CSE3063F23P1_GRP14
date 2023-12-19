@@ -62,7 +62,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
             System.out.println("Enter the request number you want to evaluate: ");
             requestNumber = controller.getInput();
 
-            ConsoleColours.paintBlueMenu();
+            ConsoleColours.paintGreenMenu();
             if (requestNumber <= requestList.size() && requestNumber >= 1) {
                 Registration request = requestList.get(requestNumber - 1);
                 System.out.println(request.getStudent().getName() + " "
@@ -73,7 +73,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
                             && request.getStudent().getTranscript().getCourseGradeMap().get(course).getLast() == null))
                         System.out.println(course.getCourseCode() + " " + course.getCourseName());
                 }
-                ConsoleColours.paintBlueMenu();
+                ConsoleColours.paintRedMenu();
                 System.out.println(request.getStudent().getName() + " "
                         + request.getStudent().getSurname() + " wants to drop these courses:");
                 ConsoleColours.paintPurpleMenu();
@@ -86,12 +86,13 @@ public class Advisor extends Lecturer implements IDisplayMenu {
             } else if (requestNumber > requestList.size() || requestNumber < 0) {
                 ConsoleColours.paintRedMenu();
                 logger.warn("Advisor " + this.getID() + " entered invalid input.");
-                System.out.println("Invalid choice Please select again!");
+                System.out.println("Invalid choice! Please select again.");
                 printRequests();
             }
         } else {
             ConsoleColours.paintYellowMenu();
-            System.out.println("There is not a Waiting Request!");
+            System.out.println("There is not a waiting request!");
+            System.out.println("You are redirecting to the Advisor Main Menu...");
             ConsoleColours.resetColour();
             System.out.println();
         }
@@ -154,6 +155,7 @@ public class Advisor extends Lecturer implements IDisplayMenu {
         ConsoleColours.paintYellowMenu();
         String message = "You have " + requestList.size() + " request(s).";
         System.out.println(message);
+        System.out.println();
         ConsoleColours.paintBlueMenu();
 
         System.out.println("Please select from the following options:");
