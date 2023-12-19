@@ -1,172 +1,170 @@
 [
   {
-    "assistantId": 130210011,
+    "assistantID": 130210011,
     "labSectionCode": "CSE1241.1",
     "courseCode": "CSE1241",
     "capacity": 60,
-    "day":"Tuesday" ,
-    "hour":"13"
-
+    "day": "Tuesday",
+    "hour": "13"
   },
   {
-    "assistantId": 130210011,
+    "assistantID": 130210011,
     "labSectionCode": "CSE1241.2",
     "courseCode": "CSE1241",
     "capacity": 60,
-    "day":"Tuesday" ,
-    "hour":"14"
+    "day": "Tuesday",
+    "hour": "14"
   },
   {
-  "assistantId": 130210026,
-  "labSectionCode": "PHYS1103.1",
-  "courseCode": "PHYS1103",
-  "capacity": 40,
-  "day":"Thursday" ,
-  "hour":"13"
+    "assistantID": 130210026,
+    "labSectionCode": "PHYS1103.1",
+    "courseCode": "PHYS1103",
+    "capacity": 40,
+    "day": "Thursday",
+    "hour": "13"
   },
   {
-    "assistantId": 130210026,
+    "assistantID": 130210026,
     "labSectionCode": "PHYS1103.2",
     "courseCode": "PHYS1103",
     "capacity": 40,
-    "day":"Thursday" ,
-    "hour":"14"
+    "day": "Thursday",
+    "hour": "14"
   },
   {
-    "assistantId": 130210026,
+    "assistantID": 130210026,
     "labSectionCode": "PHYS1103.3",
     "courseCode": "PHYS1103",
     "capacity": 40,
-    "day":"Thursday" ,
-    "hour":"15"
+    "day": "Thursday",
+    "hour": "15"
   },
   {
-    "assistantId": 130210011,
+    "assistantID": 130210011,
     "labSectionCode": "CSE1242.1",
     "courseCode": "CSE1242",
     "capacity": 60,
-    "day":"Wednesday" ,
-    "hour":"9"
+    "day": "Wednesday",
+    "hour": "9"
   },
   {
-    "assistantId": 130210011,
+    "assistantID": 130210011,
     "labSectionCode": "CSE1242.2",
     "courseCode": "CSE1242",
     "capacity": 60,
-    "day":"Wednesday" ,
-    "hour":"14"
+    "day": "Wednesday",
+    "hour": "14"
   },
   {
-    "assistantId": 130210026,
+    "assistantID": 130210026,
     "labSectionCode": "PHYS1104.1",
     "courseCode": "PHYS1104",
     "capacity": 40,
-    "day":"Thursday" ,
-    "hour":"9"
+    "day": "Thursday",
+    "hour": "9"
   },
   {
-    "assistantId": 130210026,
+    "assistantID": 130210026,
     "labSectionCode": "PHYS1104.2",
     "courseCode": "PHYS1104",
     "capacity": 40,
-    "day":"Thursday" ,
-    "hour":"16"
+    "day": "Thursday",
+    "hour": "16"
   },
   {
-    "assistantId": 130210026,
+    "assistantID": 130210026,
     "labSectionCode": "PHYS1104.3",
     "courseCode": "PHYS1104",
     "capacity": 40,
-    "day":"Tuesday" ,
-    "hour":"15"
+    "day": "Tuesday",
+    "hour": "15"
   },
   {
-    "assistantId": 130212039,
+    "assistantID": 130212039,
     "labSectionCode": "CSE2138.1",
     "courseCode": "CSE2138",
     "capacity": 60,
-    "day":"Friday" ,
-    "hour":"16"
+    "day": "Friday",
+    "hour": "16"
   },
   {
-    "assistantId": 130212039,
+    "assistantID": 130212039,
     "labSectionCode": "CSE2138.2",
     "courseCode": "CSE2138",
     "capacity": 60,
-    "day":"Monday" ,
-    "hour":"10"
+    "day": "Monday",
+    "hour": "10"
   },
   {
-    "assistantId": 130210026,
+    "assistantID": 130210026,
     "labSectionCode": "EE2032.1",
     "courseCode": "EE2032",
     "capacity": 40,
-    "day":"Tuesday" ,
-    "hour":"11"
+    "day": "Tuesday",
+    "hour": "11"
   },
   {
-    "assistantId": 130210026,
+    "assistantID": 130210026,
     "labSectionCode": "EE2032.2",
     "courseCode": "EE2032",
     "capacity": 40,
-    "day":"Friday" ,
-    "hour":"9"
+    "day": "Friday",
+    "hour": "9"
   },
   {
-    "assistantId": 130210026,
+    "assistantID": 130210026,
     "labSectionCode": "EE2032.3",
     "courseCode": "EE2032",
     "capacity": 40,
-    "day":"Tuesday" ,
-    "hour":"10"
+    "day": "Tuesday",
+    "hour": "10"
   },
   {
-    "assistantId": 130211013,
+    "assistantID": 130211013,
     "labSectionCode": "CSE3033.1",
     "courseCode": "CSE3033",
     "capacity": 60,
-    "day":"Monday" ,
-    "hour":"11"
+    "day": "Monday",
+    "hour": "11"
   },
   {
-    "assistantId": 130211013,
+    "assistantID": 130211013,
     "labSectionCode": "CSE3033.2",
     "courseCode": "CSE3033",
     "capacity": 60,
-    "day":"Friday" ,
-    "hour":"13"
+    "day": "Friday",
+    "hour": "13"
   },
   {
-    "assistantId": 130212039,
+    "assistantID": 130212039,
     "labSectionCode": "CSE3055.1",
     "courseCode": "CSE3055",
     "capacity": 60,
-    "day":"Monday" ,
-    "hour":"14"
+    "day": "Monday",
+    "hour": "14"
   },
   {
-    "assistantId": 130212039,
+    "assistantID": 130212039,
     "labSectionCode": "CSE3055.2",
     "courseCode": "CSE3055",
     "capacity": 60,
-    "day":"Monday" ,
-    "hour":"13"
+    "day": "Monday",
+    "hour": "13"
   },
   {
-    "assistantId": 130211013,
+    "assistantID": 130211013,
     "labSectionCode": "CSE4219.1",
     "courseCode": "CSE4219",
     "capacity": 60,
-    "day":"Friday" ,
-    "hour":"14"
+    "day": "Friday",
+    "hour": "14"
   },
   {
-    "assistantId": 130211013,
+    "assistantID": 130211013,
     "labSectionCode": "CSE4219.2",
     "courseCode": "CSE4219",
     "capacity": 60,
-    "day":"Friday" ,
-    "hour":"15"
+    "day": "Friday",
+    "hour": "15"
   }
-
 ]
