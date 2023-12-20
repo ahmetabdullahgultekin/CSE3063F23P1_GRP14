@@ -1,6 +1,6 @@
 package iteration2.Test;
 
-import iteration1.CourseRegistrationSystem;
+import iteration2.CourseRegistrationSystem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

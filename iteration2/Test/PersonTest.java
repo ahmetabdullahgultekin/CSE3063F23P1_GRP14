@@ -1,7 +1,7 @@
 package iteration2.Test;
 
-import iteration1.Advisor;
-import iteration1.Person;
+import iteration2.Advisor;
+import iteration2.Person;
 import org.junit.Before;
 import org.junit.Test;
 
