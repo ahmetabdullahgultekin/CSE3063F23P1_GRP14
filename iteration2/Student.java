@@ -516,7 +516,7 @@ public class Student extends Person implements IDisplayMenu {
         if (isLab) {
             if (courseInSchedule != null) {
                 List<Grade> scheduleCourseGrades = transcript.getCourseGradeMap().get(courseInSchedule);
-                if (scheduleCourseGrades.size() == 1 && scheduleCourseGrades.getLast() == null) {
+                if (scheduleCourseGrades != null && scheduleCourseGrades.getLast() == null) {
                     return true;
                 }
                 if (scheduleCourseGrades.size() >= 2 && scheduleCourseGrades.get(scheduleCourseGrades.size() - 2).getLetterGrade().equals("DZ")) {
@@ -544,6 +544,9 @@ public class Student extends Person implements IDisplayMenu {
         } else {
             if (courseInSchedule != null) {
                 List<Grade> scheduleCourseGrades = transcript.getCourseGradeMap().get(courseInSchedule);
+                if (scheduleCourseGrades != null && scheduleCourseGrades.getLast() == null) {
+                    return true;
+                }
                 if (scheduleCourseGrades != null
                         && scheduleCourseGrades.size() >= 2
                         && scheduleCourseGrades.get(scheduleCourseGrades.size() - 2).getLetterGrade().equals("DZ")) {
