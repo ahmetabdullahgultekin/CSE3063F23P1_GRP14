@@ -48,8 +48,33 @@ Melik- Implementation of Advisor Class, Implementation of Grade Class
 15.11.2023 Wednesday Offline Meeting:
 Test Units were discussed. The parts left behind were evaluted and necessary uploads are done.
 
-16.11.2023
+16.11.2023 Thursday Online Meeting
 The last important parts were discussed. The iteration 1 almost done.
+
+04.12.2023 Monday Online Meeting
+Demo was finished and the meeting that is about iteration 2 is done. The important issues were decided. The necessary points are talked.
+
+11.12.2023 Monday Offline Meeting
+The completed parts were discussed and regulations that were necessary to RAD and Software Design parts were decided.
+The task distribution on implementations were done.
+Task Distribution:
+Ahmet Abdullah : Updating Student, Transcript, Course Registration System classes. Moreover, Updating the DCD of these classes.
+Ayşe Gülsüm: Detailing Advisor, Lecturer, Student JOSN Files. Updating Student Transcript JSON's. Creating Assistant JSON files.
+Enes:Updating DSD,SSD and Updating deparment, Grade and JSON Writer classes.
+Hamza:Updating RAD, Logging Feature, Updating Lecturer, Person and Registration Classes.
+Mehrin:Updating Course Section Class, implementation of Assitant class and Laboratory class. Moreover, Updating the DCD of these classes.
+Melik: Updating the Student class, Use Cases and Unit Tests. Moreover, Updating the DCD of these classes.
+Ömer: Implementatin University Class, updating Advisor, Course JSON Reader classes. Moreover, Updating the DCD of these classes.
+
+14.12.2023 Thursday Online Meeting:
+The last importnat parts were discussed. The iteration 2 almost done.
+
+19.12.2023 Tuesday Online Meeting:
+The unit tests are updated and discussed.
+
+20.12.2023
+The necessary tests were done. The important errors were handled.
+
 
 
 
