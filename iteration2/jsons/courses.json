@@ -151,7 +151,6 @@
     "day": "Tuesday",
     "hour": "11",
     "preRequisiteCourseCodes": [
-      "EE2031"
     ]
   },
   {
@@ -178,8 +177,6 @@
     "day": "Thursday",
     "hour": "11",
     "preRequisiteCourseCodes": [
-      "IE3235",
-      "CSE4288"
     ]
   },
   {
