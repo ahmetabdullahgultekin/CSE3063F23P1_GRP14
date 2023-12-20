@@ -421,16 +421,45 @@ public class Student extends Person implements IDisplayMenu {
         //If no capacity, has overlap, (student's semester is less than course's semester and student has CGPA that is
         //less than 3) or course is in draft; continue.
         for (Course course : this.getDepartment().getCourses()) {
-            if (!course.getCourseType().equals("Mandatory")
-                    || !course.hasCapacity()
-                    || hasCourseOverlap(course, false)
-                    || (semester < course.semester() && transcript.getCgpa() < 3)
-                    || draft.contains(course)
-                    || !checkThePrerequisiteAndCourseThatWasTaken(course)
-                    || (course.semester() % 2 != this.semester % 2)) {
-                continue;
+            if (course.getCourseCode().equals("CSE4297")) {
+                int sum = 0;
+                for (Course studentCourse : transcript.getStudentCourses()) {
+                    if (studentCourse.semester() > 6 &&
+                            (course.getCourseType().equals("NTE")
+                                    || course.getCourseType().equals("TE")
+                                    || course.getCourseType().equals("FTE"))
+                            || studentCourse.getCourseCode().equals("ISG121")
+                            || studentCourse.getCourseCode().equals("ISG122")
+                            || transcript.getCourseGradeMap().get(studentCourse).getLast() == null
+                            || transcript.getCourseGradeMap().get(studentCourse).getLast().getLetterGrade().compareTo("DD") > 0) {
+                        continue;
+                    }
+                    sum += course.getCourseCredit();
+                }
+                if (sum < 165
+                        || !course.getCourseType().equals("Mandatory")
+                        || !course.hasCapacity()
+                        || hasCourseOverlap(course, false)
+                        || (semester < course.semester() && transcript.getCgpa() < 3)
+                        || draft.contains(course)
+                        || !checkThePrerequisiteAndCourseThatWasTaken(course)
+                        || (course.semester() % 2 != this.semester % 2)) {
+                    continue;
+                } else {
+                    availableCoursesToAdd.add(course);
+                }
             } else {
-                availableCoursesToAdd.add(course);
+                if (!course.getCourseType().equals("Mandatory")
+                        || !course.hasCapacity()
+                        || hasCourseOverlap(course, false)
+                        || (semester < course.semester() && transcript.getCgpa() < 3)
+                        || draft.contains(course)
+                        || !checkThePrerequisiteAndCourseThatWasTaken(course)
+                        || (course.semester() % 2 != this.semester % 2)) {
+                    continue;
+                } else {
+                    availableCoursesToAdd.add(course);
+                }
             }
         }
     }
