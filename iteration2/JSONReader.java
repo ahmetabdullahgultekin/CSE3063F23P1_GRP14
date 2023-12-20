@@ -61,7 +61,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/departments.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the departments.json file.");
+            logger.error("There is a problem with the departments.json file.");
             System.exit(0);
         }
         // Get the array of courses from the parsed JSON.
@@ -138,7 +139,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/courses.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the courses.json file.");
+            logger.error("There is a problem with the courses.json file.");
             System.exit(0);
         }
         // Get the array of courses from the parsed JSON.
@@ -198,7 +200,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/assistants.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the assistants.json file.");
+            logger.error("There is a problem with the assistants.json file.");
             System.exit(0);
         }
         // Get the array of lecturers from the parsed JSON.
@@ -246,7 +249,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/labSections.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the labSections.json file.");
+            logger.error("There is a problem with the labSections.json file.");
             System.exit(0);
         }
         JsonNode labSectionsArray = jsonNode;
@@ -293,7 +297,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/lecturers.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the lecturers.json file.");
+            logger.error("There is a problem with the lecturers.json file.");
             System.exit(0);
         }
         // Get the array of lecturers from the parsed JSON.
@@ -356,7 +361,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/students.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the students.json file.");
+            logger.error("There is a problem with the students.json file.");
             System.exit(0);
         }
         // Get the array of students from the parsed JSON.
@@ -424,7 +430,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/Transcripts/" + student.getID() + ".json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the " + student.getID() + ".json file.");
+            logger.error("There is a problem with the " + student.getID() + ".json file.");
             System.exit(0);
         }
 
@@ -505,7 +512,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/requests.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the requests.json file.");
+            logger.error("There is a problem with the requests.json file.");
             System.exit(0);
         }
         // Get the array of requests from the parsed JSON.
@@ -559,7 +567,8 @@ public class JSONReader {
             jsonNode = mapper.readTree(new File("iteration2/jsons/advisors.json"));
         } catch (IOException e) {
             // If the file is not found, print an error message and terminate the program.
-            System.out.println("File not found");
+            System.out.println("There is a problem with the advisors.json file.");
+            logger.error("There is a problem with the advisors.json file.");
             System.exit(0);
         }
 

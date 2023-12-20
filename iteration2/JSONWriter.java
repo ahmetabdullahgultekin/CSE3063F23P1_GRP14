@@ -89,7 +89,8 @@ public class JSONWriter {
                 // Write the updated JsonNode back to the file
                 objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), jsonNode);
             } catch (IOException e) {
-                System.out.println("File not found");
+                System.out.println("There is a problem with the " + student.getID() + ".json file.");
+                logger.error("There is a problem with the " + student.getID() + ".json file.");
                 System.exit(0);
             }
         }
@@ -118,7 +119,8 @@ public class JSONWriter {
             // Write the entirely new ArrayNode back to the file
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), jsonArray);
         } catch (IOException e) {
-            System.out.println("File not found");
+            System.out.println("There is a problem with the requests.json file.");
+            logger.error("There is a problem with the requests.json file.");
             System.exit(0);
         }
     }
@@ -165,7 +167,8 @@ public class JSONWriter {
             // Write the updated JsonNode back to the file
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), jsonArray);
         } catch (IOException e) {
-            System.out.println("File not found");
+            System.out.println("There is a problem with the students.json file.");
+            logger.error("There is a problem with the students.json file.");
             System.exit(0);
         }
     }
