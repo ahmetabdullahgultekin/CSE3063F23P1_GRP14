@@ -234,7 +234,6 @@
     "day": "Wednesday",
     "hour": "13",
     "preRequisiteCourseCodes": [
-      "CSE3264"
     ]
   },
   {
@@ -274,7 +273,7 @@
     "day": "Monday",
     "hour": "14",
     "preRequisiteCourseCodes": [
-      "CSE3048"
+
     ]
   },
   {
