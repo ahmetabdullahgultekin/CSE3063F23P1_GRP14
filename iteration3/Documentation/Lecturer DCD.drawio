@@ -1,0 +1,13 @@
+<mxfile host="Electron" modified="2023-12-20T12:46:27.353Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="q7R0yMo3fsGzimxGFnbC" version="22.0.3" type="device">
+  <diagram name="Sayfa -1" id="CxPE-I3Y8bPtIX23W_Vx">
+    <mxGraphModel dx="1290" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7phvJT3TCqMxq0UXvGoG-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Lecturer&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Lecturer():&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Lecturer(int, String, String):&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ Lecturer(int, String, String, String, String):&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;-&amp;nbsp;lessonsTaught :&amp;nbsp;List&amp;lt;Course&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;~ login(String, String): boolean&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getLessonsTaught():&amp;nbsp;List&amp;lt;Course&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="356" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,13 @@
+<mxfile host="Electron" modified="2023-12-20T12:41:23.943Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="_IVmhZoATX7BvK9i7GSH" version="22.0.3" type="device">
+  <diagram name="Sayfa -1" id="1NXpzn2oZJt-M4uM-ofx">
+    <mxGraphModel dx="-101" dy="2441" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CAb9axjWKHZ_doyGPvIi-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;LaboratorySection&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ LaboratorySection(String,int,int, String): &lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- laboratorySectionCode: String&lt;br&gt;- capacity: int&lt;br&gt;- assistant: Assistant&lt;br&gt;- numberOfStudents: int&lt;br&gt;- day: String&lt;br&gt;- hour: int&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ setAssistant(Assistant): void&lt;br&gt;+ getLaboratorySectionCode(): String&lt;br&gt;+ getDay(): String&lt;br&gt;+ getHour(): int&lt;br&gt;+ getCapacity(): int&lt;br&gt;+ getNumberOfStudents(): int&lt;br&gt;+ setNumberOfStudents(int): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1110" y="-970" width="297" height="403" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

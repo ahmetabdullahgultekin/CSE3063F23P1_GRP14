@@ -1,0 +1,13 @@
+<mxfile host="Electron" modified="2023-12-20T13:50:15.312Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="WNI9211C_0K81i97sGyf" version="22.1.2" type="device">
+  <diagram name="Page-1" id="tQzES9_tXlXZ9UXONTTl">
+    <mxGraphModel dx="2103" dy="606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MVjT-eaO-2y29rBm63s_-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;University&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ University(String): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- departments: List&amp;lt;Department&amp;gt;&lt;br/&gt;- userNamePersonMap: Map&amp;lt;String, Person&amp;gt;&lt;br/&gt;- name: String&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getDepartments(): List&amp;lt;Department&amp;gt;&lt;br/&gt;+ getUserNamePersonMap(): Map&amp;lt;String, Person&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="-196" y="108" width="352" height="212" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

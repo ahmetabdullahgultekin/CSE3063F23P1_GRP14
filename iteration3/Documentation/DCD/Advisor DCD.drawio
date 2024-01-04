@@ -1,0 +1,13 @@
+<mxfile host="Electron" modified="2023-12-20T13:48:46.593Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="qxFJT6dW0fweHzcPdZxd" version="22.1.2" type="device">
+  <diagram name="Page-1" id="djp-iKw1goF21rsR8SHJ">
+    <mxGraphModel dx="521" dy="1782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GzS1P2vM_oAooUpzR4EZ-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Advisor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Advisor(int, String, String, String, String): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- notification: Notification&lt;br/&gt;- logger: Logger&lt;br/&gt;- requestList: List&amp;lt;Registration&amp;gt;&lt;br/&gt;- studentsAdvised: List&amp;lt;Student&amp;gt;&lt;br/&gt;- requestNumber: int&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ setNotification(Notification): void&lt;br/&gt;+ login(String, String): boolean&lt;br/&gt;+ replyRequests(): void&lt;br/&gt;+ printMenu(String): void&lt;br/&gt;+ getStudentsAdvised(): List&amp;lt;Student&amp;gt;&lt;br/&gt;+ getRequests(): List&amp;lt;Registration&amp;gt;&lt;br/&gt;+ printRequests(): void&lt;br/&gt;+ getRequestList(): List&amp;lt;Registration&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="26" y="-308" width="309" height="388" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
