@@ -1,0 +1,85 @@
+{
+  "studentID" : 150121018,
+  "name" : "Yasemin",
+  "surname" : "Uslu",
+  "cgpa" : 2.82,
+  "takenCredits" : 111,
+  "completedCredits" : 107,
+  "semester" : 5,
+  "courses" : [ {
+    "courseCode" : "TRD122",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "STAT2253",
+    "letterGrade" : "CB"
+  }, {
+    "courseCode" : "MATH2055",
+    "letterGrade" : "FD"
+  }, {
+    "courseCode" : "CSE1200",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "CSE2138",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH1001",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2225",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1101",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MBG1201",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "CSE2260",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MATH1002",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "ECON2004",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "ATA122",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2023",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "ATA121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "TRD121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "EE2032",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "CSE1241",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "PHYS1104",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "EE2031",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH2256",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "PHYS1103",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1102",
+    "letterGrade" : "CB"
+  }, {
+    "courseCode" : "MATH2059",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE1242",
+    "letterGrade" : "BA"
+  } ]
+}

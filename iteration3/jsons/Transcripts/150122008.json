@@ -1,0 +1,10 @@
+{
+  "studentID" : 150122008,
+  "name" : "Esra",
+  "surname" : "Şahin",
+  "cgpa" : 0.0,
+  "takenCredits" : 0,
+  "completedCredits" : 0,
+  "semester" : 1,
+  "courses" : [ ]
+}

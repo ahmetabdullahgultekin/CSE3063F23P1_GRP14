@@ -1,0 +1,118 @@
+{
+  "studentID" : 150120090,
+  "name" : "Mahmut",
+  "surname" : "Subaşı",
+  "cgpa" : 2.87,
+  "takenCredits" : 169,
+  "completedCredits" : 165,
+  "semester" : 7,
+  "courses" : [ {
+    "courseCode" : "TRD122",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "STAT2253",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH2055",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE3063",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1200",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "CSE2138",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "MATH1001",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "COM2202",
+    "letterGrade" : "CB"
+  }, {
+    "courseCode" : "CSE2225",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "PHYS1101",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MBG1201",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "CSE2260",
+    "letterGrade" : "CB"
+  }, {
+    "courseCode" : "MATH1002",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "ECON2004",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "IE3235",
+    "letterGrade" : "FF"
+  }, {
+    "courseCode" : "CSE3055",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "ATA122",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2023",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "CSE3033",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE3264",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "ATA121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "TRD121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "EE2032",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "CSE1241",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "PHYS1104",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "IE3081",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "EE2031",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE3044",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE3215",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE2246",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH2256",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "PHYS1103",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1102",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MATH2059",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE1242",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE3048",
+    "letterGrade" : "CB"
+  } ]
+}

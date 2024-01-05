@@ -1,0 +1,55 @@
+{
+  "studentID" : 150121073,
+  "name" : "Tuğba",
+  "surname" : "Yaşar",
+  "cgpa" : 2.36,
+  "takenCredits" : 58,
+  "completedCredits" : 48,
+  "semester" : 3,
+  "courses" : [ {
+    "courseCode" : "TRD122",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "ATA121",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "CSE1200",
+    "letterGrade" : "FF"
+  }, {
+    "courseCode" : "TRD121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1241",
+    "letterGrade" : "CB"
+  }, {
+    "courseCode" : "MATH1001",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "PHYS1104",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1101",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "MBG1201",
+    "letterGrade" : "CB"
+  }, {
+    "courseCode" : "MATH1002",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "MATH2256",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1103",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "ATA122",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1102",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE1242",
+    "letterGrade" : "FD"
+  } ]
+}

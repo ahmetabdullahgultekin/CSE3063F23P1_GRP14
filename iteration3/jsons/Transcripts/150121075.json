@@ -1,0 +1,55 @@
+{
+  "studentID" : 150121075,
+  "name" : "Polat",
+  "surname" : "Çakır",
+  "cgpa" : 3.09,
+  "takenCredits" : 58,
+  "completedCredits" : 58,
+  "semester" : 3,
+  "courses" : [ {
+    "courseCode" : "TRD122",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "ATA121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1200",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "TRD121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "CSE1241",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MATH1001",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1104",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1101",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "MBG1201",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "MATH1002",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MATH2256",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1103",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "ATA122",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1102",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE1242",
+    "letterGrade" : "CB"
+  } ]
+}

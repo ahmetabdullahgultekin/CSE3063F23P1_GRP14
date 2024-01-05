@@ -1,0 +1,46 @@
+{
+  "studentID" : 150122015,
+  "name" : "Deniz",
+  "surname" : "Turna",
+  "cgpa" : 2.41,
+  "takenCredits" : 47,
+  "completedCredits" : 43,
+  "semester" : 3,
+  "courses" : [ {
+    "courseCode" : "ATA121",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "MATH1002",
+    "letterGrade" : "DD"
+  }, {
+    "courseCode" : "CSE1200",
+    "letterGrade" : "CC"
+  }, {
+    "courseCode" : "TRD121",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1103",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE1241",
+    "letterGrade" : "BB"
+  }, {
+    "courseCode" : "ATA122",
+    "letterGrade" : "DC"
+  }, {
+    "courseCode" : "MATH1001",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "CSE1242",
+    "letterGrade" : "BA"
+  }, {
+    "courseCode" : "PHYS1104",
+    "letterGrade" : "AA"
+  }, {
+    "courseCode" : "PHYS1101",
+    "letterGrade" : "FF"
+  }, {
+    "courseCode" : "MBG1201",
+    "letterGrade" : "DC"
+  } ]
+}

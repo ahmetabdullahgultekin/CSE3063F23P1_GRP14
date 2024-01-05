@@ -1,0 +1,178 @@
+[
+  {
+    "lecturerID": 130106001,
+    "name": "Ali Haydar",
+    "surname": "Özer",
+    "lessonsTaught": [
+      "CSE3033",
+      "ECON2004",
+      "CSE4061"
+    ]
+  },
+  {
+    "lecturerID": 130108003,
+    "name": "Mustafa",
+    "surname": "Ağaoğlu",
+    "lessonsTaught": [
+      "CSE1200",
+      "CSE3055",
+      "CSE4217"
+    ]
+  },
+  {
+    "lecturerID": 130109007,
+    "name": "Betül",
+    "surname": "Boz",
+    "lessonsTaught": [
+      "CSE3215",
+      "CSE2138",
+      "CSE4044"
+    ]
+  },
+  {
+    "lecturerID": 130117006,
+    "name": "Müjdat",
+    "surname": "Soytürk",
+    "lessonsTaught": [
+      "IE3081",
+      "MATH2055",
+      "STAT2253",
+      "BUS1003"
+    ]
+  },
+  {
+    "lecturerID": 130118011,
+    "name": "Çiğdem",
+    "surname": "Eroğlu",
+    "lessonsTaught": [
+      "EE2031",
+      "EE2032",
+      "BUS1004"
+    ]
+  },
+  {
+    "lecturerID": 130109002,
+    "name": "Borahan",
+    "surname": "Tümer",
+    "lessonsTaught": [
+      "CSE2225",
+      "BUS2005"
+    ]
+  },
+  {
+    "lecturerID": 130111003,
+    "name": "Ali Fuat",
+    "surname": "Alkaya",
+    "lessonsTaught": [
+      "CSE2023",
+      "ME3022"
+    ]
+  },
+  {
+    "lecturerID": 130113003,
+    "name": "Ömer",
+    "surname": "Korçak",
+    "lessonsTaught": [
+      "CSE2246",
+      "ME4022"
+    ]
+  },
+  {
+    "lecturerID": 130112003,
+    "name": "Çağla",
+    "surname": "Peçenek",
+    "lessonsTaught": [
+      "MATH1001",
+      "MATH1002",
+      "MATH2256",
+      "CAS3044"
+    ]
+  },
+  {
+    "lecturerID": 130114005,
+    "name": "Fahri",
+    "surname": "Güven",
+    "lessonsTaught": [
+      "PHYS1101",
+      "PHYS1102",
+      "PHYS1103",
+      "PHYS1104"
+    ]
+  },
+  {
+    "lecturerID": 130112006,
+    "name": "Aslıhan",
+    "surname": "Yetiş",
+    "lessonsTaught": [
+      "CSE1242",
+      "CSE1241"
+    ]
+  },
+  {
+    "lecturerID": 130114011,
+    "name": "Kemal",
+    "surname": "Tahir",
+    "lessonsTaught": [
+      "CSE2260",
+      "COM2202",
+      "FNCE3003"
+    ]
+  },
+  {
+    "lecturerID": 130112017,
+    "name": "Hayriye",
+    "surname": "Ünaldı",
+    "lessonsTaught": [
+      "CSE3044"
+    ]
+  },
+  {
+    "lecturerID": 130114009,
+    "name": "Mehmet Emin",
+    "surname": "Koç",
+    "lessonsTaught": [
+      "CSE3264",
+      "CSE4297",
+      "CSE4298"
+    ]
+  },
+  {
+    "lecturerID": 130114002,
+    "name": "Agah",
+    "surname": "Beyoğlu",
+    "lessonsTaught": [
+      "CSE3038",
+      "CSE4288"
+    ]
+  },
+  {
+    "lecturerID": 130115001,
+    "name": "Hatice",
+    "surname": "Yurdakul",
+    "lessonsTaught": [
+      "MBG1201",
+      "ATA121",
+      "TRD121",
+      "ATA122",
+      "TRD122"
+    ]
+  },
+  {
+    "lecturerID": 130117005,
+    "name": "Aybuke",
+    "surname": "Güven",
+    "lessonsTaught": [
+      "CSE3048",
+      "CSE4074"
+    ]
+  },
+  {
+    "lecturerID": 130111006,
+    "name": "Osman",
+    "surname": "Korkmaz",
+    "lessonsTaught": [
+      "IE3235",
+      "CSE4219"
+    ]
+  }
+]

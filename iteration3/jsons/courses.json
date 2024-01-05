@@ -1,0 +1,739 @@
+[
+  {
+    "lecturerID": 130112003,
+    "courseName": "Calculus I",
+    "courseType": "Mandatory",
+    "semester": 1,
+    "courseCode": "MATH1001",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "9",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130108003,
+    "courseName": "Introduction to Computer Engineering",
+    "courseType": "Mandatory",
+    "semester": 1,
+    "courseCode": "CSE1200",
+    "courseCredit": 4,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "9",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130112006,
+    "courseName": "Computer Programming I",
+    "courseType": "Mandatory",
+    "semester": 1,
+    "courseCode": "CSE1241",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Wednesday",
+    "hour": "9",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130114005,
+    "courseName": "Physics I",
+    "courseType": "Mandatory",
+    "semester": 1,
+    "courseCode": "PHYS1101",
+    "courseCredit": 4,
+    "capacity": 120,
+    "day": "Thursday",
+    "hour": "9",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130112003,
+    "courseName": "Introduction to Modern Biology",
+    "courseType": "Mandatory",
+    "semester": 1,
+    "courseCode": "MBG1201",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Friday",
+    "hour": "9",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130114009,
+    "courseName": "Atatürk İlkeleri ve İnkılap Tarihi I",
+    "courseType": "Mandatory",
+    "semester": 1,
+    "courseCode": "ATA121",
+    "courseCredit": 2,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "10",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130111006,
+    "courseName": "Türk Dili I",
+    "courseType": "Mandatory",
+    "semester": 1,
+    "courseCode": "TRD121",
+    "courseCredit": 2,
+    "capacity": 120,
+    "day": "Tuesday",
+    "hour": "10",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130114005,
+    "courseName": "Physics Lab I",
+    "courseType": "Mandatory",
+    "semester": 1,
+    "courseCode": "PHYS1103",
+    "courseCredit": 2,
+    "capacity": 120,
+    "day": "Wednesday",
+    "hour": "10",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130112003,
+    "courseName": "Calculus II",
+    "courseType": "Mandatory",
+    "semester": 2,
+    "courseCode": "MATH1002",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Thursday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130114005,
+    "courseName": "Physics Lab II",
+    "courseType": "Mandatory",
+    "semester": 2,
+    "courseCode": "PHYS1104",
+    "courseCredit": 2,
+    "capacity": 120,
+    "day": "Friday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130112006,
+    "courseName": "Computer Programming II",
+    "courseType": "Mandatory",
+    "semester": 2,
+    "courseCode": "CSE1242",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "11",
+    "preRequisiteCourseCodes": [
+      "CSE1241"
+    ]
+  },
+  {
+    "lecturerID": 130114005,
+    "courseName": "Physics II",
+    "courseType": "Mandatory",
+    "semester": 2,
+    "courseCode": "PHYS1102",
+    "courseCredit": 4,
+    "capacity": 120,
+    "day": "Tuesday",
+    "hour": "11",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130114011,
+    "courseName": "Atatürk İlkeleri ve İnkılap Tarihi II",
+    "courseType": "Mandatory",
+    "semester": 2,
+    "courseCode": "ATA122",
+    "courseCredit": 2,
+    "capacity": 120,
+    "day": "Wednesday",
+    "hour": "11",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130112003,
+    "courseName": "Linear Algebra for Computer Engineering",
+    "courseType": "Mandatory",
+    "semester": 2,
+    "courseCode": "MATH2256",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Thursday",
+    "hour": "11",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130112003,
+    "courseName": "Türk Dili II",
+    "courseType": "Mandatory",
+    "semester": 2,
+    "courseCode": "TRD122",
+    "courseCredit": 2,
+    "capacity": 120,
+    "day": "Friday",
+    "hour": "11",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130114009,
+    "courseName": "Numerical Methods",
+    "courseType": "Mandatory",
+    "semester": 3,
+    "courseCode": "MATH2059",
+    "courseCredit": 4,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "13",
+    "preRequisiteCourseCodes": [
+      "MATH1001"
+    ]
+  },
+  {
+    "lecturerID": 130109002,
+    "courseName": "Data Structures",
+    "courseType": "Mandatory",
+    "semester": 3,
+    "courseCode": "CSE2225",
+    "courseCredit": 7,
+    "capacity": 120,
+    "day": "Tuesday",
+    "hour": "13",
+    "preRequisiteCourseCodes": [
+      "CSE1242"
+    ]
+  },
+  {
+    "lecturerID": 130111003,
+    "courseName": "Discrete Computational Structures",
+    "courseType": "Mandatory",
+    "semester": 3,
+    "courseCode": "CSE2023",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Wednesday",
+    "hour": "13",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130118011,
+    "courseName": "Electric Circuits",
+    "courseType": "Mandatory",
+    "semester": 3,
+    "courseCode": "EE2031",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Thursday",
+    "hour": "13",
+    "preRequisiteCourseCodes": [
+      "PHYS1102"
+    ]
+  },
+  {
+    "lecturerID": 130106001,
+    "courseName": "Engineering Economy",
+    "courseType": "Mandatory",
+    "semester": 3,
+    "courseCode": "ECON2004",
+    "courseCredit": 4,
+    "capacity": 120,
+    "day": "Friday",
+    "hour": "13",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130117005,
+    "courseName": "Differential Equations",
+    "courseType": "Mandatory",
+    "semester": 3,
+    "courseCode": "MATH2055",
+    "courseCredit": 4,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "14",
+    "preRequisiteCourseCodes": [
+
+    ]
+  },
+  {
+    "lecturerID": 130113003,
+    "courseName": "Analysis of Algorithms",
+    "courseType": "Mandatory",
+    "semester": 4,
+    "courseCode": "CSE2246",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Tuesday",
+    "hour": "14",
+    "preRequisiteCourseCodes": [
+      "CSE2225"
+    ]
+  },
+  {
+    "lecturerID": 130114011,
+    "courseName": "Principles of Programming Languages",
+    "courseType": "Mandatory",
+    "semester": 4,
+    "courseCode": "CSE2260",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Wednesday",
+    "hour": "14",
+    "preRequisiteCourseCodes": [
+      "CSE1242"
+    ]
+  },
+  {
+    "lecturerID": 130118011,
+    "courseName": "Electronics",
+    "courseType": "Mandatory",
+    "semester": 4,
+    "courseCode": "EE2032",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Thursday",
+    "hour": "14",
+    "preRequisiteCourseCodes": [
+      "EE2031"
+    ]
+  },
+  {
+    "lecturerID": 130109007,
+    "courseName": "Systems Programming",
+    "courseType": "Mandatory",
+    "semester": 4,
+    "courseCode": "CSE2138",
+    "courseCredit": 7,
+    "capacity": 120,
+    "day": "Friday",
+    "hour": "14",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130117005,
+    "courseName": "Introduction to Probability and Statistics",
+    "courseType": "Mandatory",
+    "semester": 4,
+    "courseCode": "STAT2253",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "15",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130108003,
+    "courseName": "Database Systems",
+    "courseType": "Mandatory",
+    "semester": 5,
+    "courseCode": "CSE3055",
+    "courseCredit": 7,
+    "capacity": 120,
+    "day": "Tuesday",
+    "hour": "15",
+    "preRequisiteCourseCodes": [
+      "CSE2225"
+    ]
+  },
+  {
+    "lecturerID": 130106001,
+    "courseName": "Operating Systems",
+    "courseType": "Mandatory",
+    "semester": 5,
+    "courseCode": "CSE3033",
+    "courseCredit": 7,
+    "capacity": 120,
+    "day": "Wednesday",
+    "hour": "15",
+    "preRequisiteCourseCodes": [
+      "CSE2225"
+    ]
+  },
+  {
+    "lecturerID": 130113008,
+    "courseName": "Object-Oriented Software Design",
+    "courseType": "Mandatory",
+    "semester": 5,
+    "courseCode": "CSE3063",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Thursday",
+    "hour": "15",
+    "preRequisiteCourseCodes": [
+      "CSE1242"
+    ]
+  },
+  {
+    "lecturerID": 130109007,
+    "courseName": "Digital Logic Design",
+    "courseType": "Mandatory",
+    "semester": 5,
+    "courseCode": "CSE3215",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Friday",
+    "hour": "15",
+    "preRequisiteCourseCodes": [
+    ]
+  },
+  {
+    "lecturerID": 130117005,
+    "courseName": "Modeling and Discrete Simulation",
+    "courseType": "Mandatory",
+    "semester": 5,
+    "courseCode": "IE3081",
+    "courseCredit": 4,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "16",
+    "preRequisiteCourseCodes": [
+      "STAT2253"
+    ]
+  },
+  {
+    "lecturerID": 130114011,
+    "courseName": "Technical Communications and Entrepreneurhsip",
+    "courseType": "Mandatory",
+    "semester": 6,
+    "courseCode": "COM2202",
+    "courseCredit": 2,
+    "capacity": 120,
+    "day": "Tuesday",
+    "hour": "16",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130112017,
+    "courseName": "Software Engineering",
+    "courseType": "Mandatory",
+    "semester": 6,
+    "courseCode": "CSE3044",
+    "courseCredit": 7,
+    "capacity": 120,
+    "day": "Wednesday",
+    "hour": "16",
+    "preRequisiteCourseCodes": [
+      "CSE3055"
+    ]
+  },
+  {
+    "lecturerID": 130114009,
+    "courseName": "Formal Languages and Automata Theory",
+    "courseType": "Mandatory",
+    "semester": 6,
+    "courseCode": "CSE3264",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Thursday",
+    "hour": "16",
+    "preRequisiteCourseCodes": [
+      "CSE2023"
+    ]
+  },
+  {
+    "lecturerID": 130114002,
+    "courseName": "Computer Organization",
+    "courseType": "Mandatory",
+    "semester": 6,
+    "courseCode": "CSE3038",
+    "courseCredit": 7,
+    "capacity": 120,
+    "day": "Friday",
+    "hour": "16",
+    "preRequisiteCourseCodes": [
+      "CSE2138",
+      "CSE3215"
+    ]
+  },
+  {
+    "lecturerID": 130117005,
+    "courseName": "Introduction to Signals and Systems",
+    "courseType": "Mandatory",
+    "semester": 6,
+    "courseCode": "CSE3048",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Monday",
+    "hour": "8",
+    "preRequisiteCourseCodes": [
+      "MATH2055"
+    ]
+  },
+  {
+    "lecturerID": 130111006,
+    "courseName": "Operations Research",
+    "courseType": "Mandatory",
+    "semester": 6,
+    "courseCode": "IE3235",
+    "courseCredit": 4,
+    "capacity": 120,
+    "day": "Tuesday",
+    "hour": "8",
+    "preRequisiteCourseCodes": [
+      "MATH2256"
+    ]
+  },
+  {
+    "lecturerID": 130117005,
+    "courseName": "Computer Networks",
+    "courseType": "Mandatory",
+    "semester": 7,
+    "courseCode": "CSE4074",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Wednesday",
+    "hour": "8",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130111006,
+    "courseName": "Principles of Embedded System Design",
+    "courseType": "Mandatory",
+    "semester": 7,
+    "courseCode": "CSE4219",
+    "courseCredit": 6,
+    "capacity": 120,
+    "day": "Thursday",
+    "hour": "8",
+    "preRequisiteCourseCodes": [
+      "CSE3038"
+    ]
+  },
+  {
+    "lecturerID": 130114002,
+    "courseName": "Introduction to Machine Learning",
+    "courseType": "Mandatory",
+    "semester": 7,
+    "courseCode": "CSE4288",
+    "courseCredit": 5,
+    "capacity": 120,
+    "day": "Friday",
+    "hour": "8",
+    "preRequisiteCourseCodes": [
+      "STAT2253",
+      "MATH2256"
+    ]
+  },
+  {
+    "lecturerID": 130116002,
+    "courseName": "Work Safety I",
+    "courseType": "Mandatory",
+    "semester": 7,
+    "courseCode": "ISG121",
+    "courseCredit": 2,
+    "capacity": 100,
+    "day": "Monday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130116002,
+    "courseName": "Work Safety II",
+    "courseType": "Mandatory",
+    "semester": 8,
+    "courseCode": "ISG122",
+    "courseCredit": 2,
+    "capacity": 100,
+    "day": "Monday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130112017,
+    "courseName": "Wireless & Mobile Networks",
+    "courseType": "TE",
+    "semester": 7,
+    "courseCode": "CSE4075",
+    "courseCredit": 5,
+    "capacity": 80,
+    "day": "Monday",
+    "hour": "9",
+    "preRequisiteCourseCodes": [
+      "CSE4074"
+    ]
+  },
+  {
+    "lecturerID": 130114009,
+    "courseName": "Advanced Unix Programming",
+    "courseType": "TE",
+    "semester": 7,
+    "courseCode": "CSE4034",
+    "courseCredit": 5,
+    "capacity": 80,
+    "day": "Tuesday",
+    "hour": "9",
+    "preRequisiteCourseCodes": [
+      "CSE3033"
+    ]
+  },
+  {
+    "lecturerID": 130106001,
+    "courseName": "Compiler Design",
+    "courseType": "TE",
+    "semester": 7,
+    "courseCode": "CSE4061",
+    "courseCredit": 5,
+    "capacity": 80,
+    "day": "Wednesday",
+    "hour": "9",
+    "preRequisiteCourseCodes": [
+      "CSE3264"
+    ]
+  },
+  {
+    "lecturerID": 130108003,
+    "courseName": "Microprocessors",
+    "courseType": "TE",
+    "semester": 7,
+    "courseCode": "CSE4217",
+    "courseCredit": 5,
+    "capacity": 80,
+    "day": "Thursday",
+    "hour": "9",
+    "preRequisiteCourseCodes": [
+      "CSE3038"
+    ]
+  },
+  {
+    "lecturerID": 130109007,
+    "courseName": "Software Project Management",
+    "courseType": "TE",
+    "semester": 7,
+    "courseCode": "CSE4044",
+    "courseCredit": 5,
+    "capacity": 80,
+    "day": "Friday",
+    "hour": "9",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130117005,
+    "courseName": "Entrepreneurship and Innovation",
+    "courseType": "NTE",
+    "semester": 2,
+    "courseCode": "BUS1003",
+    "courseCredit": 3,
+    "capacity": 90,
+    "day": "Monday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130118011,
+    "courseName": "Strategic Entrepreneurship",
+    "courseType": "NTE",
+    "semester": 2,
+    "courseCode": "BUS1004",
+    "courseCredit": 3,
+    "capacity": 90,
+    "day": "Tuesday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130109002,
+    "courseName": "International Business",
+    "courseType": "NTE",
+    "semester": 2,
+    "courseCode": "BUS2005",
+    "courseCredit": 3,
+    "capacity": 90,
+    "day": "Wednesday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130111003,
+    "courseName": "Mechatronics",
+    "courseType": "FTE",
+    "semester": 7,
+    "courseCode": "ME3022",
+    "courseCredit": 5,
+    "capacity": 90,
+    "day": "Thursday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130113003,
+    "courseName": "Control Systems",
+    "courseType": "FTE",
+    "semester": 7,
+    "courseCode": "ME4022",
+    "courseCredit": 5,
+    "capacity": 90,
+    "day": "Friday",
+    "hour": "10",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130112003,
+    "courseName": "Positive Thinking",
+    "courseType": "UE",
+    "semester": 7,
+    "courseCode": "CAS3044",
+    "courseCredit": 3,
+    "capacity": 90,
+    "day": "Monday",
+    "hour": "11",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130114011,
+    "courseName": "Investment Planning",
+    "courseType": "UE",
+    "semester": 7,
+    "courseCode": "FNCE3003",
+    "courseCredit": 3,
+    "capacity": 90,
+    "day": "Thursday",
+    "hour": "11",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130114009,
+    "courseName": "Engineering Project I",
+    "courseType": "Mandatory",
+    "semester": 7,
+    "courseCode": "CSE4297",
+    "courseCredit": 5,
+    "capacity": 90,
+    "day": "Thursday",
+    "hour": "11",
+    "preRequisiteCourseCodes": []
+  },
+  {
+    "lecturerID": 130114009,
+    "courseName": "Engineering Project II",
+    "courseType": "Mandatory",
+    "semester": 8,
+    "courseCode": "CSE4298",
+    "courseCredit": 5,
+    "capacity": 90,
+    "day": "Friday",
+    "hour": "11",
+    "preRequisiteCourseCodes": [
+      "CSE4297"
+    ]
+  }
+]

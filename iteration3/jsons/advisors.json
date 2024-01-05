@@ -1,0 +1,100 @@
+[
+  {
+    "advisorID": 130116002,
+    "name": "Hande",
+    "surname": "Erol",
+    "userName": "a130116002",
+    "password": "130116002",
+    "lessonsTaught": [
+      "ISG121",
+      "ISG122"
+    ],
+    "studentsAdvised": [
+      150121059,
+      150121067,
+      150120090,
+      150121073,
+      150120047
+    ]
+  },
+  {
+    "advisorID": 130113008,
+    "name": "Murat Can",
+    "surname": "Ganiz",
+    "userName": "a130113008",
+    "password": "130113008",
+    "lessonsTaught": [
+      "CSE3063"
+    ],
+    "studentsAdvised": [
+      150120045,
+      150121091,
+      150121075,
+      150120083,
+      150120097
+    ]
+  },
+  {
+    "advisorID": 130110002,
+    "name": "Yekta",
+    "surname": "Arslan",
+    "userName": "a130110002",
+    "password": "130110002",
+    "lessonsTaught": [
+    ],
+    "studentsAdvised": [
+      150122001,
+      150122002,
+      150122003,
+      150122004,
+      150122005,
+      150122006,
+      150122007,
+      150122008,
+      150123009,
+      150123010
+    ]
+  },
+  {
+    "advisorID": 130110005,
+    "name": "Çağrı",
+    "surname": "Korkusuz",
+    "userName": "a130110005",
+    "password": "130110005",
+    "lessonsTaught": [
+    ],
+    "studentsAdvised": [
+      150121001,
+      150121002,
+      150121003,
+      150120003,
+      150120002,
+      150120001,
+      150122015,
+      150122014,
+      150120005,
+      150120004
+    ]
+  },
+  {
+    "advisorID": 130110009,
+    "name": "Aslı",
+    "surname": "Aymaz",
+    "userName": "a130110009",
+    "password": "130110009",
+    "lessonsTaught": [
+    ],
+    "studentsAdvised": [
+      150121017,
+      150121018,
+      150119001,
+      150119002,
+      150119003,
+      150119004,
+      150119005,
+      150119006,
+      150119007,
+      150119008
+    ]
+  }
+]
