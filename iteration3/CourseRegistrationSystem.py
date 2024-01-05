@@ -44,9 +44,7 @@ class CourseRegistrationSystem(IDisplayMenu):
                     # If the user chooses to navigate to the login page, call the loginMenu method.
                     self.loginMenu()
                 case -1:
-                    # If the user enters string or -1 give error.
-                    ConsoleColours.paintRedMenu()
-                    print("Please enter valid number!")
+                    raise IndexError("Please enter valid number!")
                 case _:
                     raise IndexError("Invalid choice! Please select again!")
         except IndexError as e:
@@ -97,29 +95,33 @@ class CourseRegistrationSystem(IDisplayMenu):
             self.loginMenu()
 
     def studentMenu(self, student):
-        student.printMenu("studentMenu")
-        self.__choice = self.getInput()
+        try:
+            student.printMenu("studentMenu")
+            self.__choice = self.getInput()
 
-        if self.__choice == 0:
-            logging.info(f"Student {student.getName()} {student.getSurname()} exited the system.")
-            self.exitProgram()
-            return
-        elif self.__choice == 1:
-            self.courseRegistrationMenu(student)
-        elif self.__choice == 2:
-            student.getTranscript().showTranscript()
-        elif self.__choice == 3:
-            logging.info(f"Student {student.getName()} {student.getSurname()} logged out.")
-            self.loginMenu()
-            return
-        elif self.__choice == -1:
-            ConsoleColours.paintRedMenu()
-            print("Please enter valid number!")
-        else:
-            ConsoleColours.paintRedMenu()
-            print("Invalid choice! Please select again!")
+            match self.__choice:
+                case 0:
+                    logging.info(f"Student {student.getName()} {student.getSurname()} exited the system.")
+                    self.exitProgram()
+                    return
+                case 1:
+                    self.courseRegistrationMenu(student)
+                case 2:
+                    student.getTranscript().showTranscript()
+                case 3:
+                    logging.info(f"Student {student.getName()} {student.getSurname()} logged out.")
+                    self.loginMenu()
+                    return
+                case -1:
+                    raise IndexError("Please enter valid number!")
+                case _:
+                    raise IndexError("Invalid choice! Please select again!")
 
-        self.studentMenu(student)
+        except IndexError as e:
+            ConsoleColours.paintRedMenu()
+            print(e.args)
+        finally:
+            self.studentMenu(student)
 
     def courseRegistrationMenu(self, student):
         try:
