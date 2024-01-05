@@ -1,0 +1,13 @@
+<mxfile host="app.diagrams.net" modified="2024-01-04T13:31:21.219Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="5wiSLdFHv2wj_Pfh49kp" version="22.1.16" type="device">
+  <diagram id="Aow4Eo71f80Ow2YgaLMi" name="Sayfa -1">
+    <mxGraphModel dx="921" dy="651" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="node0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ConsoleColours&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; ANSI_RESET: String&lt;br&gt; ANSI_WHITE_BRIGHT: String&amp;nbsp;&lt;br&gt; ANSI_BLACK: String&lt;br&gt; ANSI_RED_BACKGROUND: String&lt;br&gt; ANSI_GREEN_BACKGROUND: String&lt;br&gt; ANSI_BLUE_BACKGROUND: String&amp;nbsp;&lt;br&gt; ANSI_YELLOW_BACKGROUND: String&lt;br&gt; ANSI_PURPLE_BACKGROUND: String&lt;br&gt; ANSI_WHITE_BRIGHT_BACKGROUND: String&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; resetColour(): &lt;br&gt; paintBlueMenu(): &lt;br&gt; paintRedMenu(): &lt;br&gt; paintYellowMenu(): &lt;br&gt; paintGreenMenu(): &lt;br&gt; paintPurpleMenu(): &lt;br&gt; paintWhiteMenu(): &lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-182" y="66" width="366" height="424" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2023-11-16T23:08:00.342Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0" etag="ABO9e4Wq9KaeXXcWhSOX" version="22.1.2" type="device">
-  <diagram name="Sayfa -1" id="Z9WojtdSXdzsVU3dyJuf">
-    <mxGraphModel dx="473" dy="514" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2024-01-04T13:06:01.226Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" version="22.1.16" etag="vInQvxzWRZTf-Cf6SJMf" type="device">
+  <diagram id="BDl0dPfC-ypZ7iFRAUj6" name="Sayfa -1">
+    <mxGraphModel dx="922" dy="651" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="76fy_d3zNj0daBe-I5nt-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Registration&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Registration(Student, List&amp;lt;Course&amp;gt;): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- student: Student&lt;br/&gt;- courses: List&amp;lt;Course&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getCourses(): List&amp;lt;Course&amp;gt;&lt;br/&gt;+ approveRequest(): void&lt;br/&gt;+ getStudent(): Student&lt;br/&gt;+ rejectRequest(): void&lt;br/&gt;+ addRequest(Advisor): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" vertex="1" parent="1">
-          <mxGeometry x="120" y="140" width="280" height="245" as="geometry" />
+        <mxCell id="node0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Registration&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; __system:&amp;nbsp;&lt;br&gt; __courses: List&lt;br&gt; __student: Student&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; __init__(self, student, courses): &lt;br&gt; approveRequest(self): &lt;br&gt; rejectRequest(self): &lt;br&gt; addRequest(self, advisor): &lt;br&gt; getStudent(self): &lt;br&gt; getCourses(self): &lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-151" y="226" width="304" height="256" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

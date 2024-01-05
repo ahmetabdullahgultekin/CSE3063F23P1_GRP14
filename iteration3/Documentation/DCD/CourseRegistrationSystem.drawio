@@ -1,0 +1,13 @@
+<mxfile host="app.diagrams.net" modified="2024-01-05T08:24:18.865Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="HYe8CX1Sr6TbG3LQzPAT" version="22.1.16" type="device">
+  <diagram id="8_eAK5bT0_6mGdDnOYfQ" name="Sayfa -1">
+    <mxGraphModel dx="1690" dy="253" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="node1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CourseRegistrationSystem&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; __choice: Integer&lt;br&gt; __university: University&lt;br&gt; __input: Scanner&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; __init__(self): &lt;br&gt; start(self): &lt;br&gt; mainMenu(self): &lt;br&gt; loginMenu(self): &lt;br&gt; studentMenu(self, student): &lt;br&gt; courseRegistrationMenu(self, student): &lt;br&gt; advisorMenu(self, advisor): &lt;br&gt; getInput(self): &lt;br&gt; exitProgram(self): &lt;br&gt; printMenu(self, menuType): &lt;br&gt; addToSchedule(self, course, student): &lt;br&gt; removeFromSchedule(self, course, student): &lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-264" y="530" width="531" height="400" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
