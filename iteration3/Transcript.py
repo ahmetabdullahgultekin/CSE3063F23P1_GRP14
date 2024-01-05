@@ -79,4 +79,63 @@ class Transcript:
         ConsoleColours.resetColour()
         print()
 
+    def courseStatusCheck(self):
+        successfulCourses = []
+        failedCourses = []
+        ongoingCourses = []
 
+        for course in self.__studentCourses:
+            grades = self.__courseGradeMap.get(course, [])
+            for grade in grades:
+                if grade is None:
+                    ongoingCourses.append(course)
+                elif grade.getLetterGrade() in ["FF", "FD"]:
+                    failedCourses.append(course)
+                else:
+                    successfulCourses.append(course)
+        ConsoleColours.paintGreenMenu()
+        print("Successful Courses:\n")
+        for course in successfulCourses:
+            print(course.getCourseCode() + " " + course.getCourseName())
+        print()
+
+        ConsoleColours.paintRedMenu()
+        print("Failed Courses:\n")
+        for course in failedCourses:
+            print(course.getCourseCode() + " " + course.getCourseName())
+        print()
+
+        ConsoleColours.paintYellowMenu()
+        print("Ongoing Courses:\n")
+        for course in ongoingCourses:
+            print(course.getCourseCode() + " " + course.getCourseName())
+
+        ConsoleColours.resetColour()
+        print()
+
+    def getStudentCourses(self):
+        return self.__studentCourses
+
+    def setStudentCourses(self, studentCourses):
+        self.__studentCourses = studentCourses
+
+    def getTakenCredits(self):
+        return self.__takenCredits
+
+    def setTakenCredits(self, takenCredits):
+        self.__takenCredits = takenCredits
+
+    def getCompletedCredits(self):
+        return self.__completedCredits
+
+    def getCgpa(self):
+        return self.__cgpa
+
+    def setStudent(self, student):
+        self.__student = student
+
+    def getCourseGradeMap(self):
+        return self.__courseGradeMap
+
+    def setCourseGradeMap(self, courseGradeMap):
+        self.__courseGradeMap = courseGradeMap
