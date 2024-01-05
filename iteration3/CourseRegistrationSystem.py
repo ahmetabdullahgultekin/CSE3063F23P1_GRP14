@@ -54,44 +54,58 @@ class CourseRegistrationSystem(IDisplayMenu):
             self.mainMenu()
 
     def loginMenu(self):
-        ConsoleColours.paintBlueMenu()
-        print("Login Page")
-        print("¨¨¨¨¨¨¨¨¨¨\n")
-        print(" Back -> 0")
-        print("¨¨¨¨¨¨¨¨¨¨")
+        try:
+            ConsoleColours.paintBlueMenu()
+            print("Login Page")
+            print("¨¨¨¨¨¨¨¨¨¨\n")
+            print(" Back -> 0")
+            print("¨¨¨¨¨¨¨¨¨¨")
 
-        ConsoleColours.paintGreenMenu()
-        print("Please enter your username: ")
-        userName = input()
+            ConsoleColours.paintGreenMenu()
+            print("Please enter your username: ")
+            userName = input()
 
-        # User selected to go back
-        if userName == "0":
-            self.mainMenu()
-            return
+            # User selected to go back
+            if userName == "0":
+                self.mainMenu()
+                return
 
-        print("Enter your password: ")
-        password = input()
-        ConsoleColours.paintBlueMenu()
+            print("Enter your password: ")
+            password = input()
+            ConsoleColours.paintBlueMenu()
 
-        person = self.__university.getUserNamePersonMap().get(userName)
-        if person is not None:  # Check if there is such user
-            if person.login(userName, password):
-                logging.info(f"{person.getID()} {person.getName()} {person.getSurname()} logged in.")
-                if isinstance(person, Student):
-                    self.studentMenu(person)
-                elif isinstance(person, Advisor):
-                    self.advisorMenu(person)
+            person = self.__university.getUserNamePersonMap().get(userName)
+            if person is not None:  # Check if there is such user
+                if person.login(userName, password):
+                    logging.info(f"{person.getID()} {person.getName()} {person.getSurname()} logged in.")
+                    if isinstance(person, Student):
+                        self.studentMenu(person)
+                    elif isinstance(person, Advisor):
+                        self.advisorMenu(person)
+                else:
+                    ConsoleColours.paintRedMenu()
+                    logging.warning(
+                        f"User entered an invalid username or password. -> Username: {userName} Password: {password}")
+                    print("Username or password is incorrect. Please try again!")
+                    self.loginMenu()
             else:
                 ConsoleColours.paintRedMenu()
                 logging.warning(
                     f"User entered an invalid username or password. -> Username: {userName} Password: {password}")
                 print("Username or password is incorrect. Please try again!")
                 self.loginMenu()
-        else:
+                
+        except KeyboardInterrupt:
             ConsoleColours.paintRedMenu()
-            logging.warning(
-                f"User entered an invalid username or password. -> Username: {userName} Password: {password}")
-            print("Username or password is incorrect. Please try again!")
+            print("Program terminated by the user.")
+            ConsoleColours.resetColour()
+            exit(0)
+
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in loginMenu method.")
+            ConsoleColours.resetColour()
             self.loginMenu()
 
     def studentMenu(self, student):
@@ -190,6 +204,11 @@ class CourseRegistrationSystem(IDisplayMenu):
             self.__choice = int(user_input)
             if user_input != str(self.__choice):
                 raise ValueError
+        except KeyboardInterrupt as e :
+            ConsoleColours.paintRedMenu()
+            print("Program terminated by the user.")
+            ConsoleColours.resetColour()
+            exit(0)
         except Exception as e:
             ConsoleColours.paintRedMenu()
             print("Invalid input, please do not enter a nonnumeric input!")
