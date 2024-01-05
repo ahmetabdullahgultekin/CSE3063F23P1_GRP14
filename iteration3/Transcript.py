@@ -33,7 +33,10 @@ class Transcript:
         if totalCredits == 0:
             return 0
 
-        self.__cgpa = totalGrade / totalCredits
+        try:
+            self.__cgpa = totalGrade / totalCredits
+        except ZeroDivisionError:
+            self.__cgpa = 0
         return self.__cgpa
 
     def calculateTakenCredits(self):
@@ -63,12 +66,12 @@ class Transcript:
         print(f'Department       : {self.__student.getDepartment().getDepartmentName()}')
 
         ConsoleColours.paintPurpleMenu()
-        print("%-15s%-38s%-20s%-15s\n", "Course Code", "Course Name", "Course Credit", "Grade")
+        print("%-15s%-38s%-20s%-15s\n" % ("Course Code", "Course Name", "Course Credit", "Grade"), end="")
         print("-------------------------------------------------------------------------------")
 
         for course in self.__studentCourses:
             for grade in self.__courseGradeMap.get(course, []):
-                if grade is None:
+                if grade.getLetterGrade() is None:
                     print(
                         "%-15s%-45s%-15s%-15s" % (
                             course.getCourseCode(), course.getCourseName(), course.getCourseCredit(), "--"))
