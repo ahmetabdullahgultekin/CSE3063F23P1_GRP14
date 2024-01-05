@@ -165,112 +165,141 @@ class Student(Person, IDisplayMenu):
                     print("Invalid input, please enter a valid number!")
             self.addCourseToDraft()
         except Exception as e:
+            ConsoleColours.paintRedMenu()
             logging.error(f"An error occurred while adding course to draft: {e}")
-            print("Something went wrong. Please try again..")
+             logging.exception("An error occurred in addCourseToDraft method.")
+            ConsoleColours.resetColour()
             self.addCourseToDraft()
 
     def addMandatoryCourse(self):
-        if self.maxCoursesReached():
-            return
-        self.computeAvailableMandatoryCourses()
+        try:
+            if self.maxCoursesReached():
+                return
+            self.computeAvailableMandatoryCourses()
 
-        if not self.__availableCoursesToAdd:
-            ConsoleColours.paintRedMenu()
-            print("You do not have any addable course!")
-        else:
-            self.printMenu("addCourse")
-            for i, course in enumerate(self.__availableCoursesToAdd):
-                print(
-                    f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
-                print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
-
-            ConsoleColours.paintGreenMenu()
-            print(f"Choose number between 1 to {len(self.__availableCoursesToAdd)} to add course: \n")
-            userNumberInput1 = self.__system.getInput()
-
-            if 1 <= userNumberInput1 <= len(self.__availableCoursesToAdd):
-                self.chooseLabSection(self.__availableCoursesToAdd[userNumberInput1 - 1])
-                logging.info(
-                    f"Student {self.getID()} added {self.__availableCoursesToAdd[userNumberInput1 - 1].getCourseCode()} to draft.")
-                self.__draft.append(self.__availableCoursesToAdd[userNumberInput1 - 1])
-                del self.__availableCoursesToAdd[userNumberInput1 - 1]
-                if self.__availableCoursesToAdd:
-                    self.addMandatoryCourse()
-            elif userNumberInput1 > len(self.__availableCoursesToAdd) or userNumberInput1 < 0:
+            if not self.__availableCoursesToAdd:
                 ConsoleColours.paintRedMenu()
-                logging.warning(f"Student {self.getID()} entered invalid input.")
+                print("You do not have any addable course!")
+            else:
+                self.printMenu("addCourse")
+                for i, course in enumerate(self.__availableCoursesToAdd):
+                    print(
+                        f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
+                    print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
+
+                ConsoleColours.paintGreenMenu()
+                print(f"Choose number between 1 to {len(self.__availableCoursesToAdd)} to add course: \n")
+                userNumberInput1 = self.__system.getInput()
+
+                if 1 <= userNumberInput1 <= len(self.__availableCoursesToAdd):
+                    self.chooseLabSection(self.__availableCoursesToAdd[userNumberInput1 - 1])
+                    logging.info(
+                        f"Student {self.getID()} added {self.__availableCoursesToAdd[userNumberInput1 - 1].getCourseCode()} to draft.")
+                    self.__draft.append(self.__availableCoursesToAdd[userNumberInput1 - 1])
+                    del self.__availableCoursesToAdd[userNumberInput1 - 1]
+                    if self.__availableCoursesToAdd:
+                        self.addMandatoryCourse()
+                elif userNumberInput1 > len(self.__availableCoursesToAdd) or userNumberInput1 < 0:
+                    ConsoleColours.paintRedMenu()
+                    logging.warning(f"Student {self.getID()} entered invalid input.")
+                    print("Invalid input, please enter a valid number")
+                    self.addMandatoryCourse()
+                else:
+                    return
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in addMandatoryCourse method.")
+            ConsoleColours.resetColour()
+            self.addMandatoryCourse()
+
+                    
+
+     def chooseLabSection(self, course):
+        try:
+            if not course.getLaboratorySections():
+                return
+            availableLabSections = []
+            ConsoleColours.paintBlueMenu()
+            print("Here is the available laboratory sections to add:")
+            ConsoleColours.paintPurpleMenu()
+            for labSection in course.getLaboratorySections():
+                labCourse = Course(None, labSection.getLaboratorySectionCode(), None, 0, 0, 0, labSection.getHour(),
+                                   labSection.getDay())
+                if self.hasCourseOverlap(labCourse,
+                                         True) or labSection.getCapacity() <= labSection.getNumberOfStudents():
+                    continue
+                else:
+                    availableLabSections.append(labSection)
+
+            for i, labSection in enumerate(availableLabSections):
+                print(
+                    f"{i + 1}. {labSection.getLaboratorySectionCode()} - {course.getCourseName()} (Lab) - {labSection.getDay()} - {labSection.getHour()}.00")
+                print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
+            ConsoleColours.paintGreenMenu()
+            print(f"Choose number between 1 to {len(availableLabSections)} to add laboratory section: \n")
+            userNumberInput = self.__system.getInput()
+
+            if 1 <= userNumberInput <= len(availableLabSections):
+                self.__labSections.append(availableLabSections[userNumberInput - 1])
+                availableLabSections[userNumberInput - 1].setNumberOfStudents(
+                    availableLabSections[userNumberInput - 1].getNumberOfStudents() + 1)
+            elif userNumberInput > len(availableLabSections) or userNumberInput <= 0:
+                ConsoleColours.paintRedMenu()
                 print("Invalid input, please enter a valid number")
-                self.addMandatoryCourse()
+                ConsoleColours.resetColour()
+                self.chooseLabSection(course)
             else:
                 return
 
-    def chooseLabSection(self, course):
-        if not course.getLaboratorySections():
-            return
-        availableLabSections = []
-        ConsoleColours.paintBlueMenu()
-        print("Here is the available laboratory sections to add:")
-        ConsoleColours.paintPurpleMenu()
-        for labSection in course.getLaboratorySections():
-            labCourse = Course(None, labSection.getLaboratorySectionCode(), None, 0, 0, 0, labSection.getHour(),
-                               labSection.getDay())
-            if self.hasCourseOverlap(labCourse, True) or labSection.getCapacity() <= labSection.getNumberOfStudents():
-                continue
-            else:
-                availableLabSections.append(labSection)
-
-        for i, labSection in enumerate(availableLabSections):
-            print(
-                f"{i + 1}. {labSection.getLaboratorySectionCode()} - {course.getCourseName()} (Lab) - {labSection.getDay()} - {labSection.getHour()}.00")
-            print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
-        ConsoleColours.paintGreenMenu()
-        print(f"Choose number between 1 to {len(availableLabSections)} to add laboratory section: \n")
-        userNumberInput = self.__system.getInput()
-
-        if 1 <= userNumberInput <= len(availableLabSections):
-            self.__labSections.append(availableLabSections[userNumberInput - 1])
-            availableLabSections[userNumberInput - 1].setNumberOfStudents(
-                availableLabSections[userNumberInput - 1].getNumberOfStudents() + 1)
-        elif userNumberInput > len(availableLabSections) or userNumberInput <= 0:
+        except Exception as e:
             ConsoleColours.paintRedMenu()
-            print("Invalid input, please enter a valid number")
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in chooseLabSection method.")
             ConsoleColours.resetColour()
-            self.chooseLabSection(course)
-        else:
-            return
+            self.chooseLabSection()
+
 
     def addTechnicalElective(self):
-        if self.maxCoursesReached():
-            return
-        self.computeAvailableTEAndFTECourses("TE")
-
-        if not self.__availableCoursesToAdd:
-            ConsoleColours.paintRedMenu()
-            print("You do not have any addable course!")
-        else:
-            self.printMenu("addCourse")
-            for i, course in enumerate(self.__availableCoursesToAdd):
-                print(
-                    f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
-                print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
-
-            ConsoleColours.paintGreenMenu()
-            print(f"Choose number between 1 to {len(self.__availableCoursesToAdd)} to add course: \n")
-            userNumberInput1 = self.__system.getInput()
-
-            if 1 <= userNumberInput1 <= len(self.__availableCoursesToAdd):
-                self.__draft.append(self.__availableCoursesToAdd[userNumberInput1 - 1])
-                logging.info(
-                    f"Student {self.getID()} added {self.__availableCoursesToAdd[userNumberInput1 - 1].getCourseCode()} to draft.")
-                del self.__availableCoursesToAdd[userNumberInput1 - 1]
-                if self.__availableCoursesToAdd:
-                    self.addTechnicalElective()
-            elif userNumberInput1 > len(self.__availableCoursesToAdd) or userNumberInput1 < 0:
-                ConsoleColours.paintRedMenu()
-                print("Invalid input, please enter a valid number")
-                self.addTechnicalElective()
-            else:
+        try:
+            if self.maxCoursesReached():
                 return
+            self.computeAvailableTEAndFTECourses("TE")
+
+            if not self.__availableCoursesToAdd:
+                ConsoleColours.paintRedMenu()
+                print("You do not have any addable course!")
+            else:
+                self.printMenu("addCourse")
+                for i, course in enumerate(self.__availableCoursesToAdd):
+                    print(
+                        f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
+                    print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
+
+                ConsoleColours.paintGreenMenu()
+                print(f"Choose number between 1 to {len(self.__availableCoursesToAdd)} to add course: \n")
+                userNumberInput1 = self.__system.getInput()
+
+                if 1 <= userNumberInput1 <= len(self.__availableCoursesToAdd):
+                    self.__draft.append(self.__availableCoursesToAdd[userNumberInput1 - 1])
+                    logging.info(
+                        f"Student {self.getID()} added {self.__availableCoursesToAdd[userNumberInput1 - 1].getCourseCode()} to draft.")
+                    del self.__availableCoursesToAdd[userNumberInput1 - 1]
+                    if self.__availableCoursesToAdd:
+                        self.addTechnicalElective()
+                elif userNumberInput1 > len(self.__availableCoursesToAdd) or userNumberInput1 < 0:
+                    ConsoleColours.paintRedMenu()
+                    print("Invalid input, please enter a valid number")
+                    self.addTechnicalElective()
+                else:
+                    return
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in addTechnicalElective method.")
+            ConsoleColours.resetColour()
+            self.addTechnicalElective()
+
 
     def computeAvailableTEAndFTECourses(self, courseType):
         self.__availableCoursesToAdd.clear()
@@ -304,70 +333,85 @@ class Student(Person, IDisplayMenu):
                     self.__availableCoursesToAdd.append(course)
 
     def addFacultyTechnicalElective(self):
-        if self.maxCoursesReached():
-            return
-        self.computeAvailableTEAndFTECourses("FTE")
-
-        if not self.__availableCoursesToAdd:
-            ConsoleColours.paintRedMenu()
-            print("You do not have any addable course!")
-        else:
-            self.printMenu("addCourse")
-            for i, course in enumerate(self.__availableCoursesToAdd):
-                print(
-                    f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
-                print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
-
-            ConsoleColours.paintGreenMenu()
-            print(f"Choose number between 1 to {len(self.__availableCoursesToAdd)} to add course: \n")
-            userNumberInput1 = self.__system.getInput()
-
-            if 1 <= userNumberInput1 <= len(self.__availableCoursesToAdd):
-                self.__draft.append(self.__availableCoursesToAdd[userNumberInput1 - 1])
-                logging.info(
-                    f"Student {self.getID()} added {self.__availableCoursesToAdd[userNumberInput1 - 1].getCourseCode()} to draft.")
-                del self.__availableCoursesToAdd[userNumberInput1 - 1]
-                if self.__availableCoursesToAdd:
-                    self.addFacultyTechnicalElective()
-            elif userNumberInput1 > len(self.__availableCoursesToAdd) or userNumberInput1 < 0:
-                ConsoleColours.paintRedMenu()
-                print("Invalid input, please enter a valid number")
-                self.addFacultyTechnicalElective()
-            else:
+        try:
+            if self.maxCoursesReached():
                 return
+            self.computeAvailableTEAndFTECourses("FTE")
+
+            if not self.__availableCoursesToAdd:
+                ConsoleColours.paintRedMenu()
+                print("You do not have any addable course!")
+            else:
+                self.printMenu("addCourse")
+                for i, course in enumerate(self.__availableCoursesToAdd):
+                    print(
+                        f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
+                    print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
+
+                ConsoleColours.paintGreenMenu()
+                print(f"Choose number between 1 to {len(self.__availableCoursesToAdd)} to add course: \n")
+                userNumberInput1 = self.__system.getInput()
+
+                if 1 <= userNumberInput1 <= len(self.__availableCoursesToAdd):
+                    self.__draft.append(self.__availableCoursesToAdd[userNumberInput1 - 1])
+                    logging.info(
+                        f"Student {self.getID()} added {self.__availableCoursesToAdd[userNumberInput1 - 1].getCourseCode()} to draft.")
+                    del self.__availableCoursesToAdd[userNumberInput1 - 1]
+                    if self.__availableCoursesToAdd:
+                        self.addFacultyTechnicalElective()
+                elif userNumberInput1 > len(self.__availableCoursesToAdd) or userNumberInput1 < 0:
+                    ConsoleColours.paintRedMenu()
+                    print("Invalid input, please enter a valid number")
+                    self.addFacultyTechnicalElective()
+                else:
+                    return
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in addFacultyTechnicalElective method.")
+            ConsoleColours.resetColour()
+            self.addFacultyTechnicalElective()
 
     def addNonTechnicalElective(self):
-        if self.maxCoursesReached():
-            return
-        self.computeAvailableNTECourses()
-
-        if not self.__availableCoursesToAdd:
-            ConsoleColours.paintRedMenu()
-            print("You do not have any addable course!")
-        else:
-            self.printMenu("addCourse")
-            for i, course in enumerate(self.__availableCoursesToAdd):
-                print(
-                    f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
-                print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
-
-            ConsoleColours.paintGreenMenu()
-            print(f"Choose number between 1 to {len(self.__availableCoursesToAdd)} to add course: \n")
-            userNumberInput1 = self.__system.getInput()
-
-            if 1 <= userNumberInput1 <= len(self.__availableCoursesToAdd):
-                self.__draft.append(self.__availableCoursesToAdd[userNumberInput1 - 1])
-                logging.info(
-                    f"Student {self.getID()} added {self.__availableCoursesToAdd[userNumberInput1 - 1].getCourseCode()} to draft.")
-                del self.__availableCoursesToAdd[userNumberInput1 - 1]
-                if self.__availableCoursesToAdd:
-                    self.addNonTechnicalElective()
-            elif userNumberInput1 > len(self.__availableCoursesToAdd) or userNumberInput1 < 0:
-                ConsoleColours.paintRedMenu()
-                print("Invalid input, please enter a valid number")
-                self.addNonTechnicalElective()
-            else:
+        try:
+            if self.maxCoursesReached():
                 return
+            self.computeAvailableNTECourses()
+
+            if not self.__availableCoursesToAdd:
+                ConsoleColours.paintRedMenu()
+                print("You do not have any addable course!")
+            else:
+                self.printMenu("addCourse")
+                for i, course in enumerate(self.__availableCoursesToAdd):
+                    print(
+                        f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
+                    print("´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
+
+                ConsoleColours.paintGreenMenu()
+                print(f"Choose number between 1 to {len(self.__availableCoursesToAdd)} to add course: \n")
+                userNumberInput1 = self.__system.getInput()
+
+                if 1 <= userNumberInput1 <= len(self.__availableCoursesToAdd):
+                    self.__draft.append(self.__availableCoursesToAdd[userNumberInput1 - 1])
+                    logging.info(
+                        f"Student {self.getID()} added {self.__availableCoursesToAdd[userNumberInput1 - 1].getCourseCode()} to draft.")
+                    del self.__availableCoursesToAdd[userNumberInput1 - 1]
+                    if self.__availableCoursesToAdd:
+                        self.addNonTechnicalElective()
+                elif userNumberInput1 > len(self.__availableCoursesToAdd) or userNumberInput1 < 0:
+                    ConsoleColours.paintRedMenu()
+                    print("Invalid input, please enter a valid number")
+                    self.addNonTechnicalElective()
+                else:
+                    return
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in addNonTechnicalElective method.")
+            ConsoleColours.resetColour()
+            self.addNonTechnicalElective()
+
 
     def computeAvailableNTECourses(self):
         self.__availableCoursesToAdd.clear()
@@ -385,44 +429,52 @@ class Student(Person, IDisplayMenu):
                 self.__availableCoursesToAdd.append(course)
 
     def computeAvailableMandatoryCourses(self):
-        self.__availableCoursesToAdd.clear()
+        try:
+            self.__availableCoursesToAdd.clear()
 
-        for course in self.getDepartment().getCourses():
-            if course.getCourseCode() == "CSE4297":
-                sum = 0
-                for studentCourse in self.__transcript.getStudentCourses():
-                    if (studentCourse.getSemester() > 6 and
-                            (course.getCourseType() in ["NTE", "TE", "FTE"])
-                            or studentCourse.getCourseCode() in ["ISG121", "ISG122"]
-                            or self.__transcript.getCourseGradeMap()[studentCourse][-1] is None
-                            or self.__transcript.getCourseGradeMap()[studentCourse][-1].getLetterGrade() is None
-                            or self.__transcript.getCourseGradeMap()[studentCourse][-1].getLetterGrade() > "DD"):
+            for course in self.getDepartment().getCourses():
+                if course.getCourseCode() == "CSE4297":
+                    sum = 0
+                    for studentCourse in self.__transcript.getStudentCourses():
+                        if (studentCourse.getSemester() > 6 and
+                                (course.getCourseType() in ["NTE", "TE", "FTE"])
+                                or studentCourse.getCourseCode() in ["ISG121", "ISG122"]
+                                or self.__transcript.getCourseGradeMap()[studentCourse][-1] is None
+                                or self.__transcript.getCourseGradeMap()[studentCourse][-1].getLetterGrade() is None
+                                or self.__transcript.getCourseGradeMap()[studentCourse][-1].getLetterGrade() > "DD"):
+                            continue
+                        sum += course.getCourseCredit()
+
+                    if (sum < 165
+                            or course.getCourseType() != "Mandatory"
+                            or not course.hasCapacity()
+                            or self.hasCourseOverlap(course, False)
+                            or (self.__semester < course.getSemester() and self.__transcript.getCgpa() < 3)
+                            or course in self.__draft
+                            or not self.checkThePrerequisiteAndCourseThatWasTaken(course)
+                            or (course.getSemester() % 2 != self.__semester % 2)):
                         continue
-                    sum += course.getCourseCredit()
-
-                if (sum < 165
-                        or course.getCourseType() != "Mandatory"
-                        or not course.hasCapacity()
-                        or self.hasCourseOverlap(course, False)
-                        or (self.__semester < course.getSemester() and self.__transcript.getCgpa() < 3)
-                        or course in self.__draft
-                        or not self.checkThePrerequisiteAndCourseThatWasTaken(course)
-                        or (course.getSemester() % 2 != self.__semester % 2)):
-                    continue
+                    else:
+                        self.__availableCoursesToAdd.append(course)
                 else:
-                    self.__availableCoursesToAdd.append(course)
-            else:
-                if (course.getCourseType() != "Mandatory"
-                        or not course.hasCapacity()
-                        or self.hasCourseOverlap(course, False)
-                        or (self.__semester < course.getSemester() and self.__transcript.getCgpa() < 3)
-                        or course in self.__draft
-                        or not self.checkThePrerequisiteAndCourseThatWasTaken(course)
-                        or (course.getSemester() % 2 != self.__semester % 2)):
-                    continue
-                else:
-                    self.__availableCoursesToAdd.append(course)
+                    if (course.getCourseType() != "Mandatory"
+                            or not course.hasCapacity()
+                            or self.hasCourseOverlap(course, False)
+                            or (self.__semester < course.getSemester() and self.__transcript.getCgpa() < 3)
+                            or course in self.__draft
+                            or not self.checkThePrerequisiteAndCourseThatWasTaken(course)
+                            or (course.getSemester() % 2 != self.__semester % 2)):
+                        continue
+                    else:
+                        self.__availableCoursesToAdd.append(course)
 
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in computeAvailableMandatoryCourses method.")
+            ConsoleColours.resetColour()
+            self.computeAvailableMandatoryCourses()
+            
     def addCourseToDrop(self):
         self.computeAvailableCoursesToDrop()
 
@@ -467,63 +519,78 @@ class Student(Person, IDisplayMenu):
         return True
 
     def hasCourseOverlap(self, courseToAdd, isLab):
-        day_to_index = {"Monday": 0, "Tuesday": 1, "Wednesday": 2, "Thursday": 3, "Friday": 4}
-        hour_to_index = {8: 0, 9: 1, 10: 2, 11: 3, 13: 4, 14: 5, 15: 6, 16: 7}
+        try:
+            day_to_index = {"Monday": 0, "Tuesday": 1, "Wednesday": 2, "Thursday": 3, "Friday": 4}
+            hour_to_index = {8: 0, 9: 1, 10: 2, 11: 3, 13: 4, 14: 5, 15: 6, 16: 7}
 
-        i = day_to_index[courseToAdd.getDay()]
-        j = hour_to_index[int(courseToAdd.getHour())]
+            i = day_to_index[courseToAdd.getDay()]
+            j = hour_to_index[int(courseToAdd.getHour())]
 
-        courseInSchedule = self.__schedule[i][j]
-        courseGradeMap = self.__transcript.getCourseGradeMap()
+            courseInSchedule = self.__schedule[i][j]
+            courseGradeMap = self.__transcript.getCourseGradeMap()
 
-        if isLab:
-            if courseInSchedule:
-                scheduleCourseGrades = courseGradeMap.get(courseInSchedule, [])
-                if scheduleCourseGrades and scheduleCourseGrades[-1] is None:
-                    return True
-                elif len(scheduleCourseGrades) >= 2 and scheduleCourseGrades[-2].getLetterGrade() == "DZ":
-                    return True
-            for course in self.__draft:
-                grades = courseGradeMap.get(course, [])
-                if grades and grades[-1] is None:
-                    continue
-                if course.getDay() == courseToAdd.getDay() and course.getHour() == courseToAdd.getHour():
-                    if grades and grades[-1].getLetterGrade() == "DZ":
+            if isLab:
+                if courseInSchedule:
+                    scheduleCourseGrades = courseGradeMap.get(courseInSchedule, [])
+                    if scheduleCourseGrades and scheduleCourseGrades[-1] is None:
                         return True
-                    if not grades:
+                    elif len(scheduleCourseGrades) >= 2 and scheduleCourseGrades[-2].getLetterGrade() == "DZ":
                         return True
-            for labSection in self.__labSections:
-                if labSection.getDay() == courseToAdd.getDay() and labSection.getHour() == courseToAdd.getHour():
-                    return True
-        else:
-            if courseInSchedule:
-                scheduleCourseGrades = courseGradeMap.get(courseInSchedule, [])
-                if scheduleCourseGrades and scheduleCourseGrades[-1] is None:
-                    return True
-                if (scheduleCourseGrades and
-                        len(scheduleCourseGrades) >= 2
-                        and scheduleCourseGrades[-2].getLetterGrade() == "DZ"):
-                    courseToAddGrades = courseGradeMap.get(courseToAdd, [])
-                    if (not courseToAddGrades or
-                            courseToAddGrades[-1] and
-                            courseToAddGrades[-1].getLetterGrade() == "DZ"):
+                for course in self.__draft:
+                    grades = courseGradeMap.get(course, [])
+                    if grades and grades[-1] is None:
+                        continue
+                    if course.getDay() == courseToAdd.getDay() and course.getHour() == courseToAdd.getHour():
+                        if grades and grades[-1].getLetterGrade() == "DZ":
+                            return True
+                        if not grades:
+                            return True
+                for labSection in self.__labSections:
+                    if labSection.getDay() == courseToAdd.getDay() and labSection.getHour() == courseToAdd.getHour():
                         return True
-            for course in self.__draft:
-                grades = courseGradeMap.get(course, [])
-                if grades and grades[-1] is None:
-                    continue
-                if course.getDay() == courseToAdd.getDay() and course.getHour() == courseToAdd.getHour():
-                    if grades and grades[-1].getLetterGrade() == "DZ":
+            else:
+                if courseInSchedule:
+                    scheduleCourseGrades = courseGradeMap.get(courseInSchedule, [])
+                    if scheduleCourseGrades and scheduleCourseGrades[-1] is None:
                         return True
-                    courseToAddGrades = courseGradeMap.get(courseToAdd, [])
-                    if not grades and (
-                            not courseToAddGrades or
-                            courseToAddGrades[-1].getLetterGrade() == "DZ"):
+                    if (scheduleCourseGrades and
+                            len(scheduleCourseGrades) >= 2
+                            and scheduleCourseGrades[-2].getLetterGrade() == "DZ"):
+                        courseToAddGrades = courseGradeMap.get(courseToAdd, [])
+                        if (not courseToAddGrades or
+                                courseToAddGrades[-1] and
+                                courseToAddGrades[-1].getLetterGrade() == "DZ"):
+                            return True
+                for course in self.__draft:
+                    grades = courseGradeMap.get(course, [])
+                    if grades and grades[-1] is None:
+                        continue
+                    if course.getDay() == courseToAdd.getDay() and course.getHour() == courseToAdd.getHour():
+                        if grades and grades[-1].getLetterGrade() == "DZ":
+                            return True
+                        courseToAddGrades = courseGradeMap.get(courseToAdd, [])
+                        if not grades and (
+                                not courseToAddGrades or
+                                courseToAddGrades[-1].getLetterGrade() == "DZ"):
+                            return True
+                for labSection in self.__labSections:
+                    if labSection.getDay() == courseToAdd.getDay() and labSection.getHour() == courseToAdd.getHour():
                         return True
-            for labSection in self.__labSections:
-                if labSection.getDay() == courseToAdd.getDay() and labSection.getHour() == courseToAdd.getHour():
-                    return True
-        return False
+            return False
+
+        except KeyError as e:
+            ConsoleColours.paintRedMenu()
+            print(f"Invalid day or hour: {e}")
+            logging.error("An error occurred in hasCourseOverlap method.")
+            ConsoleColours.resetColour()
+            self.hasCourseOverlap()
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in hasCourseOverlap method.")
+            ConsoleColours.resetColour()
+            self.hasCourseOverlap()
+
 
     def maxCoursesReached(self):
         numberOfCourses = self.calculateNumberOfCourses()
@@ -546,88 +613,105 @@ class Student(Person, IDisplayMenu):
         return numberOfCourses
 
     def removeCourseFromDraft(self):
-        if self.__hasRequest:
-            ConsoleColours.paintRedMenu()
-            logging.warning(
-                f"Student {self.getID()} can not remove lecture because he/she has a request waiting for {self.__advisor.getID()}'s approval.")
-            print("You can not remove lecture because you have a request waiting for approval.")
-            return;
-        if not self.__draft:
-            ConsoleColours.paintRedMenu()
-            print("Your draft is empty!")
-            ConsoleColours.resetColour()
-        else:
-            ConsoleColours.paintBlueMenu()
-            print(
-                "Remove Course from Draft\n"
-                "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n"
-                "Back -> 0\n"
-                "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n"
-                "Select the course you want to remove:\n"
-                "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨")
-            ConsoleColours.paintPurpleMenu()
-            for i, course in enumerate(self.__draft):
-                print(
-                    f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00\n"
-                    f"´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
-            ConsoleColours.paintGreenMenu()
-            print(f"Choose number between 1 to {len(self.__draft)} to remove course: \n")
-            userNumberInput = self.__system.getInput()
-            if 1 <= userNumberInput <= len(self.__draft):
-                for labSection in self.__draft[userNumberInput - 1].getLaboratorySections():
-                    if labSection in self.__labSections:
-                        self.__labSections.remove(labSection)
-                        labSection.setNumberOfStudents(labSection.getNumberOfStudents() - 1)
-                        break
-                logging.info(
-                    f"Student {self.getID()} removed {self.__draft[userNumberInput - 1].getCourseCode()} from draft.")
-                del self.__draft[userNumberInput - 1]
-                self.removeCourseFromDraft()
-            elif userNumberInput > len(self.__draft) or userNumberInput < 0:
+        try:
+            if self.__hasRequest:
                 ConsoleColours.paintRedMenu()
-                logging.warning(f"Student {self.getID()} entered invalid input.")
-                print("Invalid input, please enter a number")
-                self.removeCourseFromDraft()
+                logging.warning(
+                    f"Student {self.getID()} can not remove lecture because he/she has a request waiting for {self.__advisor.getID()}'s approval.")
+                print("You can not remove lecture because you have a request waiting for approval.")
+                return;
+            if not self.__draft:
+                ConsoleColours.paintRedMenu()
+                print("Your draft is empty!")
+                ConsoleColours.resetColour()
+            else:
+                ConsoleColours.paintBlueMenu()
+                print(
+                    "Remove Course from Draft\n"
+                    "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n"
+                    "Back -> 0\n"
+                    "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n"
+                    "Select the course you want to remove:\n"
+                    "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨")
+                ConsoleColours.paintPurpleMenu()
+                for i, course in enumerate(self.__draft):
+                    print(
+                        f"{i + 1}. {course.getCourseCode()} - {course.getCourseName()} - {course.getDay()} - {course.getHour()}.00\n"
+                        f"´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´")
+                ConsoleColours.paintGreenMenu()
+                print(f"Choose number between 1 to {len(self.__draft)} to remove course: \n")
+                userNumberInput = self.__system.getInput()
+                if 1 <= userNumberInput <= len(self.__draft):
+                    for labSection in self.__draft[userNumberInput - 1].getLaboratorySections():
+                        if labSection in self.__labSections:
+                            self.__labSections.remove(labSection)
+                            labSection.setNumberOfStudents(labSection.getNumberOfStudents() - 1)
+                            break
+                    logging.info(
+                        f"Student {self.getID()} removed {self.__draft[userNumberInput - 1].getCourseCode()} from draft.")
+                    del self.__draft[userNumberInput - 1]
+                    self.removeCourseFromDraft()
+                elif userNumberInput > len(self.__draft) or userNumberInput < 0:
+                    ConsoleColours.paintRedMenu()
+                    logging.warning(f"Student {self.getID()} entered invalid input.")
+                    print("Invalid input, please enter a number")
+                    self.removeCourseFromDraft()
+
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in removeCourseFromDraft method.")
+            ConsoleColours.resetColour()
+            self.removeCourseFromDraft()
+
 
     def showRequestStatus(self):
-        ConsoleColours.paintYellowMenu()
-        if self.__hasRequest:
-            logging.info(f"Student {self.getID()} has a request waiting for {self.__advisor.getID()}'s approval.")
-            print("Your request is waiting for advisor approval.")
-        else:
-            print("There is no waiting request.")
+        try:
+            ConsoleColours.paintYellowMenu()
+            if self.__hasRequest:
+                logging.info(f"Student {self.getID()} has a request waiting for {self.__advisor.getID()}'s approval.")
+                print("Your request is waiting for advisor approval.")
+            else:
+                print("There is no waiting request.")
+                ConsoleColours.resetColour()
+                return
+
+            ConsoleColours.paintBlueMenu()
+            print(":::::::::::::::::::::::Your draft:::::::::::::::::::::::")
+            ConsoleColours.paintGreenMenu()
+            print(
+                "::::::Courses that have been requested to be added::::::\n"
+                "::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n")
+
+            if self.__draft and self.__transcript:
+                courseGradeMap = self.__transcript.getCourseGradeMap()
+                for course in self.__draft:
+                    if course not in courseGradeMap or courseGradeMap[course][-1] is not None:
+                        print(
+                            f"{course.getCourseCode()}-{course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
+
+            print("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n")
+            ConsoleColours.paintRedMenu()
+            print(
+                ":::::Courses that have been requested to be dropped:::::\n"
+                "::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n")
+            if self.__draft and self.__transcript:
+                courseGradeMap = self.__transcript.getCourseGradeMap()
+                for course in self.__draft:
+                    if course in courseGradeMap and courseGradeMap[course] and courseGradeMap[course][-1] is None:
+                        print(
+                            f"{course.getCourseCode()}-{course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
+
+            print("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n")
             ConsoleColours.resetColour()
-            return
+            print("\n")
+        except Exception as e:
+            ConsoleColours.paintRedMenu()
+            print(f"An error occurred: {e}")
+            logging.exception("An error occurred in showRequestStatus method.")
+            ConsoleColours.resetColour()
+            self.showRequestStatus()
 
-        ConsoleColours.paintBlueMenu()
-        print(":::::::::::::::::::::::Your draft:::::::::::::::::::::::")
-        ConsoleColours.paintGreenMenu()
-        print(
-            "::::::Courses that have been requested to be added::::::\n"
-            "::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n")
-
-        if self.__draft and self.__transcript:
-            courseGradeMap = self.__transcript.getCourseGradeMap()
-            for course in self.__draft:
-                if course not in courseGradeMap or courseGradeMap[course][-1] is not None:
-                    print(
-                        f"{course.getCourseCode()}-{course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
-
-        print("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n")
-        ConsoleColours.paintRedMenu()
-        print(
-            ":::::Courses that have been requested to be dropped:::::\n"
-            "::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n")
-        if self.__draft and self.__transcript:
-            courseGradeMap = self.__transcript.getCourseGradeMap()
-            for course in self.__draft:
-                if course in courseGradeMap and courseGradeMap[course] and courseGradeMap[course][-1] is None:
-                    print(
-                        f"{course.getCourseCode()}-{course.getCourseName()} - {course.getDay()} - {course.getHour()}.00")
-
-        print("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n")
-        ConsoleColours.resetColour()
-        print("\n")
 
     def computeAvailableCoursesToDrop(self):
         self.__availableCoursesToDrop.clear()
@@ -689,3 +773,4 @@ class Student(Person, IDisplayMenu):
 
     def getLabSections(self):
         return self.__labSections
+
