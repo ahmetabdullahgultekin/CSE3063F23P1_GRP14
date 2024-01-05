@@ -2,12 +2,12 @@ import logging
 import sys
 
 from iteration3.Advisor import Advisor
+from iteration3.ConsoleColours import ConsoleColours
 from iteration3.IDisplayMenu import IDisplayMenu
 from iteration3.JSONReader import JSONReader
 from iteration3.JSONWriter import JSONWriter
 from iteration3.Student import Student
 from iteration3.University import University
-from iteration3.ConsoleColours import ConsoleColours
 
 
 class CourseRegistrationSystem(IDisplayMenu):
@@ -25,33 +25,35 @@ class CourseRegistrationSystem(IDisplayMenu):
         self.mainMenu()
 
     def mainMenu(self):
-        # Print the main menu options.
-        self.printMenu("mainMenu")
+        try:
+            # Print the main menu options.
+            self.printMenu("mainMenu")
 
-        # Get the user's choice.
-        self.__choice = self.getInput()
+            # Get the user's choice.
+            self.__choice = self.getInput()
 
-        match self.__choice:
-            case 0:
-                logging.info("User exited the system.")
-                # If the user chooses to exit, print a message and terminate the program.
-                self.exitProgram()
-                # Terminate
-                return
-            case 1:
-                logging.info("User navigated to the login page.")
-                # If the user chooses to navigate to the login page, call the loginMenu method.
-                self.loginMenu()
-            case -1:
-                # If the user enters string or -1 give error.
-                ConsoleColours.paintRedMenu()
-                print("Please enter valid number!")
-            case _:
-                # If the user's choice is not recognized, print a message and display the main menu again.
-                ConsoleColours.paintRedMenu()
-                print("Invalid choice! Please select again!")
-
-        self.mainMenu()
+            match self.__choice:
+                case 0:
+                    logging.info("User exited the system.")
+                    # If the user chooses to exit, print a message and terminate the program.
+                    self.exitProgram()
+                    # Terminate
+                    return
+                case 1:
+                    logging.info("User navigated to the login page.")
+                    # If the user chooses to navigate to the login page, call the loginMenu method.
+                    self.loginMenu()
+                case -1:
+                    # If the user enters string or -1 give error.
+                    ConsoleColours.paintRedMenu()
+                    print("Please enter valid number!")
+                case _:
+                    raise IndexError("Invalid choice! Please select again!")
+        except IndexError as e:
+            ConsoleColours.paintRedMenu()
+            print(e.args)
+        finally:
+            self.mainMenu()
 
     def loginMenu(self):
         ConsoleColours.paintBlueMenu()
@@ -120,58 +122,64 @@ class CourseRegistrationSystem(IDisplayMenu):
         self.studentMenu(student)
 
     def courseRegistrationMenu(self, student):
-        student.printMenu("courseRegistrationMenu")
-        self.__choice = self.getInput()
+        try:
+            student.printMenu("courseRegistrationMenu")
+            self.__choice = self.getInput()
 
-        match self.__choice:
-            case 0:
-                return
-            case 1:
-                student.getTranscript().courseStatusCheck()
-            case 2:
-                student.addCourseToDraft()
-            case 3:
-                student.removeCourseFromDraft()
-            case 4:
-                student.showRequestStatus()
-            case 5:
-                student.sendRequest()
-            case 6:
-                logging.info(f"Student {student.getName()} {student.getSurname()} logged out.")
-                self.loginMenu()
-                return
-            case -1:
-                ConsoleColours.paintRedMenu()
-                print("Please enter valid number!")
-            case _:
-                ConsoleColours.paintRedMenu()
-                print("Invalid choice! Please select again!")
-
-        self.courseRegistrationMenu(student)
+            match self.__choice:
+                case 0:
+                    return
+                case 1:
+                    student.getTranscript().courseStatusCheck()
+                case 2:
+                    student.addCourseToDraft()
+                case 3:
+                    student.removeCourseFromDraft()
+                case 4:
+                    student.showRequestStatus()
+                case 5:
+                    student.sendRequest()
+                case 6:
+                    logging.info(f"Student {student.getName()} {student.getSurname()} logged out.")
+                    self.loginMenu()
+                    return
+                case -1:
+                    ConsoleColours.paintRedMenu()
+                    print("Please enter valid number!")
+                case _:
+                    raise IndexError("Invalid choice! Please select again!")
+        except IndexError as e:
+            ConsoleColours.paintRedMenu()
+            print(e.args)
+        finally:
+            self.courseRegistrationMenu(student)
 
     def advisorMenu(self, advisor):
-        advisor.printMenu("advisorMenu")
-        self.__choice = self.getInput()
+        try:
+            advisor.printMenu("advisorMenu")
+            self.__choice = self.getInput()
 
-        match self.__choice:
-            case 0:
-                logging.info(f"Advisor {advisor.getName()} {advisor.getSurname()} exited the system.")
-                self.exitProgram()
-                return
-            case 1:
-                advisor.printRequests()
-            case 2:
-                logging.info(f"Advisor {advisor.getName()} {advisor.getSurname()} logged out.")
-                self.loginMenu()
-                return
-            case -1:
-                ConsoleColours.paintRedMenu()
-                print("Please enter valid number!")
-            case _:
-                ConsoleColours.paintRedMenu()
-                print("Invalid choice!")
-
-        self.advisorMenu(advisor)
+            match self.__choice:
+                case 0:
+                    logging.info(f"Advisor {advisor.getName()} {advisor.getSurname()} exited the system.")
+                    self.exitProgram()
+                    return
+                case 1:
+                    advisor.printRequests()
+                case 2:
+                    logging.info(f"Advisor {advisor.getName()} {advisor.getSurname()} logged out.")
+                    self.loginMenu()
+                    return
+                case -1:
+                    ConsoleColours.paintRedMenu()
+                    print("Please enter valid number!")
+                case _:
+                    raise IndexError("Invalid choice! Please select again!")
+        except IndexError as e:
+            ConsoleColours.paintRedMenu()
+            print(e.args)
+        finally:
+            self.advisorMenu(advisor)
 
     def getInput(self):
         user_input = None
