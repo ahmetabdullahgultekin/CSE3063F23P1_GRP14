@@ -41,3 +41,42 @@ class Transcript:
         self.__takenCredits = totalCredits
         return totalCredits
 
+    def calculateCompletedCredits(self):
+        self.__completedCredits = 0
+        for course in self.__studentCourses:
+            grades = self.__courseGradeMap.get(course)
+            lastGrade = grades[-1] if grades else None
+            if lastGrade and lastGrade.getLetterGrade() not in ["FF", "FD"]:
+                self.__completedCredits += course.getCourseCredit()
+        return self.__completedCredits
+
+    def showTranscript(self):
+        ConsoleColours.paintBlueMenu()
+        print(f'Transcript for {self.__student.getName()} {self.__student.getSurname()}:')
+        ConsoleColours.paintWhiteMenu()
+        print("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨")
+        print(f'Student ID       : {self.__student.getID()}')
+        print(f'CGPA             : {self.__cgpa:.2f}')
+        print(f'Completed Credits: {self.calculateCompletedCredits()}')
+        print(f'Taken Credits    : {self.calculateTakenCredits()}')
+        print(f'Semester         : {self.__semester}')
+        print(f'Department       : {self.__student.getDepartment().getDepartmentName()}')
+
+        ConsoleColours.paintPurpleMenu()
+        print("%-15s%-38s%-20s%-15s\n", "Course Code", "Course Name", "Course Credit", "Grade")
+        print("-------------------------------------------------------------------------------")
+
+        for course in self.__studentCourses:
+            for grade in self.__courseGradeMap.get(course, []):
+                if grade is None:
+                    print(
+                        "%-15s%-45s%-15s%-15s" % (
+                            course.getCourseCode(), course.getCourseName(), course.getCourseCredit(), "--"))
+                else:
+                    print("%-15s%-45s%-15s%-15s" % (
+                        course.getCourseCode(), course.getCourseName(), course.getCourseCredit(),
+                        grade.getLetterGrade()))
+        ConsoleColours.resetColour()
+        print()
+
+
