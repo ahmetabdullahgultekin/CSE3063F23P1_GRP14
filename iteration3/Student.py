@@ -169,7 +169,6 @@ class Student(Person, IDisplayMenu):
             logging.error(f"An error occurred while adding course to draft: {e}")
             logging.exception("An error occurred in addCourseToDraft method.")
             ConsoleColours.resetColour()
-            self.addCourseToDraft()
 
     def addMandatoryCourse(self):
         try:
@@ -211,9 +210,6 @@ class Student(Person, IDisplayMenu):
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in addMandatoryCourse method.")
             ConsoleColours.resetColour()
-            self.addMandatoryCourse()
-
-                    
 
     def chooseLabSection(self, course):
         try:
@@ -257,8 +253,6 @@ class Student(Person, IDisplayMenu):
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in chooseLabSection method.")
             ConsoleColours.resetColour()
-            self.chooseLabSection()
-
 
     def addTechnicalElective(self):
         try:
@@ -298,8 +292,6 @@ class Student(Person, IDisplayMenu):
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in addTechnicalElective method.")
             ConsoleColours.resetColour()
-            self.addTechnicalElective()
-
 
     def computeAvailableTEAndFTECourses(self, courseType):
         self.__availableCoursesToAdd.clear()
@@ -370,7 +362,6 @@ class Student(Person, IDisplayMenu):
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in addFacultyTechnicalElective method.")
             ConsoleColours.resetColour()
-            self.addFacultyTechnicalElective()
 
     def addNonTechnicalElective(self):
         try:
@@ -410,8 +401,6 @@ class Student(Person, IDisplayMenu):
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in addNonTechnicalElective method.")
             ConsoleColours.resetColour()
-            self.addNonTechnicalElective()
-
 
     def computeAvailableNTECourses(self):
         self.__availableCoursesToAdd.clear()
@@ -473,8 +462,7 @@ class Student(Person, IDisplayMenu):
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in computeAvailableMandatoryCourses method.")
             ConsoleColours.resetColour()
-            self.computeAvailableMandatoryCourses()
-            
+
     def addCourseToDrop(self):
         self.computeAvailableCoursesToDrop()
 
@@ -583,14 +571,11 @@ class Student(Person, IDisplayMenu):
             print(f"Invalid day or hour: {e}")
             logging.error("An error occurred in hasCourseOverlap method.")
             ConsoleColours.resetColour()
-            self.hasCourseOverlap()
         except Exception as e:
             ConsoleColours.paintRedMenu()
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in hasCourseOverlap method.")
             ConsoleColours.resetColour()
-            self.hasCourseOverlap()
-
 
     def maxCoursesReached(self):
         numberOfCourses = self.calculateNumberOfCourses()
@@ -619,7 +604,7 @@ class Student(Person, IDisplayMenu):
                 logging.warning(
                     f"Student {self.getID()} can not remove lecture because he/she has a request waiting for {self.__advisor.getID()}'s approval.")
                 print("You can not remove lecture because you have a request waiting for approval.")
-                return;
+                return
             if not self.__draft:
                 ConsoleColours.paintRedMenu()
                 print("Your draft is empty!")
@@ -662,8 +647,6 @@ class Student(Person, IDisplayMenu):
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in removeCourseFromDraft method.")
             ConsoleColours.resetColour()
-            self.removeCourseFromDraft()
-
 
     def showRequestStatus(self):
         try:
@@ -710,8 +693,6 @@ class Student(Person, IDisplayMenu):
             print(f"An error occurred: {e}")
             logging.exception("An error occurred in showRequestStatus method.")
             ConsoleColours.resetColour()
-            self.showRequestStatus()
-
 
     def computeAvailableCoursesToDrop(self):
         self.__availableCoursesToDrop.clear()
@@ -773,4 +754,3 @@ class Student(Person, IDisplayMenu):
 
     def getLabSections(self):
         return self.__labSections
-

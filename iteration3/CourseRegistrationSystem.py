@@ -47,10 +47,10 @@ class CourseRegistrationSystem(IDisplayMenu):
                     raise IndexError("Please enter valid number!")
                 case _:
                     raise IndexError("Invalid choice! Please select again!")
+            self.mainMenu()
         except IndexError as e:
             ConsoleColours.paintRedMenu()
-            print(e.args)
-        finally:
+            print(e.args[0])
             self.mainMenu()
 
     def loginMenu(self):
@@ -94,7 +94,7 @@ class CourseRegistrationSystem(IDisplayMenu):
                     f"User entered an invalid username or password. -> Username: {userName} Password: {password}")
                 print("Username or password is incorrect. Please try again!")
                 self.loginMenu()
-                
+
         except KeyboardInterrupt:
             ConsoleColours.paintRedMenu()
             print("Program terminated by the user.")
@@ -130,11 +130,11 @@ class CourseRegistrationSystem(IDisplayMenu):
                     raise IndexError("Please enter valid number!")
                 case _:
                     raise IndexError("Invalid choice! Please select again!")
+            self.studentMenu(student)
 
         except IndexError as e:
             ConsoleColours.paintRedMenu()
-            print(e.args)
-        finally:
+            print(e.args[0])
             self.studentMenu(student)
 
     def courseRegistrationMenu(self, student):
@@ -160,14 +160,14 @@ class CourseRegistrationSystem(IDisplayMenu):
                     self.loginMenu()
                     return
                 case -1:
-                    ConsoleColours.paintRedMenu()
-                    print("Please enter valid number!")
+                    raise IndexError("Please enter valid number!")
                 case _:
                     raise IndexError("Invalid choice! Please select again!")
+            self.courseRegistrationMenu(student)
+
         except IndexError as e:
             ConsoleColours.paintRedMenu()
-            print(e.args)
-        finally:
+            print(e.args[0])
             self.courseRegistrationMenu(student)
 
     def advisorMenu(self, advisor):
@@ -187,14 +187,14 @@ class CourseRegistrationSystem(IDisplayMenu):
                     self.loginMenu()
                     return
                 case -1:
-                    ConsoleColours.paintRedMenu()
-                    print("Please enter valid number!")
+                    raise IndexError("Please enter valid number!")
                 case _:
                     raise IndexError("Invalid choice! Please select again!")
+            self.advisorMenu(advisor)
+
         except IndexError as e:
             ConsoleColours.paintRedMenu()
-            print(e.args)
-        finally:
+            print(e.args[0])
             self.advisorMenu(advisor)
 
     def getInput(self):
@@ -204,14 +204,14 @@ class CourseRegistrationSystem(IDisplayMenu):
             self.__choice = int(user_input)
             if user_input != str(self.__choice):
                 raise ValueError
-        except KeyboardInterrupt as e :
+        except KeyboardInterrupt as e:
             ConsoleColours.paintRedMenu()
             print("Program terminated by the user.")
             ConsoleColours.resetColour()
             exit(0)
         except Exception as e:
             ConsoleColours.paintRedMenu()
-            print("Invalid input, please do not enter a nonnumeric input!")
+            print("Invalid input, please do not enter a nonNumeric input!")
             logging.error(f"User entered an invalid input. -> Input: {user_input}")
             return -1
         return self.__choice
