@@ -167,7 +167,7 @@ class Student(Person, IDisplayMenu):
         except Exception as e:
             ConsoleColours.paintRedMenu()
             logging.error(f"An error occurred while adding course to draft: {e}")
-             logging.exception("An error occurred in addCourseToDraft method.")
+            logging.exception("An error occurred in addCourseToDraft method.")
             ConsoleColours.resetColour()
             self.addCourseToDraft()
 
@@ -215,7 +215,7 @@ class Student(Person, IDisplayMenu):
 
                     
 
-     def chooseLabSection(self, course):
+    def chooseLabSection(self, course):
         try:
             if not course.getLaboratorySections():
                 return
