@@ -67,7 +67,7 @@ class Advisor(Lecturer, IDisplayMenu):
 
         except IndexError as e:
             ConsoleColours.paintRedMenu()
-            logging.warning("Advisor " + self.getID() + " entered invalid input.")
+            logging.warning("Advisor %s entered invalid input.", self.getID())
             print(e.args[0])
             self.printRequests()
 
